@@ -1,0 +1,326 @@
+Project Status:Active
+2026年 05月 15日 星期五 19:47:15 CST
+
+bash: /home/tumaini/ros2_ws/install/setup.bash: 没有那个文件或目录
+bash: /opt/ros/humble/setup.bash: 没有那个文件或目录
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks$ cd 大作业/percep_node+track/
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/大作业/percep_node+track$ source install/s
+setup.bash      setup.ps1       setup.sh        setup.zsh       sim_perception/ 
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/大作业/percep_node+track$ source install/s
+setup.bash      setup.ps1       setup.sh        setup.zsh       sim_perception/ 
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/大作业/percep_node+track$ source install/setup.bash
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/大作业/percep_node+track$ ros2 launch right_angle_stack right_angle_harmonic.launch.py use_rviz:=true
+[INFO] [launch]: All log files can be found below /home/tumaini/.ros/log/2026-06-15-12-23-58-515988-tumaini-ADOL-I403FA-14537
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [launch.user]: right_angle_harmonic.launch.py starts the full Gazebo Sim model with camera and gpu_lidar. On WSL, use right_angle_wsl_headless.launch.py first if OGRE2 crashes or RViz reports frame [world] missing.
+[INFO] [gazebo-1]: process started with pid [14561]
+[INFO] [create-2]: process started with pid [14563]
+[INFO] [parameter_bridge-3]: process started with pid [14564]
+[INFO] [robot_state_publisher-4]: process started with pid [14565]
+[INFO] [localization_fusion-5]: process started with pid [14566]
+[INFO] [track_perception-6]: process started with pid [14567]
+[INFO] [cone_mapper-7]: process started with pid [14568]
+[INFO] [right_angle_planner-8]: process started with pid [14569]
+[INFO] [pure_pursuit_controller-9]: process started with pid [14570]
+[INFO] [rviz2-10]: process started with pid [14571]
+[parameter_bridge-3] [INFO] [1781497441.043151697] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781497441.048057138] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/cmd_vel (gz.msgs.Twist) -> /cmd_vel (geometry_msgs/msg/Twist)] (Lazy 0)
+[robot_state_publisher-4] [WARN] [1781497441.060318066] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.
+[robot_state_publisher-4] [INFO] [1781497441.060561411] [robot_state_publisher]: Robot initialized
+[parameter_bridge-3] [INFO] [1781497441.367627246] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[create-2] [INFO] [1781497441.386597175] [spawn_right_angle_car]: Entity creation successful.
+[parameter_bridge-3] [INFO] [1781497441.525673809] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/wheel_odom (gz.msgs.Odometry) -> /sensors/wheel_odom (nav_msgs/msg/Odometry)] (Lazy 0)
+[INFO] [create-2]: process has finished cleanly [pid 14563]
+[parameter_bridge-3] [INFO] [1781497441.583639842] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/imu/data_raw (gz.msgs.IMU) -> /sensors/imu/data_raw (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781497441.625804161] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/gps/fix (gz.msgs.NavSat) -> /sensors/gps/fix (sensor_msgs/msg/NavSatFix)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781497441.678466005] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/magnetic_field (gz.msgs.Magnetometer) -> /sensors/magnetic_field (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781497441.705601297] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/lidar/scan (gz.msgs.LaserScan) -> /sensors/lidar/scan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781497441.734892115] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/image_raw (gz.msgs.Image) -> /sensors/camera/image_raw (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781497441.744601731] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/camera_info (gz.msgs.CameraInfo) -> /sensors/camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[rviz2-10] /opt/ros/jazzy/lib/rviz2/rviz2: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
+[ERROR] [rviz2-10]: process has died [pid 14571, exit code 127, cmd '/opt/ros/jazzy/lib/rviz2/rviz2 -d /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/rviz/right_angle.rviz --ros-args -r __node:=rviz2'].
+[parameter_bridge-3] [INFO] [1781497441.846592042] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[gazebo-1] [Msg] Gazebo Sim Server v8.11.0
+[gazebo-1] [Msg] Loading SDF world file[/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/worlds/right_angle_harmonic.sdf].
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L9]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L15]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L22]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L28]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L35]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[localization_fusion-5] [INFO] [1781497442.828946355] [localization_fusion]: Localization fusion started: GPS + wheel odom + IMU gyro + magnetometer heading.
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L41]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L48]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[pure_pursuit_controller-9] [INFO] [1781497442.960715686] [pure_pursuit_controller]: Pure pursuit controller started.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L54]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L61]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L67]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L73]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L79]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L85]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[track_perception-6] Traceback (most recent call last):
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 46, in import_type_support
+[track_perception-6]     return importlib.import_module(module_name, package=pkg_name)
+[track_perception-6]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-6]   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+[track_perception-6]     return _bootstrap._gcd_import(name[level:], package, level)
+[track_perception-6]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-6]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+[track_perception-6]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+[track_perception-6]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+[track_perception-6]   File "<frozen importlib._bootstrap>", line 921, in _load_unlocked
+[track_perception-6]   File "<frozen importlib._bootstrap>", line 813, in module_from_spec
+[track_perception-6]   File "<frozen importlib._bootstrap_external>", line 1289, in create_module
+[track_perception-6]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[track_perception-6] ImportError: libpython3.13.so.1.0: cannot open shared object file: No such file or directory
+[track_perception-6] 
+[track_perception-6] During handling of the above exception, another exception occurred:
+[track_perception-6] 
+[track_perception-6] Traceback (most recent call last):
+[track_perception-6]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/track_perception", line 33, in <module>
+[track_perception-6]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'track_perception')())
+[track_perception-6]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-6]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/track_perception.py", line 113, in main
+[track_perception-6]     node = TrackPerception()
+[track_perception-6]            ^^^^^^^^^^^^^^^^^
+[track_perception-6]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/track_perception.py", line 59, in __init__
+[track_perception-6]     self.map_pub = self.create_publisher(Map, self.get_parameter('map_topic').value, 10)
+[track_perception-6]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 1557, in create_publisher
+[track_perception-6]     check_is_valid_msg_type(msg_type)
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 35, in check_is_valid_msg_type
+[track_perception-6]     check_for_type_support(msg_type)
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 29, in check_for_type_support
+[track_perception-6]     msg_or_srv_type.__class__.__import_type_support__()
+[track_perception-6]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/fsd_common_msgs/lib/python3.13/site-packages/fsd_common_msgs/msg/_map.py", line 36, in __import_type_support__
+[track_perception-6]     module = import_type_support('fsd_common_msgs')
+[track_perception-6]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 48, in import_type_support
+[track_perception-6]     raise UnsupportedTypeSupport(pkg_name)
+[track_perception-6] rosidl_generator_py.import_type_support_impl.UnsupportedTypeSupport: Could not import 'rosidl_typesupport_c' for package 'fsd_common_msgs'
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L92]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L98]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L104]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L110]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L117]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L123]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L130]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L136]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L143]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L149]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[cone_mapper-7] Traceback (most recent call last):
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 46, in import_type_support
+[cone_mapper-7]     return importlib.import_module(module_name, package=pkg_name)
+[cone_mapper-7]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-7]   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+[cone_mapper-7]     return _bootstrap._gcd_import(name[level:], package, level)
+[cone_mapper-7]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-7]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+[cone_mapper-7]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+[cone_mapper-7]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+[cone_mapper-7]   File "<frozen importlib._bootstrap>", line 921, in _load_unlocked
+[cone_mapper-7]   File "<frozen importlib._bootstrap>", line 813, in module_from_spec
+[cone_mapper-7]   File "<frozen importlib._bootstrap_external>", line 1289, in create_module
+[cone_mapper-7]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[cone_mapper-7] ImportError: libpython3.13.so.1.0: cannot open shared object file: No such file or directory
+[cone_mapper-7] 
+[cone_mapper-7] During handling of the above exception, another exception occurred:
+[cone_mapper-7] 
+[cone_mapper-7] Traceback (most recent call last):
+[cone_mapper-7]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/cone_mapper", line 33, in <module>
+[cone_mapper-7]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'cone_mapper')())
+[cone_mapper-7]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-7]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/cone_mapper.py", line 166, in main
+[cone_mapper-7]     node = ConeMapper()
+[cone_mapper-7]            ^^^^^^^^^^^^
+[cone_mapper-7]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/cone_mapper.py", line 32, in __init__
+[cone_mapper-7]     self.map_pub = self.create_publisher(Map, '/estimation/slam/map', 10)
+[cone_mapper-7]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 1557, in create_publisher
+[cone_mapper-7]     check_is_valid_msg_type(msg_type)
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 35, in check_is_valid_msg_type
+[cone_mapper-7]     check_for_type_support(msg_type)
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 29, in check_for_type_support
+[cone_mapper-7]     msg_or_srv_type.__class__.__import_type_support__()
+[cone_mapper-7]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/fsd_common_msgs/lib/python3.13/site-packages/fsd_common_msgs/msg/_map.py", line 36, in __import_type_support__
+[cone_mapper-7]     module = import_type_support('fsd_common_msgs')
+[cone_mapper-7]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 48, in import_type_support
+[cone_mapper-7]     raise UnsupportedTypeSupport(pkg_name)
+[cone_mapper-7] rosidl_generator_py.import_type_support_impl.UnsupportedTypeSupport: Could not import 'rosidl_typesupport_c' for package 'fsd_common_msgs'
+[ERROR] [track_perception-6]: process has died [pid 14567, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/track_perception --ros-args -r __node:=track_perception --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_ihenam10'].
+[gazebo-1] [Msg] Serving entity system service on [/entity/system/add]
+[gazebo-1] [Dbg] [Physics.cc:906] Loaded [gz::physics::dartsim::Plugin] from library [/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics-dartsim-plugin.so]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple] (async)
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple/blocking] (blocking)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove] (async)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector/blocking] (blocking)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config] (async)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config/blocking] (blocking)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics] (async)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics/blocking] (blocking)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates] (async)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates/blocking] (blocking)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision] (async)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision/blocking] (blocking)
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision] (async)
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip/blocking] (blocking)
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+[ERROR] [cone_mapper-7]: process has died [pid 14568, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/cone_mapper --ros-args -r __node:=cone_mapper --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_mpv87kyb'].
+[gazebo-1] [Wrn] [SimulationRunner.cc:734] Found additional publishers on /stats, using namespaced stats topic only
+[gazebo-1] [Wrn] [SimulationRunner.cc:768] Found additional publishers on /clock, using namespaced clock topic only
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+[gazebo-1] [Dbg] [Sensors.cc:697] Configuring Sensors system
+[gazebo-1] [Dbg] [Sensors.cc:557] SensorsPrivate::Run
+[gazebo-1] [Dbg] [Sensors.cc:532] SensorsPrivate::RenderThread started
+[gazebo-1] [Dbg] [Sensors.cc:337] Waiting for init
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Sensors] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Imu] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::NavSat] for entity [1]
+[gazebo-1] [Dbg] [Magnetometer.cc:261] Magnetometer: using param [use_units_gauss: 1].
+[gazebo-1] [Dbg] [Magnetometer.cc:269] Magnetometer: using param [use_earth_frame_ned: 1].
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Magnetometer] for entity [1]
+[gazebo-1] [Msg] Loaded level [default]
+[gazebo-1] [Msg] Serving world controls on [/world/right_angle_world/control], [/world/right_angle_world/control/state] and [/world/right_angle_world/playback/control]
+[gazebo-1] [Msg] Serving GUI information on [/world/right_angle_world/gui/info]
+[gazebo-1] [Msg] World [right_angle_world] initialized with [default_physics] physics profile.
+[gazebo-1] [Msg] Serving world SDF generation service on [/world/right_angle_world/generate_world_sdf]
+[gazebo-1] [Msg] Serving world names on [/gazebo/worlds]
+[gazebo-1] [Msg] Resource path add service on [/gazebo/resource_paths/add].
+[gazebo-1] [Msg] Resource path get service on [/gazebo/resource_paths/get].
+[gazebo-1] [Msg] Resource path resolve service on [/gazebo/resource_paths/resolve].
+[gazebo-1] [Msg] Resource paths published on [/gazebo/resource_paths].
+[gazebo-1] [Msg] Server control service on [/server_control].
+[gazebo-1] [Dbg] [SimulationRunner.cc:736] Publishers [Address, Message Type]:
+[gazebo-1] [Dbg] [SimulationRunner.cc:741]   tcp://192.168.116.89:38283, gz.msgs.WorldStatistics
+[gazebo-1] [Dbg] [SimulationRunner.cc:770] Publishers [Address, Message Type]:
+[gazebo-1] [Dbg] [SimulationRunner.cc:775]   tcp://192.168.116.89:38283, gz.msgs.Clock
+[gazebo-1] [Dbg] [SimulationRunner.cc:551] Creating PostUpdate worker threads: 6
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (0)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (3)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (4)
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SimulationFeatures.cc:90] Simulation timestep set to: 0.002
+[gazebo-1] [Msg] Serving scene information on [/world/right_angle_world/scene/info]
+[gazebo-1] [Msg] Serving graph information on [/world/right_angle_world/scene/graph]
+[gazebo-1] [Msg] Serving full state on [/world/right_angle_world/state]
+[gazebo-1] [Msg] Serving full state (async) on [/world/right_angle_world/state_async]
+[right_angle_planner-8] Traceback (most recent call last):
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 46, in import_type_support
+[right_angle_planner-8]     return importlib.import_module(module_name, package=pkg_name)
+[right_angle_planner-8]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-8]   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+[right_angle_planner-8]     return _bootstrap._gcd_import(name[level:], package, level)
+[right_angle_planner-8]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-8]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+[right_angle_planner-8]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+[right_angle_planner-8]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+[right_angle_planner-8]   File "<frozen importlib._bootstrap>", line 921, in _load_unlocked
+[right_angle_planner-8]   File "<frozen importlib._bootstrap>", line 813, in module_from_spec
+[right_angle_planner-8]   File "<frozen importlib._bootstrap_external>", line 1289, in create_module
+[right_angle_planner-8]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[right_angle_planner-8] ImportError: libpython3.13.so.1.0: cannot open shared object file: No such file or directory
+[right_angle_planner-8] 
+[right_angle_planner-8] During handling of the above exception, another exception occurred:
+[right_angle_planner-8] 
+[right_angle_planner-8] Traceback (most recent call last):
+[right_angle_planner-8]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/right_angle_planner", line 33, in <module>
+[right_angle_planner-8]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'right_angle_planner')())
+[right_angle_planner-8]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-8]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/right_angle_planner.py", line 189, in main
+[right_angle_planner-8]     node = RightAnglePlanner()
+[right_angle_planner-8]            ^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-8]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/right_angle_planner.py", line 36, in __init__
+[right_angle_planner-8]     self.create_subscription(Map, '/estimation/slam/map', self.on_map, 10)
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 1636, in create_subscription
+[right_angle_planner-8]     check_is_valid_msg_type(msg_type)
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 35, in check_is_valid_msg_type
+[right_angle_planner-8]     check_for_type_support(msg_type)
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 29, in check_for_type_support
+[right_angle_planner-8]     msg_or_srv_type.__class__.__import_type_support__()
+[right_angle_planner-8]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/fsd_common_msgs/lib/python3.13/site-packages/fsd_common_msgs/msg/_map.py", line 36, in __import_type_support__
+[right_angle_planner-8]     module = import_type_support('fsd_common_msgs')
+[right_angle_planner-8]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 48, in import_type_support
+[right_angle_planner-8]     raise UnsupportedTypeSupport(pkg_name)
+[right_angle_planner-8] rosidl_generator_py.import_type_support_impl.UnsupportedTypeSupport: Could not import 'rosidl_typesupport_c' for package 'fsd_common_msgs'
+[ERROR] [right_angle_planner-8]: process has died [pid 14569, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/right_angle_planner --ros-args -r __node:=right_angle_planner --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_cdldou56'].
+  

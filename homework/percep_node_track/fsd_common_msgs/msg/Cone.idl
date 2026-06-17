@@ -1,0 +1,12 @@
+#include "geometry_msgs/msg/Point.idl"
+
+module fsd_common_msgs {
+  module msg {
+    struct Cone {
+      geometry_msgs::msg::Point position;
+      string color;
+      double pose_confidence;
+      double color_confidence;
+    };
+  };
+};

@@ -1,0 +1,498 @@
+[INFO] [launch]: All log files can be found below /home/furina/.ros/log/2026-06-14-13-50-20-274202-deltame13-15165
+[INFO] [launch]: Default logging verbosity is set to INFO
+[ERROR] [launch]: Caught exception in launch (see debug for traceback): [Errno 2] No such file or directory: '/opt/ros/humble/share/ros_gz_sim/launch/gz_spawn_model.launch.py'
+furina@deltame13:~/ros_ws/percep_node+track$ rm -rf build install log
+furina@deltame13:~/ros_ws/percep_node+track$ cd /home/furina/ros_ws/percep_node+track
+source /opt/ros/humble/setup.bash
+colcon build --packages-select right_angle_stack --symlink-install
+source install/setup.bash
+ros2 launch right_angle_stack right_angle_harmonic.launch.py use_rviz:=false
+[0.448s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/furina/ros_ws/percep_node+track/install/sim_perception' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.448s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/furina/ros_ws/percep_node+track/install/right_angle_track' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.448s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/furina/ros_ws/percep_node+track/install/right_angle_stack' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.448s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/furina/ros_ws/percep_node+track/install/fsd_common_msgs' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.448s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/furina/ros_ws/percep_node+track/install/right_angle_track' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.448s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/furina/ros_ws/percep_node+track/install/fsd_common_msgs' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+Starting >>> right_angle_stack
+[0.479s] ERROR:colcon.colcon_ros.task.ament_python.build:Failed to find the following files:
+- /home/furina/ros_ws/percep_node+track/install/fsd_common_msgs/share/fsd_common_msgs/package.sh
+Check that the following packages have been built:
+- fsd_common_msgs
+Failed   <<< right_angle_stack [0.00s, exited with code 1]
+
+Summary: 0 packages finished [0.26s]
+  1 package failed: right_angle_stack
+Package 'right_angle_stack' not found: "package 'right_angle_stack' not found, searching: ['/home/furina/ros_ws/percep_node+track/install/right_angle_stack', '/opt/ros/humble']"
+furina@deltame13:~/ros_ws/percep_node+track$ rm -rf build install log
+furina@deltame13:~/ros_ws/percep_node+track$ source /opt/ros/humble/setup.bash
+furina@deltame13:~/ros_ws/percep_node+track$ colcon build --packages-select right_angle_stack --symlink-install
+[0.264s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/furina/ros_ws/percep_node+track/install/sim_perception' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.264s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/furina/ros_ws/percep_node+track/install/right_angle_track' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.264s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/furina/ros_ws/percep_node+track/install/right_angle_stack' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.264s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/furina/ros_ws/percep_node+track/install/fsd_common_msgs' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.264s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/furina/ros_ws/percep_node+track/install/right_angle_track' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.264s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/furina/ros_ws/percep_node+track/install/fsd_common_msgs' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+Starting >>> right_angle_stack
+[0.296s] ERROR:colcon.colcon_ros.task.ament_python.build:Failed to find the following files:
+- /home/furina/ros_ws/percep_node+track/install/fsd_common_msgs/share/fsd_common_msgs/package.sh
+Check that the following packages have been built:
+- fsd_common_msgs
+Failed   <<< right_angle_stack [0.00s, exited with code 1]
+
+Summary: 0 packages finished [0.14s]
+  1 package failed: right_angle_stack
+furina@deltame13:~/ros_ws/percep_node+track$ colcol build
+colcol: command not found
+furina@deltame13:~/ros_ws/percep_node+track$ colcon build
+[0.230s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/furina/ros_ws/percep_node+track/install/sim_perception' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.230s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/furina/ros_ws/percep_node+track/install/right_angle_track' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.230s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/furina/ros_ws/percep_node+track/install/fsd_common_msgs' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.230s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/furina/ros_ws/percep_node+track/install/right_angle_track' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.230s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/furina/ros_ws/percep_node+track/install/fsd_common_msgs' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+Starting >>> fsd_common_msgs
+Starting >>> right_angle_track
+Finished <<< right_angle_track [1.46s]
+Finished <<< fsd_common_msgs [4.34s]
+Starting >>> right_angle_stack
+Starting >>> sim_perception
+Finished <<< right_angle_stack [0.73s]
+Finished <<< sim_perception [0.75s]
+
+Summary: 4 packages finished [5.21s]
+furina@deltame13:~/ros_ws/percep_node+track$ source install/setup.bash
+furina@deltame13:~/ros_ws/percep_node+track$ ros2 launch right_angle_stack right_angle_harmonic.launch.py use_rviz:=false
+[INFO] [launch]: All log files can be found below /home/furina/.ros/log/2026-06-14-13-58-08-869985-deltame13-15992
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [ign gazebo-1]: process started with pid [15994]
+[INFO] [create-2]: process started with pid [15996]
+[INFO] [parameter_bridge-3]: process started with pid [15999]
+[INFO] [robot_state_publisher-4]: process started with pid [16001]
+[INFO] [localization_fusion-5]: process started with pid [16003]
+[INFO] [track_perception-6]: process started with pid [16005]
+[INFO] [cone_mapper-7]: process started with pid [16007]
+[INFO] [right_angle_planner-8]: process started with pid [16009]
+[INFO] [pure_pursuit_controller-9]: process started with pid [16011]
+[parameter_bridge-3] [INFO] [1781416689.197684830] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781416689.198533150] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/cmd_vel (gz.msgs.Twist) -> /cmd_vel (geometry_msgs/msg/Twist)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781416689.199885980] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[robot_state_publisher-4] [WARN] [1781416689.199977017] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.
+[robot_state_publisher-4] [INFO] [1781416689.200081624] [robot_state_publisher]: got segment base_link
+[robot_state_publisher-4] [INFO] [1781416689.200132754] [robot_state_publisher]: got segment camera_link
+[robot_state_publisher-4] [INFO] [1781416689.200135686] [robot_state_publisher]: got segment camera_optical_frame
+[robot_state_publisher-4] [INFO] [1781416689.200138282] [robot_state_publisher]: got segment chassis_link
+[robot_state_publisher-4] [INFO] [1781416689.200140040] [robot_state_publisher]: got segment gps_link
+[robot_state_publisher-4] [INFO] [1781416689.200141520] [robot_state_publisher]: got segment imu_link
+[robot_state_publisher-4] [INFO] [1781416689.200143768] [robot_state_publisher]: got segment left_front_wheel_link
+[robot_state_publisher-4] [INFO] [1781416689.200145642] [robot_state_publisher]: got segment left_rear_wheel_link
+[robot_state_publisher-4] [INFO] [1781416689.200147113] [robot_state_publisher]: got segment lidar_link
+[robot_state_publisher-4] [INFO] [1781416689.200149039] [robot_state_publisher]: got segment magnetometer_link
+[robot_state_publisher-4] [INFO] [1781416689.200150482] [robot_state_publisher]: got segment right_front_wheel_link
+[robot_state_publisher-4] [INFO] [1781416689.200152179] [robot_state_publisher]: got segment right_rear_wheel_link
+[parameter_bridge-3] [INFO] [1781416689.200507336] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/wheel_odom (gz.msgs.Odometry) -> /sensors/wheel_odom (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781416689.202815523] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/imu/data_raw (gz.msgs.IMU) -> /sensors/imu/data_raw (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781416689.203843127] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/gps/fix (gz.msgs.NavSat) -> /sensors/gps/fix (sensor_msgs/msg/NavSatFix)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781416689.204182296] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/magnetic_field (gz.msgs.Magnetometer) -> /sensors/magnetic_field (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781416689.204435043] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/lidar/scan (gz.msgs.LaserScan) -> /sensors/lidar/scan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781416689.204936361] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/image_raw (gz.msgs.Image) -> /sensors/camera/image_raw (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781416689.205599139] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/camera_info (gz.msgs.CameraInfo) -> /sensors/camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[pure_pursuit_controller-9] [INFO] [1781416689.383992441] [pure_pursuit_controller]: Pure pursuit controller started.
+[track_perception-6] [INFO] [1781416689.384038694] [track_perception]: Track perception publishing 23 known cones in base_link frame.
+[cone_mapper-7] [INFO] [1781416689.417925154] [cone_mapper]: Cone mapper started. Local perception is transformed into the world ENU frame.
+[right_angle_planner-8] [INFO] [1781416689.418086268] [right_angle_planner]: Right-angle centerline planner started.
+[localization_fusion-5] [INFO] [1781416689.442230063] [localization_fusion]: Localization fusion started: GPS + wheel odom + IMU gyro + magnetometer heading.
+[ign gazebo-1] [Dbg] [gz.cc:161] Subscribing to [/gazebo/starting_world].
+[ign gazebo-1] [Dbg] [gz.cc:163] Waiting for a world to be set from the GUI...
+[ign gazebo-1] [Msg] Received world [/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/worlds/right_angle_harmonic.sdf] from the GUI.
+[ign gazebo-1] [Dbg] [gz.cc:167] Unsubscribing from [/gazebo/starting_world].
+[ign gazebo-1] [Msg] Ignition Gazebo Server v6.18.0
+[ign gazebo-1] [Msg] Loading SDF world file[/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/worlds/right_angle_harmonic.sdf].
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] [GUI] [Wrn] [Application.cc:802] [QT] file::/Gazebo/GazeboDrawer.qml:242:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }
+[ign gazebo-1] Warning [Utils.cc:129] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/furina/ros_ws/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[ign gazebo-1] [Msg] Serving entity system service on [/entity/system/add]
+[ign gazebo-1] [Dbg] [Physics.cc:804] Loaded [ignition::physics::dartsim::Plugin] from library [/usr/lib/x86_64-linux-gnu/ign-physics-5/engine-plugins/libignition-physics-dartsim-plugin.so]
+[ign gazebo-1] [Dbg] [SystemManager.cc:73] Loaded system [gz::sim::systems::Physics] for entity [1]
+[ign gazebo-1] [Msg] Create service on [/world/right_angle_world/create]
+[ign gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove]
+[ign gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose]
+[ign gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector]
+[ign gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config]
+[ign gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics]
+[ign gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates]
+[ign gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision]
+[ign gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision]
+[ign gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config]
+[ign gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip]
+[ign gazebo-1] [Dbg] [SystemManager.cc:73] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+[ign gazebo-1] [Dbg] [SystemManager.cc:73] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+[ign gazebo-1] [Dbg] [Sensors.cc:506] Configuring Sensors system
+[ign gazebo-1] [Dbg] [Sensors.cc:431] SensorsPrivate::Run
+[ign gazebo-1] [Dbg] [SystemManager.cc:73] Loaded system [gz::sim::systems::Sensors] for entity [1]
+[ign gazebo-1] [Dbg] [Sensors.cc:411] SensorsPrivate::RenderThread started
+[ign gazebo-1] [Dbg] [Sensors.cc:258] Waiting for init
+[ign gazebo-1] [Dbg] [SystemManager.cc:73] Loaded system [gz::sim::systems::Imu] for entity [1]
+[ign gazebo-1] [Dbg] [SystemManager.cc:73] Loaded system [gz::sim::systems::NavSat] for entity [1]
+[ign gazebo-1] [Dbg] [SystemManager.cc:73] Loaded system [gz::sim::systems::Magnetometer] for entity [1]
+[ign gazebo-1] [Msg] Loaded level [3]
+[ign gazebo-1] [Msg] Serving world controls on [/world/right_angle_world/control], [/world/right_angle_world/control/state] and [/world/right_angle_world/playback/control]
+[ign gazebo-1] [Msg] Serving GUI information on [/world/right_angle_world/gui/info]
+[ign gazebo-1] [Msg] World [right_angle_world] initialized with [default_physics] physics profile.
+[ign gazebo-1] [Msg] Serving world SDF generation service on [/world/right_angle_world/generate_world_sdf]
+[create-2] [INFO] [1781416690.096574316] [spawn_right_angle_car]: Requested creation of entity.
+[create-2] [INFO] [1781416690.096725260] [spawn_right_angle_car]: OK creation of entity.
+[INFO] [create-2]: process has finished cleanly [pid 15996]
+[ign gazebo-1] [GUI] [Wrn] [Application.cc:802] [QT] file::/EntityContextMenuPlugin/EntityContextMenuPlugin.qml:56:5: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }
+[ign gazebo-1] [Msg] Serving world names on [/gazebo/wor[Msg] Ignition Gazebo GUI    v6.18.0
+[ign gazebo-1] [Dbg] [Gui.cc:253] Waiting for subscribers to [/gazebo/starting_world]...
+[ign gazebo-1] [Dbg] [Application.cc:92] Initializing application.
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:560] Create main window
+[ign gazebo-1] [GUI] [Dbg] [PathManager.cc:66] Requesting resource paths through [/gazebo/resource_paths/get]
+[ign gazebo-1] [GUI] [Dbg] [Gui.cc:333] GUI requesting list of world names. The server may be busy downloading resources. Please be patient.
+[ign gazebo-1] [GUI] [Dbg] [PathManager.cc:55] Received resource paths.
+[ign gazebo-1] [GUI] [Dbg] [Gui.cc:391] Requesting GUI from [/world/right_angle_world/gui/info]...
+[ign gazebo-1] [GUI] [Dbg] [GuiRunner.cc:145] Requesting initial state from [/world/right_angle_world/state]...
+[ign gazebo-1] [GUI] [Msg] Loading config [/home/furina/.ignition/gazebo/6/gui.config]
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:431] Loading plugin [MinimalScene]
+[ign gazebo-1] [GUI] [Msg] Added plugin [3D View] to main window
+[ign gazebo-1] [GUI] [Msg] Loaded plugin [MinimalScene] from path [/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libMinimalScene.so]
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:431] Loading plugin [EntityContextMenuPlugin]
+[ign gazebo-1] [GUI] [Msg] Added plugin [Entity Context Menu] to main window
+[ign gazebo-1] [GUI] [Msg] Loaded plugin [EntityContextMenuPlugin] from path [/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/gui/libEntityContextMenuPlugin.so]
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:431] Loading plugin [GzSceneManager]
+[ign gazebo-1] [GUI] [Msg] Added plugin [Scene Manager] to main window
+[ign gazebo-1] [GUI] [Msg] Loaded plugin [GzSceneManager] from path [/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/gui/libGzSceneManager.so]
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:431] Loading plugin [InteractiveViewControl]
+[ign gazebo-1] [GUI] [Msg] Camera view controller topic advertised on [/gui/camera/view_control]
+[ign gazebo-1] [GUI] [Msg] Camera reference visual topic advertised on [/gui/camera/view_control/reference_visual]
+[ign gazebo-1] [GUI] [Msg] Camera view control sensitivity advertised on [/gui/camera/view_control/sensitivity]
+[ign gazebo-1] [GUI] [Msg] Added plugin [Interactive view control] to main window
+[ign gazebo-1] [GUI] [Msg] Loaded plugin [InteractiveViewControl] from path [/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libInteractiveViewControl.so]
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:431] Loading plugin [CameraTracking]
+[ign gazebo-1] [GUI] [Msg] Added plugin [Camera tracking] to main window
+[ign gazebo-1] [GUI] [Msg] Loaded plugin [CameraTracking] from path [/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libCameraTracking.so]
+[ign gazebo-1] [GUI] [Wrn] [Application.cc:802] [QT] file::/Spawn/Spawn.qml:32:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:431] Loading plugin [MarkerManager]
+[ign gazebo-1] [GUI] [Msg] Listening to stats on [/world/right_angle_world/stats]
+[ign gazebo-1] [GUI] [Msg] Added plugin [Marker Manager] to main window
+[ign gazebo-1] [GUI] [Msg] Loaded plugin [MarkerManager] from path [/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libMarkerManager.so]
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:431] Loading plugin [SelectEntities]
+[ign gazebo-1] [GUI] [Msg] Added plugin [Select entities] to main window
+[ign gazebo-1] [GUI] [Msg] Loaded plugin [SelectEntities] from path [/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/gui/libSelectEntities.so]
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:431] Loading plugin [Spawn]
+[ign gazebo-1] [GUI] [Msg] Added plugin [Spawn] to main window
+[ign gazebo-1] [GUI] [Msg] Loaded plugin [Spawn] from path [/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/gui/libSpawn.so]
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:431] Loading plugin [VisualizationCapabilities]
+[ign gazebo-1] [GUI] [Msg] View as transparent service on [/gui/view/transparent]
+[ign gazebo-1] [GUI] [Msg] View as wireframes service on [/gui/view/wireframes]
+[ign gazebo-1] [GUI] [Msg] View center of mass service on [/gui/view/com]
+[ign gazebo-1] [GUI] [Msg] View inertia service on [/gui/view/inertia]
+[ign gazebo-1] [GUI] [Msg] View collisions service on [/gui/view/collisions]
+[ign gazebo-1] [GUI] [Msg] View joints service on [/gui/view/joints]
+[ign gazebo-1] [GUI] [Msg] View frames service on [/gui/view/frames]
+[ign gazebo-1] [GUI] [Msg] Added plugin [Visualization capabilities] to main window
+[ign gazebo-1] [GUI] [Msg] Loaded plugin [VisualizationCapabilities] from path [/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/gui/libVisualizationCapabilities.so]
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:431] Loading plugin [WorldControl]
+[ign gazebo-1] [GUI] [Msg] Using world control service [/world/right_angle_world/control]
+[ign gazebo-1] [GUI] [Msg] Listening to stats on [/world/right_angle_world/stats]
+[ign gazebo-1] [GUI] [Dbg] [WorldControl.cc:246] Using an event to share WorldControl msgs with the server
+[ign gazebo-1] [GUI] [Msg] Added plugin [World control] to main window
+[ign gazebo-1] [GUI] [Msg] Loaded plugin [WorldControl] from path [/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libWorldControl.so]
+[ign gazebo-1] [GUI] [Dbg] [Application.cc:431] Loading plugin [WorldStats]
+[ign gazebo-1] [GUI] [Msg] Listening to stats on [/world/right_angle_world/stats]
+[ign gazebo-1] [GUI] [Msg] Added plugin [World stats] to main window
+[ign gazebo-1] [GUI] [Wrn] [Application.cc:802] [QT] file::/TransformControl/TransformControl.qml:104:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }
+[ign gazebo-1] [GUI] [Wrn] [Application.cc:802] [QT] file::/TransformControl/TransformControl.qml:99:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }
+[ign gazebo-1] [GUI] [Wrn] [Application.cc:802] [QT] file::/TransformControl/TransformControl.qml:94:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }
+[ign gazebo-1] [GUI] [Wrn] [Application.cc:802] [QT] file::/TransformControl/TransformControl.qml:89:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }
+[ign gazebo-1] [GUI] [Wrn] [Application.cc:802] [QT] file::/WorldStats/WorldStats.qml:53:3: QML RowLayout: Binding loop detected for property "x"
+[ign gazebo-1] [GUI] [Msg] Loaded plugin [WorldStats] from path [/usr/lib/x86_64-llds]
+[ign gazebo-1] [Msg] Resource path add service on [/gazebo/resource_paths/add].
+[ign gazebo-1] [Msg] Resource path get service on [/gazebo/resource_paths/get].
+[ign gazebo-1] [Msg] Resource path resolve service on [/gazebo/resource_paths/resolve].
+[ign gazebo-1] [Msg] Resource paths published on [/gazebo/resource_paths].
+[ign gazebo-1] [Msg] Server control service on [/server_control].
+[ign gazebo-1] [Msg] Found no publishers on /stats, adding root stats topic
+[ign gazebo-1] [Msg] Found no publishers on /clock, adding root clock topic
+[ign gazebo-1] [Dbg] [SimulationRunner.cc:501] Creating PostUpdate worker threads: 6
+[ign gazebo-1] [Dbg] [SimulationRunner.cc:512] Creating postupdate worker thread (0)
+[ign gazebo-1] [Dbg] [SimulationRunner.cc:512] Creating postupdate worker thread (1)
+[ign gazebo-1] [Dbg] [SimulationRunner.cc:512] Creating postupdate worker thread (2)
+[ign gazebo-1] [Dbg] [SimulationRunner.cc:512] Creating postupdate worker thread (3)
+[ign gazebo-1] [Dbg] [SimulationRunner.cc:512] Creating postupdate worker thread (4)
+[ign gazebo-1] [Msg] DiffDrive subscribing to twist messages on [/cmd_vel]
+[ign gazebo-1] [Dbg] [SystemManager.cc:73] Loaded system [gz::sim::systems::DiffDrive] for entity [103]
+[ign gazebo-1] [Dbg] [UserCommands.cc:1303] Created entity [103] named [racecar]
+[ign gazebo-1] [Dbg] [SimulationFeatures.cc:71] Simulation timestep set to: 0.002
+[ign gazebo-1] [Dbg] [Sensors.cc:610] Initialization needed
+[ign gazebo-1] [Dbg] [Sensors.cc:270] Initializing render context
+[ign gazebo-1] [Msg] Loading plugin [ignition-rendering-ogre2]
+[ign gazebo-1] [Dbg] [MagnetometerSensor.cc:116] Magnetometer data for [racecar::magnetometer_link::magnetometer_sensor] advertised on [/sensors/magnetic_field]
+[ign gazebo-1] [Msg] Serving scene information on [/world/right_angle_world/scene/info]
+[ign gazebo-1] [Msg] Serving graph information on [/world/right_angle_world/scene/graph]
+[ign gazebo-1] [Msg] Serving full state on [/world/right_angle_world/state]
+[ign gazebo-1] [Dbg] [ImuSensor.cc:148] IMU data for [racecar::imu_link::imu_sensor] advertised on [/sensors/imu/data_raw]
+[ign gazebo-1] [Msg] Serving full state (async) on [/world/right_angle_world/state_async]
+[ign gazebo-1] [Msg] Publishing scene information on [/world/right_angle_world/scene/info]
+[ign gazebo-1] [Msg] Publishing entity deletions on [/world/right_angle_world/scene/deletion]
+[ign gazebo-1] [Msg] Publishing state changes on [/world/right_angle_world/state]
+[ign gazebo-1] [Msg] Publishing pose messages on [/world/right_angle_world/pose/info]
+[ign gazebo-1] [Msg] Publishing dynamic pose messages on [/world/right_angle_world/dynamic_pose/info]
+[ign gazebo-1] terminate called after throwing an instance of 'Ogre::UnimplementedException'
+[ign gazebo-1]   what():  OGRE EXCEPTION(9:UnimplementedException):  in GL3PlusTextureGpu::copyTo at /build/ogre-next-UFfg83/ogre-next-2.2.5+dfsg3/RenderSystems/GL3Plus/src/OgreGL3PlusTextureGpu.cpp (line 677)
+[ign gazebo-1] Stack trace (most recent call last) in thread 16129:
+[ign gazebo-1] #24   Object "[0xffffffffffffffff]", at 0xffffffffffffffff, in
+[ign gazebo-1] #23   Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x76638b1268cf, in
+[ign gazebo-1] #22   Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x76638b094ac2, in
+[ign gazebo-1] #21   Object "/lib/x86_64-linux-gnu/libstdc++.so.6", at 0x7663878dc252, in
+[ign gazebo-1] #20   Object "/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/libignition-gazebo-sensors-system.so", at 0x76637c23d512, in ignition::gazebo::v6::systems::SensorsPrivate::RenderThread()
+[ign gazebo-1] #19   Object "/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/libignition-gazebo-sensors-system.so", at 0x76637c23bc09, in ignition::gazebo::v6::systems::SensorsPrivate::WaitForInit()
+[ign gazebo-1] #18   Object "/lib/x86_64-linux-gnu/libignition-gazebo6-rendering.so.6", at 0x76637c162efd, in ignition::gazebo::v6::RenderUtil::Init()
+[ign gazebo-1] #17   Object "/lib/x86_64-linux-gnu/libignition-rendering6.so.6", at 0x76636abc3c28, in ignition::rendering::v6::BaseRenderEngine::CreateScene(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+[ign gazebo-1] #16   Object "/lib/x86_64-linux-gnu/libignition-rendering6.so.6", at 0x76636abcb55e, in ignition::rendering::v6::BaseRenderEngine::CreateScene(unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+[ign gazebo-1] #15   Object "/lib/x86_64-linux-gnu/libignition-rendering6.so.6", at 0x76636abdd6bb, in ignition::rendering::v6::BaseScene::CreateMaterials()
+[ign gazebo-1] #14   Object "/usr/lib/x86_64-linux-gnu/ign-rendering-6/engine-plugins/libignition-rendering-ogre2.so", at 0x76635ada3da2, in ignition::rendering::v6::Ogre2Material::SetTextureMapImpl(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Ogre::PbsTextureTypes)
+[ign gazebo-1] #13   Object "/lib/x86_64-linux-gnu/libOgreNextMain.so.2.2.5", at 0x76635a1a3234, in Ogre::TextureGpuManager::_waitFor(Ogre::TextureGpu*, bool)
+[ign gazebo-1] #12   Object "/lib/x86_64-linux-gnu/libOgreNextMain.so.2.2.5", at 0x76635a1a2e6a, in Ogre::TextureGpuManager::_update(bool)
+[ign gazebo-1] #11   Object "/lib/x86_64-linux-gnu/libOgreNextMain.so.2.2.5", at 0x76635a076e3c, in Ogre::ObjCmdBuffer::execute()
+[ign gazebo-1] #10   Object "/lib/x86_64-linux-gnu/libOgreNextMain.so.2.2.5", at 0x76635a0731fd, in Ogre::ObjCmdBuffer::NotifyDataIsReady::execute()
+[ign gazebo-1] #9    Object "/lib/x86_64-linux-gnu/libOgreNextMain.so.2.2.5", at 0x76635a194d82, in Ogre::TextureFilter::GenerateHwMipmaps::_executeSerial(Ogre::TextureGpu*)
+[ign gazebo-1] #8    Object "/usr/lib/x86_64-linux-gnu/OGRE-Next/RenderSystem_GL3Plus.so", at 0x76631b3f89d7, in
+[ign gazebo-1] #7    Object "/usr/lib/x86_64-linux-gnu/OGRE-Next/RenderSystem_GL3Plus.so", at 0x76631b3f53ea, in
+[ign gazebo-1] #6    Object "/lib/x86_64-linux-gnu/libstdc++.so.6", at 0x7663878ae4d7, in __cxa_throw
+[ign gazebo-1] #5    Object "/lib/x86_64-linux-gnu/libstdc++.so.6", at 0x7663878ae276, in std::terminate()
+[ign gazebo-1] #4    Object "/lib/x86_64-linux-gnu/libstdc++.so.6", at 0x7663878ae20b, in
+[ign gazebo-1] #3    Object "/lib/x86_64-linux-gnu/libstdc++.so.6", at 0x7663878a2b9d, in
+[ign gazebo-1] #2    Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x76638b0287f2, in abort
+[ign gazebo-1] #1    Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x76638b042475, in raise
+[ign gazebo-1] #0    Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x76638b0969fc, in pthread_kill
+[ign gazebo-1] Aborted (Signal sent by tkill() 16094 1000)
+[ign gazebo-1] [GUI] [Wrn] [Application.cc:802] [QT] Qt has caught an exception thrown from an event handler. Throwing
+[ign gazebo-1] exceptions from an event handler is not supported in Qt.
+[ign gazebo-1] You must not let any exception whatsoever propagate through Qt code.
+[ign gazebo-1] If that is not possible, in Qt 5 you must at least reimplement
+[ign gazebo-1] QCoreApplication::notify() and catch all exceptions there.
+[ign gazebo-1]
+[ign gazebo-1] terminate called after throwing an instance of 'Ogre::UnimplementedException'
+[ign gazebo-1]   what():  OGRE EXCEPTION(9:UnimplementedException):  in GL3PlusTextureGpu::copyTo at /build/ogre-next-UFfg83/ogre-next-2.2.5+dfsg3/RenderSystems/GL3Plus/src/OgreGL3PlusTextureGpu.cpp (line 677)
+[ign gazebo-1] Stack trace (most recent call last) in thread 16181:
+[ign gazebo-1] #10   Object "[0xffffffffffffffff]", at 0xffffffffffffffff, in
+[ign gazebo-1] #9    Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x76638b1268cf, in
+[ign gazebo-1] #8    Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x76638b094ac2, in
+[ign gazebo-1] #7    Object "/lib/x86_64-linux-gnu/libQt5Core.so.5", at 0x76638569199d, in
+[ign gazebo-1] #6    Object "/lib/x86_64-linux-gnu/libQt5Core.so.5", at 0x76638568ff90, in qTerminate()
+[ign gazebo-1] #5    Object "/lib/x86_64-linux-gnu/libstdc++.so.6", at 0x7663878ae276, in std::terminate()
+[ign gazebo-1] #4    Object "/lib/x86_64-linux-gnu/libstdc++.so.6", at 0x7663878ae20b, in
+[ign gazebo-1] #3    Object "/lib/x86_64-linux-gnu/libstdc++.so.6", at 0x7663878a2b9d, in
+[ign gazebo-1] #2    Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x76638b0287f2, in abort
+[ign gazebo-1] #1    Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x76638b042475, in raise
+[ign gazebo-1] #0    Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x76638b0969fc, in pthread_kill
+[ign gazebo-1] Aborted (Signal sent by tkill() 16096 1000)
+[INFO] [ign gazebo-1]: process has finished cleanly [pid 15994]
+[ign gazebo-1] [Dbg] [EntityComponentManager.cc:1635]
+^C[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[robot_state_publisher-4] [INFO] [1781418312.832696849] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-3] [INFO] [1781418312.833128272] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[track_perception-6] Traceback (most recent call last):
+[track_perception-6]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/python3.10/site-packages/right_angle_stack/track_perception.py", line 115, in main
+[cone_mapper-7] Traceback (most recent call last):
+[cone_mapper-7]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/python3.10/site-packages/right_angle_stack/cone_mapper.py", line 168, in main
+[pure_pursuit_controller-9] Traceback (most recent call last):
+[pure_pursuit_controller-9]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/python3.10/site-packages/right_angle_stack/pure_pursuit_controller.py", line 98, in main
+[pure_pursuit_controller-9]     rclpy.spin(node)
+[pure_pursuit_controller-9]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[track_perception-6]     rclpy.spin(node)
+[track_perception-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[track_perception-6]     executor.spin_once()
+[track_perception-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+[cone_mapper-7]     rclpy.spin(node)
+[cone_mapper-7]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[cone_mapper-7]     executor.spin_once()
+[cone_mapper-7]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+[cone_mapper-7]     self._spin_once_impl(timeout_sec)
+[cone_mapper-7]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 797, in _spin_once_impl
+[cone_mapper-7]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[cone_mapper-7]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in wait_for_ready_callbacks
+[right_angle_planner-8] Traceback (most recent call last):
+[right_angle_planner-8]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/python3.10/site-packages/right_angle_stack/right_angle_planner.py", line 191, in main
+[pure_pursuit_controller-9]     executor.spin_once()
+[pure_pursuit_controller-9]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+[pure_pursuit_controller-9]     self._spin_once_impl(timeout_sec)
+[pure_pursuit_controller-9]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 797, in _spin_once_impl
+[track_perception-6]     self._spin_once_impl(timeout_sec)
+[track_perception-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 797, in _spin_once_impl
+[track_perception-6]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[track_perception-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in wait_for_ready_callbacks
+[track_perception-6]     return next(self._cb_iter)
+[track_perception-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 677, in _wait_for_ready_callbacks
+[localization_fusion-5] Traceback (most recent call last):
+[localization_fusion-5]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/python3.10/site-packages/right_angle_stack/localization_fusion.py", line 158, in main
+[pure_pursuit_controller-9]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[pure_pursuit_controller-9]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in wait_for_ready_callbacks
+[cone_mapper-7]     return next(self._cb_iter)
+[cone_mapper-7]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 677, in _wait_for_ready_callbacks
+[track_perception-6]     wait_set.wait(timeout_nsec)
+[track_perception-6] KeyboardInterrupt
+[track_perception-6]
+[track_perception-6] During handling of the above exception, another exception occurred:
+[track_perception-6]
+[track_perception-6] Traceback (most recent call last):
+[track_perception-6]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/right_angle_stack/track_perception", line 33, in <module>
+[pure_pursuit_controller-9]     return next(self._cb_iter)
+[pure_pursuit_controller-9]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 677, in _wait_for_ready_callbacks
+[pure_pursuit_controller-9]     wait_set.wait(timeout_nsec)
+[pure_pursuit_controller-9] KeyboardInterrupt
+[pure_pursuit_controller-9]
+[pure_pursuit_controller-9] During handling of the above exception, another exception occurred:
+[pure_pursuit_controller-9]
+[pure_pursuit_controller-9] Traceback (most recent call last):
+[pure_pursuit_controller-9]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/right_angle_stack/pure_pursuit_controller", line 33, in <module>
+[cone_mapper-7]     wait_set.wait(timeout_nsec)
+[cone_mapper-7] KeyboardInterrupt
+[cone_mapper-7]
+[cone_mapper-7] During handling of the above exception, another exception occurred:
+[cone_mapper-7]
+[cone_mapper-7] Traceback (most recent call last):
+[cone_mapper-7]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/right_angle_stack/cone_mapper", line 33, in <module>
+[localization_fusion-5]     rclpy.spin(node)
+[localization_fusion-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[localization_fusion-5]     executor.spin_once()
+[localization_fusion-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+[localization_fusion-5]     self._spin_once_impl(timeout_sec)
+[localization_fusion-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 797, in _spin_once_impl
+[localization_fusion-5]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[localization_fusion-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in wait_for_ready_callbacks
+[right_angle_planner-8]     rclpy.spin(node)
+[right_angle_planner-8]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[right_angle_planner-8]     executor.spin_once()
+[right_angle_planner-8]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+[pure_pursuit_controller-9]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'pure_pursuit_controller')())
+[pure_pursuit_controller-9]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/python3.10/site-packages/right_angle_stack/pure_pursuit_controller.py", line 100, in main
+[pure_pursuit_controller-9]     node.publish_stop()
+[pure_pursuit_controller-9]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/python3.10/site-packages/right_angle_stack/pure_pursuit_controller.py", line 48, in publish_stop
+[pure_pursuit_controller-9]     self.cmd_pub.publish(Twist())
+[pure_pursuit_controller-9]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/publisher.py", line 70, in publish
+[pure_pursuit_controller-9]     self.__publisher.publish(msg)
+[pure_pursuit_controller-9] rclpy._rclpy_pybind11.RCLError: Failed to publish: publisher's context is invalid, at ./src/rcl/publisher.c:389
+[right_angle_planner-8]     self._spin_once_impl(timeout_sec)
+[right_angle_planner-8]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 797, in _spin_once_impl
+[right_angle_planner-8]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[right_angle_planner-8]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in wait_for_ready_callbacks
+[right_angle_planner-8]     return next(self._cb_iter)
+[right_angle_planner-8]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 677, in _wait_for_ready_callbacks
+[localization_fusion-5]     return next(self._cb_iter)
+[localization_fusion-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 677, in _wait_for_ready_callbacks
+[localization_fusion-5]     wait_set.wait(timeout_nsec)
+[localization_fusion-5] KeyboardInterrupt
+[localization_fusion-5]
+[localization_fusion-5] During handling of the above exception, another exception occurred:
+[localization_fusion-5]
+[localization_fusion-5] Traceback (most recent call last):
+[localization_fusion-5]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/right_angle_stack/localization_fusion", line 33, in <module>
+[track_perception-6]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'track_perception')())
+[track_perception-6]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/python3.10/site-packages/right_angle_stack/track_perception.py", line 118, in main
+[track_perception-6]     rclpy.shutdown()
+[track_perception-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+[track_perception-6]     _shutdown(context=context)
+[track_perception-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+[track_perception-6]     return context.shutdown()
+[track_perception-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+[track_perception-6]     self.__context.shutdown()
+[track_perception-6] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
+[cone_mapper-7]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'cone_mapper')())
+[cone_mapper-7]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/python3.10/site-packages/right_angle_stack/cone_mapper.py", line 171, in main
+[cone_mapper-7]     rclpy.shutdown()
+[cone_mapper-7]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+[cone_mapper-7]     _shutdown(context=context)
+[cone_mapper-7]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+[right_angle_planner-8]     wait_set.wait(timeout_nsec)
+[right_angle_planner-8] KeyboardInterrupt
+[right_angle_planner-8]
+[right_angle_planner-8] During handling of the above exception, another exception occurred:
+[right_angle_planner-8]
+[right_angle_planner-8] Traceback (most recent call last):
+[right_angle_planner-8]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/right_angle_stack/right_angle_planner", line 33, in <module>
+[cone_mapper-7]     return context.shutdown()
+[cone_mapper-7]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+[cone_mapper-7]     self.__context.shutdown()
+[cone_mapper-7] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
+[localization_fusion-5]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'localization_fusion')())
+[localization_fusion-5]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/python3.10/site-packages/right_angle_stack/localization_fusion.py", line 161, in main
+[localization_fusion-5]     rclpy.shutdown()
+[localization_fusion-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+[right_angle_planner-8]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'right_angle_planner')())
+[right_angle_planner-8]   File "/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/python3.10/site-packages/right_angle_stack/right_angle_planner.py", line 194, in main
+[localization_fusion-5]     _shutdown(context=context)
+[localization_fusion-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+[localization_fusion-5]     return context.shutdown()
+[localization_fusion-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+[localization_fusion-5]     self.__context.shutdown()
+[localization_fusion-5] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
+[right_angle_planner-8]     rclpy.shutdown()
+[right_angle_planner-8]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+[right_angle_planner-8]     _shutdown(context=context)
+[right_angle_planner-8]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+[right_angle_planner-8]     return context.shutdown()
+[right_angle_planner-8]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+[right_angle_planner-8]     self.__context.shutdown()
+[right_angle_planner-8] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
+[INFO] [robot_state_publisher-4]: process has finished cleanly [pid 17062]
+[INFO] [parameter_bridge-3]: process has finished cleanly [pid 17060]
+[ERROR] [track_perception-6]: process has died [pid 17066, exit code 1, cmd '/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/right_angle_stack/track_perception --ros-args -r __node:=track_perception --params-file /home/furina/ros_ws/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_nnho_zub'].
+[ERROR] [pure_pursuit_controller-9]: process has died [pid 17072, exit code 1, cmd '/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/right_angle_stack/pure_pursuit_controller --ros-args -r __node:=pure_pursuit_controller --params-file /home/furina/ros_ws/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_a7wk06qp'].
+[ERROR] [cone_mapper-7]: process has died [pid 17068, exit code 1, cmd '/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/right_angle_stack/cone_mapper --ros-args -r __node:=cone_mapper --params-file /home/furina/ros_ws/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_e0bikply'].
+[ERROR] [right_angle_planner-8]: process has died [pid 17070, exit code 1, cmd '/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/right_angle_stack/right_angle_planner --ros-args -r __node:=right_angle_planner --params-file /home/furina/ros_ws/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_j86q_bgp'].
+[ERROR] [localization_fusion-5]: process has died [pid 17064, exit code 1, cmd '/home/furina/ros_ws/percep_node+track/install/right_angle_stack/lib/right_angle_stack/localization_fusion --ros-args -r __node:=localization_fusion --params-file /home/furina/ros_ws/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_b1ruslvd'].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

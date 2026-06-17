@@ -1,0 +1,713 @@
+bash: /home/tumaini/ros2_ws/install/setup.bash: 没有那个文件或目录
+bash: /opt/ros/humble/setup.bash: 没有那个文件或目录
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks$ cd 大作业/percep_node+track/
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/大作业/percep_node+track$ source install/setup.bash 
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/大作业/percep_node+track$ ros2 launch right_angle_stack right_angle_harmonic.launch.py
+[INFO] [launch]: All log files can be found below /home/tumaini/.ros/log/2026-06-15-12-56-36-126378-tumaini-ADOL-I403FA-24353
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [launch.user]: right_angle_harmonic.launch.py starts the full Gazebo Sim model with camera and gpu_lidar. On WSL, use right_angle_wsl_headless.launch.py first if OGRE2 crashes or RViz reports frame [world] missing.
+[INFO] [gazebo-1]: process started with pid [24369]
+[INFO] [create-2]: process started with pid [24370]
+[INFO] [parameter_bridge-3]: process started with pid [24372]
+[INFO] [robot_state_publisher-4]: process started with pid [24373]
+[INFO] [localization_fusion-5]: process started with pid [24374]
+[INFO] [track_perception-6]: process started with pid [24375]
+[INFO] [cone_mapper-7]: process started with pid [24376]
+[INFO] [right_angle_planner-8]: process started with pid [24377]
+[INFO] [pure_pursuit_controller-9]: process started with pid [24378]
+[robot_state_publisher-4] [WARN] [1781499397.243039598] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.
+[robot_state_publisher-4] [INFO] [1781499397.243250183] [robot_state_publisher]: Robot initialized
+[parameter_bridge-3] [INFO] [1781499397.448466319] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781499397.458115586] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/cmd_vel (gz.msgs.Twist) -> /cmd_vel (geometry_msgs/msg/Twist)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781499397.470108412] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781499397.476479033] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/wheel_odom (gz.msgs.Odometry) -> /sensors/wheel_odom (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781499397.492200954] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/imu/data_raw (gz.msgs.IMU) -> /sensors/imu/data_raw (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781499397.505471541] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/gps/fix (gz.msgs.NavSat) -> /sensors/gps/fix (sensor_msgs/msg/NavSatFix)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781499397.511860668] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/magnetic_field (gz.msgs.Magnetometer) -> /sensors/magnetic_field (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781499397.521413481] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/lidar/scan (gz.msgs.LaserScan) -> /sensors/lidar/scan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781499397.525696851] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/image_raw (gz.msgs.Image) -> /sensors/camera/image_raw (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781499397.526886916] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/camera_info (gz.msgs.CameraInfo) -> /sensors/camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[create-2] [INFO] [1781499397.723715584] [spawn_right_angle_car]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 24370]
+[gazebo-1] [Msg] Gazebo Sim Server v8.11.0
+[gazebo-1] [Msg] Loading SDF world file[/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/worlds/right_angle_harmonic.sdf].
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L9]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L15]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L22]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L28]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[pure_pursuit_controller-9] [INFO] [1781499398.231672014] [pure_pursuit_controller]: Pure pursuit controller started.
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L35]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L41]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L48]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L54]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L61]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L67]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L73]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[right_angle_planner-8] [INFO] [1781499398.656290238] [right_angle_planner]: Right-angle centerline planner started.
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[track_perception-6] [INFO] [1781499398.705413279] [track_perception]: Track perception publishing 23 known cones in base_link frame.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L79]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L85]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L92]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[cone_mapper-7] [INFO] [1781499398.812484547] [cone_mapper]: Cone mapper started. Local perception is transformed into the world ENU frame.
+[localization_fusion-5] [INFO] [1781499398.828324182] [localization_fusion]: Localization fusion started: GPS + wheel odom + IMU gyro + magnetometer heading.
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L98]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L104]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L110]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L117]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L123]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L130]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L136]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L143]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="blue_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/blue_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] Warning [Utils.cc:132] [/covariance:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/shixi/model.sdf:L149]: XML Element[covariance], child of element[include], not defined in SDF. Copying[covariance] as children of [include].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="yellow_cone"]/link[@name="link"]/pose[@frame=""]:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/models/yellow_cone/model.sdf:L6]: XML Attribute[frame] in element[pose] not defined in SDF.
+[gazebo-1] [Msg] Serving entity system service on [/entity/system/add]
+[gazebo-1] [Dbg] [Physics.cc:906] Loaded [gz::physics::dartsim::Plugin] from library [/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics-dartsim-plugin.so]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple] (async)
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple/blocking] (blocking)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove] (async)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector/blocking] (blocking)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config] (async)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config/blocking] (blocking)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics] (async)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics/blocking] (blocking)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates] (async)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates/blocking] (blocking)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision] (async)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision/blocking] (blocking)
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision] (async)
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip/blocking] (blocking)
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+[gazebo-1] [Wrn] [SimulationRunner.cc:734] Found additional publishers on /stats, using namespaced stats topic only
+[gazebo-1] [Wrn] [SimulationRunner.cc:768] Found additional publishers on /clock, using namespaced clock topic only
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+[gazebo-1] [Dbg] [Sensors.cc:697] Configuring Sensors system
+[gazebo-1] [Dbg] [Sensors.cc:557] SensorsPrivate::Run
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Sensors] for entity [1]
+[gazebo-1] [Dbg] [Sensors.cc:532] SensorsPrivate::RenderThread started
+[gazebo-1] [Dbg] [Sensors.cc:337] Waiting for init
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Imu] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::NavSat] for entity [1]
+[gazebo-1] [Dbg] [Magnetometer.cc:261] Magnetometer: using param [use_units_gauss: 1].
+[gazebo-1] [Dbg] [Magnetometer.cc:269] Magnetometer: using param [use_earth_frame_ned: 1].
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Magnetometer] for entity [1]
+[gazebo-1] [Msg] Loaded level [default]
+[gazebo-1] [Msg] Serving world controls on [/world/right_angle_world/control], [/world/right_angle_world/control/state] and [/world/right_angle_world/playback/control]
+[gazebo-1] [Msg] Serving GUI information on [/world/right_angle_world/gui/info]
+[gazebo-1] [Msg] World [right_angle_world] initialized with [default_physics] physics profile.
+[gazebo-1] [Msg] Serving world SDF generation service on [/world/right_angle_world/generate_world_sdf]
+[gazebo-1] [Msg] Serving world names on [/gazebo/worlds]
+[gazebo-1] [Msg] Resource path add service on [/gazebo/resource_paths/add].
+[gazebo-1] [Msg] Resource path get service on [/gazebo/resource_paths/get].
+[gazebo-1] [Msg] Resource path resolve service on [/gazebo/resource_paths/resolve].
+[gazebo-1] [Msg] Resource paths published on [/gazebo/resource_paths].
+[gazebo-1] [Msg] Server control service on [/server_control].
+[gazebo-1] [Dbg] [SimulationRunner.cc:736] Publishers [Address, Message Type]:
+[gazebo-1] [Dbg] [SimulationRunner.cc:741]   tcp://192.168.116.89:38283, gz.msgs.WorldStatistics
+[gazebo-1] [Dbg] [SimulationRunner.cc:770] Publishers [Address, Message Type]:
+[gazebo-1] [Dbg] [SimulationRunner.cc:775]   tcp://192.168.116.89:38283, gz.msgs.Clock
+[gazebo-1] [Dbg] [SimulationRunner.cc:551] Creating PostUpdate worker threads: 6
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (0)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (3)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (4)
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SDFFeatures.cc:332] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+[gazebo-1] [Dbg] [SDFFeatures.cc:864] The geometry element of collision [collision] couldn't be created
+[gazebo-1] [Dbg] [SimulationFeatures.cc:90] Simulation timestep set to: 0.002
+[gazebo-1] [Msg] Serving scene information on [/world/right_angle_world/scene/info]
+[gazebo-1] [Msg] Serving graph information on [/world/right_angle_world/scene/graph]
+[gazebo-1] [Msg] Serving full state on [/world/right_angle_world/state]
+[gazebo-1] [Msg] Serving full state (async) on [/world/right_angle_world/state_async]
+[parameter_bridge-3] [INFO] [1781499401.087209179] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[gazebo-1] [Msg] Publishing scene information on [/world/right_angle_world/scene/info]
+[gazebo-1] [Msg] Publishing entity deletions on [/world/right_angle_world/scene/deletion]
+[gazebo-1] [Msg] Publishing state changes on [/world/right_angle_world/state]
+[gazebo-1] [Msg] Publishing pose messages on [/world/right_angle_world/pose/info]
+[gazebo-1] [Msg] Publishing dynamic pose messages on [/world/right_angle_world/dynamic_pose/info]
+[gazebo-1] [Dbg] [EntityComponentManager.cc:1656] Updated state thread iterators: 8 threads processing around 13 entities each.
+[gazebo-1] [Dbg] [SimulationRunner.cc:307] Rewinding simulation back to initial time.
+[gazebo-1] [Dbg] [Physics.cc:971] Resetting Physics
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple] (async)
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple/blocking] (blocking)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove] (async)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector/blocking] (blocking)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config] (async)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config/blocking] (blocking)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics] (async)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics/blocking] (blocking)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates] (async)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates/blocking] (blocking)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision] (async)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision/blocking] (blocking)
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision] (async)
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip/blocking] (blocking)
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Imu] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::NavSat] for entity [1]
+[gazebo-1] [Dbg] [Magnetometer.cc:261] Magnetometer: using param [use_units_gauss: 1].
+[gazebo-1] [Dbg] [Magnetometer.cc:269] Magnetometer: using param [use_earth_frame_ned: 1].
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Magnetometer] for entity [1]
+[gazebo-1] [Dbg] [EntityComponentManager.cc:1656] Updated state thread iterators: 8 threads processing around 13 entities each.
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="camera_link"]/sensor[@name="front_camera"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L332]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="lidar_link"]/sensor[@name="front_lidar"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L380]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="gps_link"]/sensor[@name="gps_sensor"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L411]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="imu_link"]/sensor[@name="imu_sensor"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L438]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="magnetometer_link"]/sensor[@name="magnetometer_sensor"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L491]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] [Wrn] [Ogre2Camera.cc:423] Ogre2Camera::SetVisibilityMask: Mask bits c0000000 are set but will be ignored as they conflict with the reserved bits used internally by the ogre2 backend.
+^C[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[parameter_bridge-3] [INFO] [1781501104.559041988] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[robot_state_publisher-4] [INFO] [1781501104.560358994] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[gazebo-1] [Msg] DiffDrive subscribing to twist messages on [/cmd_vel]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::DiffDrive] for entity [103]
+[gazebo-1] [Dbg] [UserCommands.cc:1094] Created entity [103] named [racecar]
+[gazebo-1] [Dbg] [ImuSensor.cc:150] IMU data for [racecar::imu_link::imu_sensor] advertised on [/sensors/imu/data_raw]
+[gazebo-1] [Dbg] [MagnetometerSensor.cc:117] Magnetometer data for [racecar::magnetometer_link::magnetometer_sensor] advertised on [/sensors/magnetic_field]
+[gazebo-1] [Dbg] [Sensors.cc:953] Initialization needed
+[gazebo-1] [Dbg] [Sensors.cc:349] Initializing render context
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (0)
+[gazebo-1] [Msg] Loading plugin [gz-rendering-ogre2]
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (3)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (4)
+[gazebo-1] [Dbg] [SimulationRunner.cc:551] Creating PostUpdate worker threads: 7
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (0)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (3)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (4)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (5)
+[gazebo-1] [Dbg] [RenderUtil.cc:2646] Create scene [scene]
+[gazebo-1] [Dbg] [Sensors.cc:391] Rendering Thread initialized
+[gazebo-1] [Dbg] [Sensors.cc:953] Initialization needed
+[gazebo-1] [Dbg] [CameraSensor.cc:405] Camera images for [racecar::camera_link::front_camera] advertised on [/sensors/camera/image_raw]
+[gazebo-1] [Dbg] [CameraSensor.cc:695] Camera info for [racecar::camera_link::front_camera] advertised on [/sensors/camera/camera_info]
+[gazebo-1] [Dbg] [Lidar.cc:139] Laser scans for [racecar::lidar_link::front_lidar] advertised on [/sensors/lidar/scan]
+[gazebo-1] [Dbg] [GpuLidarSensor.cc:164] Lidar points for [racecar::lidar_link::front_lidar] advertised on [/sensors/lidar/scan/points]
+[gazebo-1] [Dbg] [CameraSensor.cc:504] Enabling camera sensor: 'racecar::camera_link::front_camera' data generation.
+[gazebo-1] [Dbg] [SignalHandler.cc:142] Received signal[2].
+[gazebo-1] [Dbg] [ServerPrivate.cc:122] Server received signal[2]
+[gazebo-1] [Dbg] [Sensors.cc:565] SensorsPrivate::Stop
+[INFO] [parameter_bridge-3]: process has finished cleanly [pid 24372]
+[INFO] [robot_state_publisher-4]: process has finished cleanly [pid 24373]
+[pure_pursuit_controller-9] Traceback (most recent call last):
+[pure_pursuit_controller-9]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/pure_pursuit_controller.py", line 98, in main
+[pure_pursuit_controller-9]     rclpy.spin(node)
+[pure_pursuit_controller-9]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
+[pure_pursuit_controller-9]     executor.spin_once()
+[pure_pursuit_controller-9]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 923, in spin_once
+[pure_pursuit_controller-9]     self._spin_once_impl(timeout_sec)
+[pure_pursuit_controller-9]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 904, in _spin_once_impl
+[pure_pursuit_controller-9]     handler, entity, node = self.wait_for_ready_callbacks(
+[pure_pursuit_controller-9]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[pure_pursuit_controller-9]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 874, in wait_for_ready_callbacks
+[pure_pursuit_controller-9]     return next(self._cb_iter)
+[pure_pursuit_controller-9]            ^^^^^^^^^^^^^^^^^^^
+[pure_pursuit_controller-9]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 704, in _wait_for_ready_callbacks
+[pure_pursuit_controller-9]     with ExitStack() as context_stack:
+[pure_pursuit_controller-9]   File "/usr/lib/python3.12/contextlib.py", line 610, in __exit__
+[pure_pursuit_controller-9]     raise exc_details[1]
+[pure_pursuit_controller-9]   File "/usr/lib/python3.12/contextlib.py", line 595, in __exit__
+[pure_pursuit_controller-9]     if cb(*exc_details):
+[pure_pursuit_controller-9]        ^^^^^^^^^^^^^^^^
+[pure_pursuit_controller-9] KeyboardInterrupt
+[pure_pursuit_controller-9] 
+[pure_pursuit_controller-9] During handling of the above exception, another exception occurred:
+[pure_pursuit_controller-9] 
+[pure_pursuit_controller-9] Traceback (most recent call last):
+[pure_pursuit_controller-9]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/pure_pursuit_controller", line 33, in <module>
+[pure_pursuit_controller-9]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'pure_pursuit_controller')())
+[pure_pursuit_controller-9]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[pure_pursuit_controller-9]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/pure_pursuit_controller.py", line 100, in main
+[pure_pursuit_controller-9]     node.publish_stop()
+[pure_pursuit_controller-9]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/pure_pursuit_controller.py", line 48, in publish_stop
+[pure_pursuit_controller-9]     self.cmd_pub.publish(Twist())
+[pure_pursuit_controller-9]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/publisher.py", line 70, in publish
+[pure_pursuit_controller-9]     self.__publisher.publish(msg)
+[pure_pursuit_controller-9] rclpy._rclpy_pybind11.RCLError: Failed to publish: publisher's context is invalid, at ./src/rcl/publisher.c:423
+[cone_mapper-7] Traceback (most recent call last):
+[cone_mapper-7]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/cone_mapper.py", line 168, in main
+[cone_mapper-7]     rclpy.spin(node)
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
+[cone_mapper-7]     executor.spin_once()
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 923, in spin_once
+[cone_mapper-7]     self._spin_once_impl(timeout_sec)
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 904, in _spin_once_impl
+[cone_mapper-7]     handler, entity, node = self.wait_for_ready_callbacks(
+[cone_mapper-7]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 874, in wait_for_ready_callbacks
+[cone_mapper-7]     return next(self._cb_iter)
+[cone_mapper-7]            ^^^^^^^^^^^^^^^^^^^
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 682, in _wait_for_ready_callbacks
+[cone_mapper-7]     subscriptions.extend(filter(self.can_execute, node.subscriptions))
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 253, in subscriptions
+[cone_mapper-7]     @property
+[cone_mapper-7] 
+[cone_mapper-7] KeyboardInterrupt
+[cone_mapper-7] 
+[cone_mapper-7] During handling of the above exception, another exception occurred:
+[cone_mapper-7] 
+[cone_mapper-7] Traceback (most recent call last):
+[cone_mapper-7]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/cone_mapper", line 33, in <module>
+[cone_mapper-7]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'cone_mapper')())
+[cone_mapper-7]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-7]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/cone_mapper.py", line 171, in main
+[cone_mapper-7]     rclpy.shutdown()
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 134, in shutdown
+[cone_mapper-7]     _shutdown(context=context)
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/utilities.py", line 82, in shutdown
+[cone_mapper-7]     context.shutdown()
+[cone_mapper-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/context.py", line 129, in shutdown
+[cone_mapper-7]     self.__context.shutdown()
+[cone_mapper-7] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:333
+[localization_fusion-5] Traceback (most recent call last):
+[localization_fusion-5]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/localization_fusion.py", line 158, in main
+[localization_fusion-5]     rclpy.spin(node)
+[localization_fusion-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
+[localization_fusion-5]     executor.spin_once()
+[localization_fusion-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 923, in spin_once
+[localization_fusion-5]     self._spin_once_impl(timeout_sec)
+[localization_fusion-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 913, in _spin_once_impl
+[localization_fusion-5]     handler()
+[localization_fusion-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/task.py", line 270, in __call__
+[localization_fusion-5]     self._execute_coroutine_step(self._handler)
+[localization_fusion-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/task.py", line 286, in _execute_coroutine_step
+[track_perception-6] Traceback (most recent call last):
+[track_perception-6]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/track_perception.py", line 115, in main
+[track_perception-6]     rclpy.spin(node)
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
+[track_perception-6]     executor.spin_once()
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 923, in spin_once
+[track_perception-6]     self._spin_once_impl(timeout_sec)
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 904, in _spin_once_impl
+[track_perception-6]     handler, entity, node = self.wait_for_ready_callbacks(
+[track_perception-6]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 874, in wait_for_ready_callbacks
+[track_perception-6]     return next(self._cb_iter)
+[track_perception-6]            ^^^^^^^^^^^^^^^^^^^
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 778, in _wait_for_ready_callbacks
+[track_perception-6]     wait_set.wait(timeout_nsec)
+[track_perception-6] KeyboardInterrupt
+[track_perception-6] 
+[track_perception-6] During handling of the above exception, another exception occurred:
+[track_perception-6] 
+[track_perception-6] Traceback (most recent call last):
+[track_perception-6]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/track_perception", line 33, in <module>
+[track_perception-6]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'track_perception')())
+[track_perception-6]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-6]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/track_perception.py", line 118, in main
+[track_perception-6]     rclpy.shutdown()
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 134, in shutdown
+[track_perception-6]     _shutdown(context=context)
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/utilities.py", line 82, in shutdown
+[track_perception-6]     context.shutdown()
+[track_perception-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/context.py", line 129, in shutdown
+[track_perception-6]     self.__context.shutdown()
+[track_perception-6] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:333
+[localization_fusion-5]     result = coro.send(None)
+[localization_fusion-5]              ^^^^^^^^^^^^^^^
+[localization_fusion-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 581, in handler
+[localization_fusion-5]     with work_tracker:
+[localization_fusion-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 79, in __enter__
+[localization_fusion-5]     def __enter__(self):
+[localization_fusion-5] 
+[localization_fusion-5] KeyboardInterrupt
+[localization_fusion-5] 
+[localization_fusion-5] During handling of the above exception, another exception occurred:
+[localization_fusion-5] 
+[localization_fusion-5] Traceback (most recent call last):
+[localization_fusion-5]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/localization_fusion", line 33, in <module>
+[localization_fusion-5]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'localization_fusion')())
+[localization_fusion-5]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[localization_fusion-5]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/localization_fusion.py", line 161, in main
+[localization_fusion-5]     rclpy.shutdown()
+[localization_fusion-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 134, in shutdown
+[localization_fusion-5]     _shutdown(context=context)
+[localization_fusion-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/utilities.py", line 82, in shutdown
+[localization_fusion-5]     context.shutdown()
+[localization_fusion-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/context.py", line 129, in shutdown
+[localization_fusion-5]     self.__context.shutdown()
+[localization_fusion-5] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:333
+[right_angle_planner-8] Traceback (most recent call last):
+[right_angle_planner-8]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/right_angle_planner.py", line 191, in main
+[right_angle_planner-8]     rclpy.spin(node)
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
+[right_angle_planner-8]     executor.spin_once()
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 923, in spin_once
+[right_angle_planner-8]     self._spin_once_impl(timeout_sec)
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 915, in _spin_once_impl
+[right_angle_planner-8]     raise handler.exception()
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/task.py", line 286, in _execute_coroutine_step
+[right_angle_planner-8]     result = coro.send(None)
+[right_angle_planner-8]              ^^^^^^^^^^^^^^^
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 584, in handler
+[right_angle_planner-8]     call_coroutine = take_from_wait_list(entity)
+[right_angle_planner-8]                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 470, in _take_subscription
+[right_angle_planner-8]     msg_info = sub.handle.take_message(sub.msg_type, sub.raw)
+[right_angle_planner-8]                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-8] RuntimeError: Unable to convert call argument '0' to Python object (#define PYBIND11_DETAILED_ERROR_MESSAGES or compile in debug mode for details)
+[right_angle_planner-8] 
+[right_angle_planner-8] During handling of the above exception, another exception occurred:
+[right_angle_planner-8] 
+[right_angle_planner-8] Traceback (most recent call last):
+[right_angle_planner-8]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/right_angle_planner", line 33, in <module>
+[right_angle_planner-8]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'right_angle_planner')())
+[right_angle_planner-8]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-8]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/right_angle_planner.py", line 194, in main
+[right_angle_planner-8]     rclpy.shutdown()
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 134, in shutdown
+[right_angle_planner-8]     _shutdown(context=context)
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/utilities.py", line 82, in shutdown
+[right_angle_planner-8]     context.shutdown()
+[right_angle_planner-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/context.py", line 129, in shutdown
+[right_angle_planner-8]     self.__context.shutdown()
+[right_angle_planner-8] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:333
+[ERROR] [pure_pursuit_controller-9]: process has died [pid 24378, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/pure_pursuit_controller --ros-args -r __node:=pure_pursuit_controller --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_j8uplqw9'].
+[ERROR] [track_perception-6]: process has died [pid 24375, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/track_perception --ros-args -r __node:=track_perception --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_y_5k9wzp'].
+[ERROR] [cone_mapper-7]: process has died [pid 24376, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/cone_mapper --ros-args -r __node:=cone_mapper --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_37lq583u'].
+[ERROR] [right_angle_planner-8]: process has died [pid 24377, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/right_angle_planner --ros-args -r __node:=right_angle_planner --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_o3y2k9ox'].
+[ERROR] [localization_fusion-5]: process has died [pid 24374, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/localization_fusion --ros-args -r __node:=localization_fusion --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_l8iyb_ls'].
+[gazebo-1] [Dbg] [Sensors.cc:551] SensorsPrivate::RenderThread stopped
+[gazebo-1] [Dbg] [gz.cc:434] Shutting down gz-sim-server
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (3)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (4)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (5)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (0)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (1)
+[gazebo-1] [Dbg] [Sensors.cc:565] SensorsPrivate::Stop
+[ERROR] [gazebo-1]: process has died [pid 24369, exit code -2, cmd 'ruby /opt/ros/jazzy/opt/gz_tools_vendor/bin/gz sim -r -s -v 4 /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track/share/right_angle_track/worlds/right_angle_harmonic.sdf --force-version 8'].
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/大作业/percep_node+track$ rm -rf build install log
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/大作业/percep_node+track$ source /opt/ros/jazzy/setup.bash
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/大作业/percep_node+track$ colcon build
+[0.589s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/sim_perception' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.589s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.589s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.589s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/fsd_common_msgs' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.590s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_track' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.590s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/fsd_common_msgs' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+Starting >>> fsd_common_msgs
+Starting >>> right_angle_track
+Finished <<< right_angle_track [2.31s]                                                             
+[Processing: fsd_common_msgs]                             
+Finished <<< fsd_common_msgs [37.9s]                       
+Starting >>> right_angle_stack
+Starting >>> sim_perception
+Finished <<< sim_perception [4.83s]                                                  
+Finished <<< right_angle_stack [5.23s]           
+
+Summary: 4 packages finished [43.6s]
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/大作业/percep_node+track$ source install/setup.bash
+(base) tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/大作业/percep_node+track$ ros2 launch right_angle_stack right_angle_harmonic.launch.py \
+  use_rviz:=false \
+  gz_args:="-r -v 4 $(ros2 pkg prefix right_angle_track)/share/right_angle_track/worlds/right_angle_harmonic.sdf"
+[INFO] [launch]: All log files can be found below /home/tumaini/.ros/log/2026-06-15-13-29-50-219934-tumaini-ADOL-I403FA-28458
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [launch.user]: right_angle_harmonic.launch.py starts the full Gazebo Sim model with camera and gpu_lidar. On WSL, use right_angle_wsl_headless.launch.py first if OGRE2 crashes or RViz reports frame [world] missing.
+[INFO] [gazebo-1]: process started with pid [28476]
+[INFO] [create-2]: process started with pid [28477]
+[INFO] [parameter_bridge-3]: process started with pid [28479]
+[INFO] [parameter_bridge-4]: process started with pid [28480]
+[INFO] [robot_state_publisher-5]: process started with pid [28481]
+[INFO] [localization_fusion-6]: process started with pid [28482]
+[INFO] [track_perception-7]: process started with pid [28483]
+[INFO] [cone_mapper-8]: process started with pid [28484]
+[INFO] [right_angle_planner-9]: process started with pid [28485]
+[INFO] [pure_pursuit_controller-10]: process started with pid [28486]
+[robot_state_publisher-5] [WARN] [1781501391.374233268] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.
+[robot_state_publisher-5] [INFO] [1781501391.374467948] [robot_state_publisher]: Robot initialized
+[parameter_bridge-3] [INFO] [1781501391.441484018] [ros_gz_clock_bridge]: Creating GZ->ROS Bridge: [/world/right_angle_world/clock (gz.msgs.Clock) -> /world/right_angle_world/clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781501391.473305178] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781501391.484157915] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/wheel_odom (gz.msgs.Odometry) -> /sensors/wheel_odom (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781501391.503222941] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/imu/data_raw (gz.msgs.IMU) -> /sensors/imu/data_raw (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781501391.510263692] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/gps/fix (gz.msgs.NavSat) -> /sensors/gps/fix (sensor_msgs/msg/NavSatFix)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781501391.524526927] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/magnetic_field (gz.msgs.Magnetometer) -> /sensors/magnetic_field (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781501391.529499971] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/lidar/scan (gz.msgs.LaserScan) -> /sensors/lidar/scan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781501391.535098135] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/image_raw (gz.msgs.Image) -> /sensors/camera/image_raw (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781501391.541576200] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/camera_info (gz.msgs.CameraInfo) -> /sensors/camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[create-2] [INFO] [1781501391.752256776] [spawn_right_angle_car]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 28477]
+[gazebo-1] gz sim gui: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
+[pure_pursuit_controller-10] [INFO] [1781501392.522803243] [pure_pursuit_controller]: Pure pursuit controller started.
+[parameter_bridge-4] [INFO] [1781501392.710643282] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[cone_mapper-8] Traceback (most recent call last):
+[cone_mapper-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 46, in import_type_support
+[cone_mapper-8]     return importlib.import_module(module_name, package=pkg_name)
+[cone_mapper-8]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-8]   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+[cone_mapper-8]     return _bootstrap._gcd_import(name[level:], package, level)
+[cone_mapper-8]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-8]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+[cone_mapper-8]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+[cone_mapper-8]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+[cone_mapper-8]   File "<frozen importlib._bootstrap>", line 921, in _load_unlocked
+[cone_mapper-8]   File "<frozen importlib._bootstrap>", line 813, in module_from_spec
+[cone_mapper-8]   File "<frozen importlib._bootstrap_external>", line 1289, in create_module
+[cone_mapper-8]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[cone_mapper-8] ImportError: libpython3.13.so.1.0: cannot open shared object file: No such file or directory
+[cone_mapper-8] 
+[cone_mapper-8] During handling of the above exception, another exception occurred:
+[cone_mapper-8] 
+[cone_mapper-8] Traceback (most recent call last):
+[cone_mapper-8]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/cone_mapper", line 33, in <module>
+[cone_mapper-8]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'cone_mapper')())
+[cone_mapper-8]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-8]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/cone_mapper.py", line 166, in main
+[cone_mapper-8]     node = ConeMapper()
+[cone_mapper-8]            ^^^^^^^^^^^^
+[cone_mapper-8]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/cone_mapper.py", line 32, in __init__
+[cone_mapper-8]     self.map_pub = self.create_publisher(Map, '/estimation/slam/map', 10)
+[cone_mapper-8]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 1557, in create_publisher
+[cone_mapper-8]     check_is_valid_msg_type(msg_type)
+[cone_mapper-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 35, in check_is_valid_msg_type
+[cone_mapper-8]     check_for_type_support(msg_type)
+[cone_mapper-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 29, in check_for_type_support
+[cone_mapper-8]     msg_or_srv_type.__class__.__import_type_support__()
+[cone_mapper-8]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/fsd_common_msgs/lib/python3.13/site-packages/fsd_common_msgs/msg/_map.py", line 36, in __import_type_support__
+[cone_mapper-8]     module = import_type_support('fsd_common_msgs')
+[cone_mapper-8]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[cone_mapper-8]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 48, in import_type_support
+[cone_mapper-8]     raise UnsupportedTypeSupport(pkg_name)
+[cone_mapper-8] rosidl_generator_py.import_type_support_impl.UnsupportedTypeSupport: Could not import 'rosidl_typesupport_c' for package 'fsd_common_msgs'
+[track_perception-7] Traceback (most recent call last):
+[track_perception-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 46, in import_type_support
+[track_perception-7]     return importlib.import_module(module_name, package=pkg_name)
+[track_perception-7]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-7]   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+[track_perception-7]     return _bootstrap._gcd_import(name[level:], package, level)
+[track_perception-7]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-7]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+[track_perception-7]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+[track_perception-7]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+[track_perception-7]   File "<frozen importlib._bootstrap>", line 921, in _load_unlocked
+[track_perception-7]   File "<frozen importlib._bootstrap>", line 813, in module_from_spec
+[track_perception-7]   File "<frozen importlib._bootstrap_external>", line 1289, in create_module
+[track_perception-7]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[track_perception-7] ImportError: libpython3.13.so.1.0: cannot open shared object file: No such file or directory
+[track_perception-7] 
+[track_perception-7] During handling of the above exception, another exception occurred:
+[track_perception-7] 
+[track_perception-7] Traceback (most recent call last):
+[track_perception-7]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/track_perception", line 33, in <module>
+[track_perception-7]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'track_perception')())
+[track_perception-7]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-7]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/track_perception.py", line 113, in main
+[track_perception-7]     node = TrackPerception()
+[track_perception-7]            ^^^^^^^^^^^^^^^^^
+[track_perception-7]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/track_perception.py", line 59, in __init__
+[track_perception-7]     self.map_pub = self.create_publisher(Map, self.get_parameter('map_topic').value, 10)
+[track_perception-7]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 1557, in create_publisher
+[track_perception-7]     check_is_valid_msg_type(msg_type)
+[track_perception-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 35, in check_is_valid_msg_type
+[track_perception-7]     check_for_type_support(msg_type)
+[track_perception-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 29, in check_for_type_support
+[track_perception-7]     msg_or_srv_type.__class__.__import_type_support__()
+[track_perception-7]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/fsd_common_msgs/lib/python3.13/site-packages/fsd_common_msgs/msg/_map.py", line 36, in __import_type_support__
+[track_perception-7]     module = import_type_support('fsd_common_msgs')
+[track_perception-7]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[track_perception-7]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 48, in import_type_support
+[track_perception-7]     raise UnsupportedTypeSupport(pkg_name)
+[track_perception-7] rosidl_generator_py.import_type_support_impl.UnsupportedTypeSupport: Could not import 'rosidl_typesupport_c' for package 'fsd_common_msgs'
+[localization_fusion-6] [INFO] [1781501393.066301969] [localization_fusion]: Localization fusion started: GPS + wheel odom + IMU gyro + magnetometer heading.
+[ERROR] [cone_mapper-8]: process has died [pid 28484, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/cone_mapper --ros-args -r __node:=cone_mapper --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_6e1rozv9'].
+[ERROR] [track_perception-7]: process has died [pid 28483, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/track_perception --ros-args -r __node:=track_perception --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_faxuuavc'].
+[right_angle_planner-9] Traceback (most recent call last):
+[right_angle_planner-9]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 46, in import_type_support
+[right_angle_planner-9]     return importlib.import_module(module_name, package=pkg_name)
+[right_angle_planner-9]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-9]   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+[right_angle_planner-9]     return _bootstrap._gcd_import(name[level:], package, level)
+[right_angle_planner-9]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-9]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+[right_angle_planner-9]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+[right_angle_planner-9]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+[right_angle_planner-9]   File "<frozen importlib._bootstrap>", line 921, in _load_unlocked
+[right_angle_planner-9]   File "<frozen importlib._bootstrap>", line 813, in module_from_spec
+[right_angle_planner-9]   File "<frozen importlib._bootstrap_external>", line 1289, in create_module
+[right_angle_planner-9]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[right_angle_planner-9] ImportError: libpython3.13.so.1.0: cannot open shared object file: No such file or directory
+[right_angle_planner-9] 
+[right_angle_planner-9] During handling of the above exception, another exception occurred:
+[right_angle_planner-9] 
+[right_angle_planner-9] Traceback (most recent call last):
+[right_angle_planner-9]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/right_angle_planner", line 33, in <module>
+[right_angle_planner-9]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'right_angle_planner')())
+[right_angle_planner-9]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-9]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/right_angle_planner.py", line 189, in main
+[right_angle_planner-9]     node = RightAnglePlanner()
+[right_angle_planner-9]            ^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-9]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/right_angle_planner.py", line 36, in __init__
+[right_angle_planner-9]     self.create_subscription(Map, '/estimation/slam/map', self.on_map, 10)
+[right_angle_planner-9]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 1636, in create_subscription
+[right_angle_planner-9]     check_is_valid_msg_type(msg_type)
+[right_angle_planner-9]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 35, in check_is_valid_msg_type
+[right_angle_planner-9]     check_for_type_support(msg_type)
+[right_angle_planner-9]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/type_support.py", line 29, in check_for_type_support
+[right_angle_planner-9]     msg_or_srv_type.__class__.__import_type_support__()
+[right_angle_planner-9]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/fsd_common_msgs/lib/python3.13/site-packages/fsd_common_msgs/msg/_map.py", line 36, in __import_type_support__
+[right_angle_planner-9]     module = import_type_support('fsd_common_msgs')
+[right_angle_planner-9]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[right_angle_planner-9]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/import_type_support_impl.py", line 48, in import_type_support
+[right_angle_planner-9]     raise UnsupportedTypeSupport(pkg_name)
+[right_angle_planner-9] rosidl_generator_py.import_type_support_impl.UnsupportedTypeSupport: Could not import 'rosidl_typesupport_c' for package 'fsd_common_msgs'
+[ERROR] [right_angle_planner-9]: process has died [pid 28485, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/right_angle_planner --ros-args -r __node:=right_angle_planner --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_7337b1l1'].
+[gazebo-1] Escalating to SIGKILL on [Gazebo Sim Server]
+[INFO] [gazebo-1]: process has finished cleanly [pid 28476]
+^C[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[robot_state_publisher-5] [INFO] [1781501421.485456977] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-4] [INFO] [1781501421.485594529] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-3] [INFO] [1781501421.487156344] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[pure_pursuit_controller-10] Traceback (most recent call last):
+[pure_pursuit_controller-10]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/pure_pursuit_controller.py", line 98, in main
+[pure_pursuit_controller-10]     rclpy.spin(node)
+[pure_pursuit_controller-10]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
+[pure_pursuit_controller-10]     executor.spin_once()
+[pure_pursuit_controller-10]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 923, in spin_once
+[pure_pursuit_controller-10]     self._spin_once_impl(timeout_sec)
+[pure_pursuit_controller-10]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 904, in _spin_once_impl
+[pure_pursuit_controller-10]     handler, entity, node = self.wait_for_ready_callbacks(
+[pure_pursuit_controller-10]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[pure_pursuit_controller-10]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 874, in wait_for_ready_callbacks
+[pure_pursuit_controller-10]     return next(self._cb_iter)
+[pure_pursuit_controller-10]            ^^^^^^^^^^^^^^^^^^^
+[pure_pursuit_controller-10]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 778, in _wait_for_ready_callbacks
+[pure_pursuit_controller-10]     wait_set.wait(timeout_nsec)
+[pure_pursuit_controller-10] KeyboardInterrupt
+[pure_pursuit_controller-10] 
+[pure_pursuit_controller-10] During handling of the above exception, another exception occurred:
+[pure_pursuit_controller-10] 
+[pure_pursuit_controller-10] Traceback (most recent call last):
+[pure_pursuit_controller-10]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/pure_pursuit_controller", line 33, in <module>
+[pure_pursuit_controller-10]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'pure_pursuit_controller')())
+[pure_pursuit_controller-10]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[pure_pursuit_controller-10]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/pure_pursuit_controller.py", line 100, in main
+[pure_pursuit_controller-10]     node.publish_stop()
+[pure_pursuit_controller-10]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/pure_pursuit_controller.py", line 48, in publish_stop
+[pure_pursuit_controller-10]     self.cmd_pub.publish(Twist())
+[pure_pursuit_controller-10]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/publisher.py", line 70, in publish
+[pure_pursuit_controller-10]     self.__publisher.publish(msg)
+[pure_pursuit_controller-10] rclpy._rclpy_pybind11.RCLError: Failed to publish: publisher's context is invalid, at ./src/rcl/publisher.c:423
+[localization_fusion-6] Traceback (most recent call last):
+[localization_fusion-6]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/localization_fusion.py", line 158, in main
+[localization_fusion-6]     rclpy.spin(node)
+[localization_fusion-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 247, in spin
+[localization_fusion-6]     executor.spin_once()
+[localization_fusion-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 923, in spin_once
+[localization_fusion-6]     self._spin_once_impl(timeout_sec)
+[localization_fusion-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 904, in _spin_once_impl
+[localization_fusion-6]     handler, entity, node = self.wait_for_ready_callbacks(
+[localization_fusion-6]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[localization_fusion-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 874, in wait_for_ready_callbacks
+[localization_fusion-6]     return next(self._cb_iter)
+[localization_fusion-6]            ^^^^^^^^^^^^^^^^^^^
+[localization_fusion-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 778, in _wait_for_ready_callbacks
+[localization_fusion-6]     wait_set.wait(timeout_nsec)
+[localization_fusion-6] KeyboardInterrupt
+[localization_fusion-6] 
+[localization_fusion-6] During handling of the above exception, another exception occurred:
+[localization_fusion-6] 
+[localization_fusion-6] Traceback (most recent call last):
+[localization_fusion-6]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/localization_fusion", line 33, in <module>
+[localization_fusion-6]     sys.exit(load_entry_point('right-angle-stack==0.1.0', 'console_scripts', 'localization_fusion')())
+[localization_fusion-6]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[localization_fusion-6]   File "/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/python3.12/site-packages/right_angle_stack/localization_fusion.py", line 161, in main
+[localization_fusion-6]     rclpy.shutdown()
+[localization_fusion-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 134, in shutdown
+[localization_fusion-6]     _shutdown(context=context)
+[localization_fusion-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/utilities.py", line 82, in shutdown
+[localization_fusion-6]     context.shutdown()
+[localization_fusion-6]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/context.py", line 129, in shutdown
+[localization_fusion-6]     self.__context.shutdown()
+[localization_fusion-6] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:333
+[INFO] [parameter_bridge-4]: process has finished cleanly [pid 28480]
+[INFO] [robot_state_publisher-5]: process has finished cleanly [pid 28481]
+[INFO] [parameter_bridge-3]: process has finished cleanly [pid 28479]
+[ERROR] [pure_pursuit_controller-10]: process has died [pid 28486, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/pure_pursuit_controller --ros-args -r __node:=pure_pursuit_controller --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_6vi_j_7l'].
+[ERROR] [localization_fusion-6]: process has died [pid 28482, exit code 1, cmd '/home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/lib/right_angle_stack/localization_fusion --ros-args -r __node:=localization_fusion --params-file /home/tumaini/文档/SCUT_Racing_Tasks/大作业/percep_node+track/install/right_angle_stack/share/right_angle_stack/config/right_angle_stack.yaml --params-file /tmp/launch_params_mqshof_9'].
+

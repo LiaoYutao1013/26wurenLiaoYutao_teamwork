@@ -1,0 +1,77 @@
+[INFO] [launch]: All log files can be found below /home/furina/.ros/log/2026-06-14-10-41-54-039425-deltame13-6338
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gzserver-1]: process started with pid [6340]
+[INFO] [gzclient-2]: process started with pid [6342]
+[INFO] [spawn_entity.py-3]: process started with pid [6344]
+[INFO] [robot_state_publisher-4]: process started with pid [6346]
+[INFO] [localization_fusion-5]: process started with pid [6348]
+[INFO] [track_perception-6]: process started with pid [6350]
+[INFO] [cone_mapper-7]: process started with pid [6352]
+[INFO] [right_angle_planner-8]: process started with pid [6354]
+[INFO] [pure_pursuit_controller-9]: process started with pid [6356]
+[INFO] [rviz2-10]: process started with pid [6358]
+[robot_state_publisher-4] [WARN] [1781404914.452655583] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.
+[robot_state_publisher-4] [INFO] [1781404914.452729193] [robot_state_publisher]: got segment base_link
+[robot_state_publisher-4] [INFO] [1781404914.452805707] [robot_state_publisher]: got segment camera_link
+[robot_state_publisher-4] [INFO] [1781404914.452808219] [robot_state_publisher]: got segment camera_optical_frame
+[robot_state_publisher-4] [INFO] [1781404914.452810182] [robot_state_publisher]: got segment chassis_link
+[robot_state_publisher-4] [INFO] [1781404914.452811984] [robot_state_publisher]: got segment gps_link
+[robot_state_publisher-4] [INFO] [1781404914.452813616] [robot_state_publisher]: got segment imu_link
+[robot_state_publisher-4] [INFO] [1781404914.452815085] [robot_state_publisher]: got segment left_front_wheel_link
+[robot_state_publisher-4] [INFO] [1781404914.452816750] [robot_state_publisher]: got segment left_rear_wheel_link
+[robot_state_publisher-4] [INFO] [1781404914.452818175] [robot_state_publisher]: got segment lidar_link
+[robot_state_publisher-4] [INFO] [1781404914.452819653] [robot_state_publisher]: got segment magnetometer_link
+[robot_state_publisher-4] [INFO] [1781404914.452821097] [robot_state_publisher]: got segment right_front_wheel_link
+[robot_state_publisher-4] [INFO] [1781404914.452822589] [robot_state_publisher]: got segment right_rear_wheel_link
+[pure_pursuit_controller-9] [INFO] [1781404914.625892477] [pure_pursuit_controller]: Pure pursuit controller started.
+[track_perception-6] [INFO] [1781404914.626958672] [track_perception]: Track perception publishing 23 known cones in base_link frame.
+[spawn_entity.py-3] [INFO] [1781404914.643176169] [spawn_entity]: Spawn Entity started
+[spawn_entity.py-3] [INFO] [1781404914.643363187] [spawn_entity]: Loading entity published on topic robot_description
+[spawn_entity.py-3] [INFO] [1781404914.644770067] [spawn_entity]: Waiting for entity xml on robot_description
+[cone_mapper-7] [INFO] [1781404914.654736654] [cone_mapper]: Cone mapper started. Local perception is transformed into the world ENU frame.
+[spawn_entity.py-3] [INFO] [1781404914.656066339] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30
+[spawn_entity.py-3] [INFO] [1781404914.656261017] [spawn_entity]: Waiting for service /spawn_entity
+[right_angle_planner-8] [INFO] [1781404914.656431374] [right_angle_planner]: Right-angle centerline planner started.
+[localization_fusion-5] [INFO] [1781404914.687774277] [localization_fusion]: Localization fusion started: GPS + wheel odom + IMU gyro + magnetometer heading.
+[gzclient-2] Gazebo multi-robot simulator, version 11.10.2
+[gzclient-2] Copyright (C) 2012 Open Source Robotics Foundation.
+[gzclient-2] Released under the Apache 2 License.
+[gzclient-2] http://gazebosim.org
+[gzclient-2]
+[gzserver-1] Gazebo multi-robot simulator, version 11.10.2
+[gzserver-1] Copyright (C) 2012 Open Source Robotics Foundation.
+[gzserver-1] Released under the Apache 2 License.
+[gzserver-1] http://gazebosim.org
+[gzserver-1]
+[gzserver-1] [Wrn] [gazebo_ros_init.cpp:178]
+[gzserver-1] #     # ####### ####### ###  #####  #######
+[gzserver-1] ##    # #     #    #     #  #     # #
+[gzserver-1] # #   # #     #    #     #  #       #
+[gzserver-1] #  #  # #     #    #     #  #       #####
+[gzserver-1] #   # # #     #    #     #  #       #
+[gzserver-1] #    ## #     #    #     #  #     # #
+[gzserver-1] #     # #######    #    ###  #####  #######
+[gzserver-1]
+[gzserver-1] This version of Gazebo, now called Gazebo classic, reaches end-of-life
+[gzserver-1] in January 2025. Users are highly encouraged to migrate to the new Gazebo
+[gzserver-1] using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration?utm_source=gazebo_ros_pkgs&utm_medium=cli)
+[gzserver-1]
+[gzserver-1]
+[gzclient-2] [Msg] Waiting for master.
+[gzclient-2] [Msg] Connected to gazebo master @ http://127.0.0.1:11345
+[gzclient-2] [Msg] Publicized address: 10.255.255.254
+[gzclient-2] [Wrn] [GuiIface.cc:298] Couldn't locate specified .ini. Creating file at "/home/furina/.gazebo/gui.ini"
+[gzserver-1] [Msg] Waiting for master.
+[gzserver-1] [Msg] Connected to gazebo master @ http://127.0.0.1:11345
+[gzserver-1] [Msg] Publicized address: 10.255.255.254
+[rviz2-10] [INFO] [1781404926.654815868] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-10] [INFO] [1781404926.655014163] [rviz2]: OpenGl version: 4.2 (GLSL 4.2)
+[rviz2-10] D3D12: Removing Device.
+[gzserver-1] [Wrn] [ModelDatabase.cc:340] Getting models from[http://models.gazebosim.org/]. This may take a few seconds.
+[spawn_entity.py-3] [ERROR] [1781404947.658822436] [spawn_entity]: Service /spawn_entity unavailable. Was Gazebo started with GazeboRosFactory?
+[spawn_entity.py-3] [ERROR] [1781404947.659066030] [spawn_entity]: Spawn service failed. Exiting.
+[ERROR] [spawn_entity.py-3]: process has died [pid 6344, exit code 1, cmd '/opt/ros/humble/lib/gazebo_ros/spawn_entity.py -topic robot_description -entity racecar -x 0.0 -y -15.0 -z 0.02 -Y 1.57079632679 --ros-args'].
+[rviz2-10] [INFO] [1781404947.994300577] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-10] D3D12: Removing Device.
+[rviz2-10] [INFO] [1781404948.768905238] [rviz2]: Stereo is NOT SUPPORTED
+[ERROR] [rviz2-10]: process has died [pid 6358, exit code -11, cmd '/opt/ros/humble/lib/rviz2/rviz2 -d /home/furina/ros_ws/percep_node+track/install/right_angle_stack/share/right_angle_stack/rviz/right_angle.rviz --ros-args -r __node:=rviz2'].

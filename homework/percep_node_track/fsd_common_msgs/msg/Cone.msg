@@ -1,0 +1,5 @@
+# One cone observation or map landmark.
+geometry_msgs/Point position
+string color
+float64 pose_confidence
+float64 color_confidence

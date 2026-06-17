@@ -1,0 +1,662 @@
+[INFO] [launch]: All log files can be found below /home/tumaini/.ros/log/2026-06-15-19-29-27-577090-tumaini-ADOL-I403FA-5771
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [launch.user]: right_angle_harmonic.launch.py starts the full Gazebo Sim model with camera and gpu_lidar. On WSL, use right_angle_wsl_headless.launch.py first if OGRE2 crashes or RViz reports frame [world] missing.
+[INFO] [gazebo-1]: process started with pid [5775]
+[INFO] [create-2]: process started with pid [5776]
+[INFO] [parameter_bridge-3]: process started with pid [5778]
+[INFO] [parameter_bridge-4]: process started with pid [5779]
+[INFO] [robot_state_publisher-5]: process started with pid [5780]
+[INFO] [localization_fusion-6]: process started with pid [5781]
+[INFO] [track_perception-7]: process started with pid [5782]
+[INFO] [cone_mapper-8]: process started with pid [5783]
+[INFO] [right_angle_planner-9]: process started with pid [5784]
+[INFO] [pure_pursuit_controller-10]: process started with pid [5785]
+[parameter_bridge-4] [INFO] [1781522968.339616471] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781522968.353975382] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/wheel_odom (gz.msgs.Odometry) -> /sensors/wheel_odom (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781522968.361233632] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/imu/data_raw (gz.msgs.IMU) -> /sensors/imu/data_raw (sensor_msgs/msg/Imu)] (Lazy 0)
+[robot_state_publisher-5] [WARN] [1781522968.364574317] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.
+[robot_state_publisher-5] [INFO] [1781522968.364748766] [robot_state_publisher]: Robot initialized
+[parameter_bridge-4] [INFO] [1781522968.369205114] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/gps/fix (gz.msgs.NavSat) -> /sensors/gps/fix (sensor_msgs/msg/NavSatFix)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781522968.371231463] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/magnetic_field (gz.msgs.Magnetometer) -> /sensors/magnetic_field (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781522968.375357968] [ros_gz_clock_bridge]: Creating GZ->ROS Bridge: [/world/right_angle_world/clock (gz.msgs.Clock) -> /world/right_angle_world/clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781522968.376320658] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/lidar/scan (gz.msgs.LaserScan) -> /sensors/lidar/scan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781522968.377813498] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/image_raw (gz.msgs.Image) -> /sensors/camera/image_raw (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781522968.379887610] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/camera_info (gz.msgs.CameraInfo) -> /sensors/camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[pure_pursuit_controller-10] [INFO] [1781522968.880020315] [pure_pursuit_controller]: Pure pursuit controller started.
+[track_perception-7] [INFO] [1781522968.964465474] [track_perception]: Track perception publishing 23 known cones in base_link frame.
+[right_angle_planner-9] [INFO] [1781522969.005437058] [right_angle_planner]: Right-angle centerline planner started.
+[cone_mapper-8] [INFO] [1781522969.010459583] [cone_mapper]: Cone mapper started. Local perception is transformed into the world ENU frame.
+[localization_fusion-6] [INFO] [1781522969.126556597] [localization_fusion]: Localization fusion started: GPS + wheel odom + IMU gyro + magnetometer heading.
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[create-2] [INFO] [1781522969.942787932] [spawn_right_angle_car]: Entity creation successful.
+[gazebo-1] [Dbg] [gz.cc:166] Subscribing to [/gazebo/starting_world].
+[gazebo-1] [Dbg] [gz.cc:168] Waiting for a world to be set from the GUI...
+[gazebo-1] [Msg] Received world [/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_track/share/right_angle_track/worlds/right_angle_harmonic.sdf] from the GUI.
+[gazebo-1] [Dbg] [gz.cc:172] Unsubscribing from [/gazebo/starting_world].
+[gazebo-1] [Msg] Gazebo Sim Server v8.11.0
+[gazebo-1] [Msg] Loading SDF world file[/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_track/share/right_angle_track/worlds/right_angle_harmonic.sdf].
+[gazebo-1] [Msg] Serving entity system service on [/entity/system/add]
+[gazebo-1] [Dbg] [Physics.cc:906] Loaded [gz::physics::dartsim::Plugin] from library [/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics-dartsim-plugin.so]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple] (async)
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple/blocking] (blocking)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove] (async)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector/blocking] (blocking)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config] (async)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config/blocking] (blocking)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics] (async)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics/blocking] (blocking)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates] (async)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates/blocking] (blocking)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision] (async)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision/blocking] (blocking)
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision] (async)
+[INFO] [create-2]: process has finished cleanly [pid 5776]
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision/blocking[Msg] Gazebo Sim GUI    v8.11.0
+[gazebo-1] [Msg] Detected Wayland. Setting Qt to use the xcb plugin: 'QT_QPA_PLATFORM=xcb'.
+[gazebo-1] [Dbg] [Gui.cc:275] Waiting for subscribers to [/gazebo/starting_world]...
+[gazebo-1] [Dbg] [Application.cc:96] Initializing application.
+[gazebo-1] [Dbg] [Application.cc:170] Qt using OpenGL graphics interface
+[gazebo-1] [GUI] [Dbg] [Application.cc:657] Create main window
+[gazebo-1] [GUI] [Dbg] [PathManager.cc:68] Requesting resource paths through [/gazebo/resource_paths/get]
+[gazebo-1] [GUI] [Dbg] [Gui.cc:355] GUI requesting list of world names. The server may be busy downloading resources. Please be patient.
+[gazebo-1] [GUI] [Dbg] [PathManager.cc:57] Received resource paths.
+[gazebo-1] [GUI] [Dbg] [Gui.cc:413] Requesting GUI from [/world/right_angle_world/gui/info]...
+[gazebo-1] [GUI] [Dbg] [GuiRunner.cc:149] Requesting initial state from [/world/right_angle_world/state]...
+[gazebo-1] [GUI] [Msg] Loading config [/home/tumaini/.gz/sim/8/gui.config]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [MinimalScene]
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:802] Creating gz-rendering interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:802] Creating gz-rendering interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:986] Creating render thread interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:802] Creating gz-rendering interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:986] Creating render thread interface for OpenGL
+[gazebo-1] [GUI] [Msg] Added plugin [3D View] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [MinimalScene] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libMinimalScene.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [EntityContextMenuPlugin]
+[gazebo-1] [GUI] [Msg] Currently tracking topic on [/gui/currently_tracked]
+[gazebo-1] [GUI] [Msg] Added plugin [Entity Context Menu] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [EntityContextMenuPlugin] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libEntityContextMenuPlugin.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [GzSceneManager]
+[gazebo-1] [GUI] [Msg] Added plugin [Scene Manager] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [GzSceneManager] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libGzSceneManager.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [InteractiveViewControl]
+[gazebo-1] [GUI] [Msg] Camera view controller topic advertised on [/gui/camera/view_control]
+[gazebo-1] [GUI] [Msg] Camera reference visual topic advertised on [/gui/camera/view_control/reference_visual]
+[gazebo-1] [GUI] [Msg] Camera view control sensitivity advertised on [/gui/camera/view_control/sensitivity]
+[gazebo-1] [GUI] [Msg] Added plugin [Interactive view control] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [InteractiveViewControl] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libInteractiveViewControl.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [CameraTracking]
+[gazebo-1] [GUI] [Msg] Added plugin [Camera tracking] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [CameraTracking] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libCameraTracking.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [MarkerManager]
+[gazebo-1] [GUI] [Msg] Listening to stats on [/world/right_angle_world/stats]
+[gazebo-1] [GUI] [Msg] Added plugin [Marker Manager] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [MarkerManager] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libMarkerManager.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [SelectEntities]
+[gazebo-1] [GUI] [Msg] Added plugin [Select entities] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [SelectEntities] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libSelectEntities.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [Spawn]
+[gazebo-1] [GUI] [Msg] Added plugin [Spawn] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [Spawn] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libSpawn.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [VisualizationCapabilities]
+[gazebo-1] [GUI] [Msg] View as transparent service on [/gui/view/transparent]
+[gazebo-1] [GUI] [Msg] View as wireframes service on [/gui/view/wireframes]
+[gazebo-1] [GUI] [Msg] View center of mass service on [/gui/view/com]
+[gazebo-1] [GUI] [Msg] View inertia service on [/gui/view/inertia]
+[gazebo-1] [GUI] [Msg] View collisions service on [/gui/view/collisions]
+[gazebo-1] [GUI] [Msg] View joints service on [/gui/view/joints]
+[gazebo-1] [GUI] [Msg] View frames service on [/gui/view/frames]
+[gazebo-1] [GUI] [Msg] Added plugin [Visualization capabilities] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [VisualizationCapabilities] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libVisualizationCapabilities.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [WorldControl]
+[gazebo-1] [GUI] [Msg] Using world control service [/world/right_angle_world/control]
+[gazebo-1] [GUI] [Msg] Listening to stats on [/world/right_angle_world/statsm] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip/blocking] (blocking)
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+[gazebo-1] [Dbg] [Sensors.cc:697] Configuring Sensors system
+[gazebo-1] [Dbg] [Sensors.cc:557] SensorsPrivate::Run
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Sensors] for entity [1]
+[gazebo-1] [Dbg] [Sensors.cc:532] SensorsPrivate::RenderThread started
+[gazebo-1] [Dbg] [Sensors.cc:337] Waiting for init
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Imu] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::NavSat] for entity [1]
+[gazebo-1] [Dbg] [Magnetometer.cc:261] Magnetometer: using param [use_units_gauss: 1].
+[gazebo-1] [Dbg] [Magnetometer.cc:269] Magnetometer: using param [use_earth_frame_ned: 1].
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Magnetometer] for entity [1]
+[gazebo-1] [Msg] Loaded level [default]
+[gazebo-1] [Msg] Serving world controls on [/world/right_angle_world/control], [/world/right_angle_world/control/state] and [/world/right_angle_world/playback/control]
+[gazebo-1] [Msg] Serving GUI information on [/world/right_angle_world/gui/info]
+[gazebo-1] [Msg] World [right_angle_world] initialized with [default_physics] physics profile.
+[gazebo-1] [Msg] Serving world SDF generation service on [/world/right_angle_world/generate_world_sdf]
+[gazebo-1] [Msg] Serving world names on [/gazebo/worlds]
+[gazebo-1] [Msg] Resource path add service on [/gazebo/resource_paths/add].
+[gazebo-1] [Msg] Resource path get service on [/gazebo/resource_paths/get].
+[gazebo-1] [Msg] Resource path resolve service on [/gazebo/resource_paths/resolve].
+[gazebo-1] [Msg] Resource paths published on [/gazebo/resource_paths].
+[gazebo-1] [Msg] Server control service on [/server_control].
+[gazebo-1] [Msg] Found no publishers on /stats, adding root stats topic
+[gazebo-1] [Msg] Found no publishers on /clock, adding root clock topic
+[gazebo-1] [Dbg] [SimulationRunner.cc:551] Creating PostUpdate worker threads: 6
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (0)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (3)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (4)
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="camera_link"]/sensor[@name="front_camera"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L332]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="lidar_link"]/sensor[@name="front_lidar"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L380]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="gps_link"]/sensor[@name="gps_sensor"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L411]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="imu_link"]/sensor[@name="imu_sensor"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L438]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="magnetometer_link"]/sensor[@name="magnetometer_sensor"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L491]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] [Msg] DiffDrive subscribing to twist messages on [/cmd_vel]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::DiffDrive] for entity [103]
+[gazebo-1] [Dbg] [UserCommands.cc:1094] Created entity [103] named [racecar]
+[gazebo-1] [Dbg] [SimulationFeatures.cc:90] Simulation timestep set to: 0.002
+[gazebo-1] [Dbg] [Sensors.cc:953] Initialization needed
+[gazebo-1] [Dbg] [Sensors.cc:349] Initializing render context
+[gazebo-1] [Msg] Loading plugin [gz-rendering-ogre2]
+[gazebo-1] [Dbg] [ImuSensor.cc:150] IMU data for [racecar::imu_link::imu_sensor] advertised on [/sensors/imu/data_raw]
+[gazebo-1] [Dbg] [MagnetometerSensor.cc:117] Magnetometer data for [racecar::magnetometer_link::magnetometer_sensor] advertised on [/sensors/magnetic_field]
+[gazebo-1] [Msg] Serving scene information on [/world/right_angle_world/scene/info]
+[gazebo-1] [Msg] Serving graph information on [/world/right_angle_world/scene/graph]
+[gazebo-1] [Msg] Serving full state on [/world/right_angle_world/state]
+[gazebo-1] [Msg] Serving full state (async) on [/world/right_angle_world/state_async]
+[gazebo-1] [Msg] Publishing scene information on [/world/right_angle_world/scene/info]
+[gazebo-1] [Msg] Publishing entity deletions on [/world/right_angle_world/scene/deletion]
+[gazebo-1] [Msg] Publishing state changes on [/world/right_angle_world/state]
+[gazebo-1] [Msg] Publishing pose messages on [/world/right_angle_world/pose/info]
+[gazebo-1] [Msg] Publishing dynamic pose messages on [/world/right_angle_world/dynamic_pose/info]
+[gazebo-1] [Dbg] [EntityComponentManager.cc:1656] Updated state thread iterators: 8 threads processing around 18 entities each.
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (3)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (Exiting postupdate worker thread ([Dbg] [SimulationRunner.cc:578] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread ([Dbg] [SimulationRunner.cc:578] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (4)
+[gazebo-1] 1)
+[gazebo-1] 0)
+[gazebo-1] Exiting postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:551] Creating PostUpdate worker threads: 7
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (0)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (3)
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file::/ComponentInspector/ComponentInspector.qml:251:3: QML Dialog: Binding loop detected for property "implicitHeight"
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (4)]
+[gazebo-1] [GUI] [Dbg] [WorldControl.cc:237] Using an event to share WorldControl msgs with the server
+[gazebo-1] [GUI] [Msg] Added plugin [World control] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [WorldControl] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libWorldControl.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [WorldStats]
+[gazebo-1] [GUI] [Msg] Listening to stats on [/world/right_angle_world/stats]
+[gazebo-1] [GUI] [Msg] Added plugin [World stats] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [WorldStats] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libWorldStats.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [Shapes]
+[gazebo-1] [GUI] [Msg] Added plugin [Shapes] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [Shapes] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libShapes.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [Lights]
+[gazebo-1] [GUI] [Msg] Added plugin [Lights] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [Lights] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libLights.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [TransformControl]
+[gazebo-1] [GUI] [Msg] Added plugin [Transform control] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [TransformControl] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libTransformControl.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [Screenshot]
+[gazebo-1] [GUI] [Msg] Screenshot service on [/gui/screenshot]
+[gazebo-1] [GUI] [Msg] Added plugin [Screenshot] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [Screenshot] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libScreenshot.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [CopyPaste]
+[gazebo-1] [GUI] [Msg] Added plugin [Copy/Paste] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [CopyPaste] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libCopyPaste.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [ComponentInspector]
+[gazebo-1] [GUI] [Msg] Added plugin [Component inspector] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [ComponentInspector] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libComponentInspector.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [EntityTree]
+[gazebo-1] [Wrn] [Ogre2Camera.cc:423] Ogre2Camera::SetVisibilityMask: Mask bits c0000000 are set but will be ignored as they conflict with the reserved bits used internally by the ogre2 backend.
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[parameter_bridge-4] [INFO] [1781522971.270007290] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[gazebo-1] [GUI] [Msg] Currently tracking topic on [/gui/currently_tracked]
+[gazebo-1] [GUI] [Msg] Added plugin [Entity tree] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [EntityTree] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libEntityTree.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:398] Loading window config
+[gazebo-1] [GUI] [Msg] Using server control service [/server_control]
+[gazebo-1] [GUI] [Dbg] [Application.cc:671] Applying config
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="camera_link"]/sensor[@name="front_camera"]/frame_id:<data-string>:L359]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="lidar_link"]/sensor[@name="front_lidar"]/frame_id:<data-string>:L412]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="gps_link"]/sensor[@name="gps_sensor"]/frame_id:<data-string>:L438]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="imu_link"]/sensor[@name="imu_sensor"]/frame_id:<data-string>:L490]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="magnetometer_link"]/sensor[@name="magnetometer_sensor"]/frame_id:<data-string>:L520]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file::/WorldStats/WorldStats.qml:53:3: QML RowLayout: Binding loop detected for property "x"
+[gazebo-1] [Wrn] [Physics.cc:2790] Failed to find link [104].
+[gazebo-1] [Wrn] [Physics.cc:2790] Failed to find link [107].
+[gazebo-1] [Wrn] [Physics.cc:2790] Failed to find link [110].
+[gazebo-1] [Wrn] [Physics.cc:2790] Failed to find link [113].
+[gazebo-1] [Wrn] [Physics.cc:2790] Failed to find link [116].
+[gazebo-1] [Wrn] [Physics.cc:2790] Failed to find link [119].
+[gazebo-1] [Wrn] [Physics.cc:2790] Failed to find link [122].
+[gazebo-1] [Wrn] [Physics.cc:2790] Failed to find link [125].
+[gazebo-1] [Wrn] [Physics.cc:2790] Failed to find link [127].
+[gazebo-1] [Wrn] [Physics.cc:2790] Failed to find link [129].
+[gazebo-1] [Wrn] [Physics.cc:2861] Failed to find joint [131].
+[gazebo-1] [Wrn] [Physics.cc:2861] Failed to find joint [132].
+[gazebo-1] [Wrn] [Physics.cc:2861] Failed to find joint [133].
+[gazebo-1] [Wrn] [Physics.cc:2861] Failed to find joint [134].
+[gazebo-1] [Wrn] [Physics.cc:2861] Failed to find joint [135].
+[gazebo-1] [Wrn] [Physics.cc:2861] Failed to find joint [136].
+[gazebo-1] [Wrn] [Physics.cc:2861] Failed to find joint [137].
+[gazebo-1] [Wrn] [Physics.cc:2861] Failed to find joint [138].
+[gazebo-1] [Wrn] [Physics.cc:2861] Failed to find joint [139].
+[gazebo-1] [0m
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (5)
+[gazebo-1] [Dbg] [RenderUtil.cc:2646] Create scene [scene]
+[gazebo-1] [Dbg] [Sensors.cc:391] Rendering Thread initialized
+[gazebo-1] [Dbg] [Sensors.cc:391] [Dbg] [Sensors.cc:953] Initialization needed
+[gazebo-1] [Dbg] [CameraSensor.cc:405] Camera images for [racecar::camera_link::front_camera] advertised on [/sensors/camera/image_raw]
+[gazebo-1] [Dbg] [CameraSensor.cc:695] Camera info for [racecar::camera_link::front_camera] advertised on [/sensors/camera/camera_info]
+[gazebo-1] [Dbg] [Lidar.cc:139] Laser scans for [racecar::lidar_link::front_lidar] advertised on [/sensors/lidar/scan]
+[gazebo-1] [Dbg] [GpuLidarSensor.cc:164] Lidar points for [racecar::lidar_link::front_lidar] advertised on [/sensors/lidar/scan/points]
+[gazebo-1] [Dbg] [CameraSensor.cc:504] Enabling camera sensor: 'racecar::camera_link::front_camera' data generation.
+[gazebo-1] [Dbg] [SimulationRunner.cc:307] Rewinding simulation back to initial time.
+[gazebo-1] [Dbg] [Physics.cc:971] Resetting Physics
+[gazebo-1] [Dbg] [Sensors.cc:876] Resetting Sensors
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple] (async)
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple/blocking] (blocking)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove] (async)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector/blocking] (blocking)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config] (async)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config/blocking] (blocking)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics] (async)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics/blocking] (blocking)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates] (async)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates/blocking] (blocking)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision] (async)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision/blocking] (blocking)
+[gazebo-1] [Msg] Disable collision service on [/world/ri[GUI] [Dbg] [MinimalScene.cc:802] Creating gz-rendering interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:986] Creating render thread interface for OpenGL
+[gazebo-1] [GUI] [Msg] Loading plugin [gz-rendering-ogre2]
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:749] Create scene [scene]
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:1037] Creating texture node render interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [TransformControl.cc:453] TransformControl plugin is using camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Dbg] [Spawn.cc:308] Spawn plugin is using camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Dbg] [SelectEntities.cc:452] SelectEntities plugin is using camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Dbg] [MarkerManager.cc:169] Advertise /marker/list service.
+[gazebo-1] [GUI] [Dbg] [MarkerManager.cc:179] Advertise /marker/list.
+[gazebo-1] [GUI] [Dbg] [MarkerManager.cc:189] Advertise /marker_array.
+[gazebo-1] [GUI] [Dbg] [CameraTracking.cc:205] CameraTrackingPrivate plugin is moving camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Msg] Move to service on [/gui/move_to]
+[gazebo-1] [GUI] [Msg] Follow service on [/gui/follow] (deprecated)
+[gazebo-1] [GUI] [Msg] Tracking topic on [/gui/track]
+[gazebo-1] [GUI] [Msg] Tracking status topic on [/gui/currently_tracked]
+[gazebo-1] [GUI] [Msg] Move to pose service on [/gui/move_to/pose]
+[gazebo-1] [GUI] [Msg] Camera pose topic advertised on [/gui/camera/pose]
+[gazebo-1] [GUI] [Msg] Follow offset service on [/gui/follow/offset] (deprecated)
+[gazebo-1] [GUI] [Dbg] [InteractiveViewControl.cc:176] InteractiveViewControl plugin is moving camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Dbg] [EntityContextMenuPlugin.cc:79] Entity context menu plugin is using camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Dbg] [Gui.cc:535] Shutting down gz-sim-gui
+[gazebo-1] [GUI] [Dbg] [Application.cc:237] Terminating application.
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:841] Destroy scene [scene]
+[gazebo-1] ght_angle_world/disable_collision] (async)
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip/blocking] (blocking)
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Imu] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::NavSat] for entity [1]
+[gazebo-1] [Dbg] [Magnetometer.cc:261] Magnetometer: using param [use_units_gauss: 1].
+[gazebo-1] [Dbg] [Magnetometer.cc:269] Magnetometer: using param [use_earth_frame_ned: 1].
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Magnetometer] for entity [1]
+[gazebo-1] [Msg] DiffDrive subscribing to twist messages on [/cmd_vel]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::DiffDrive] for entity [103]
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (5)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] 
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] 
+[gazebo-1] 
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] [Dbg] [SimulationRunner.cc:578] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (0Exiting postupdate worker thread (440Exiting postupdate worker thread ()
+[gazebo-1] 0
+[gazebo-1] 
+[gazebo-1] Exiting postupdate worker thread (2)
+[gazebo-1] 1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:551] Creating PostUpdate worker threads: 6
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (0)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (3)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (4)
+[gazebo-1] [Dbg] [SignalHandler.cc:142] Received signal[2].
+[gazebo-1] [Dbg] [ServerPrivate.cc:122] Server received signal[2]
+[gazebo-1] [Dbg] [Sensors.cc:565] SensorsPrivate::Stop
+[gazebo-1] [Dbg] [Sensors.cc:551] SensorsPrivate::RenderThread stopped
+[gazebo-1] [Dbg] [gz.cc:434] Shutting down gz-sim-server
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (4)
+[gazebo-1] Exiting postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (0)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (Exiting postupdate worker thread (3)
+[gazebo-1] Exiting postupdate worker thread (1)
+[gazebo-1] [Dbg] [Sensors.cc:565] SensorsPrivate::Stop
+[INFO] [gazebo-1]: process has finished cleanly [pid 5775]
+^C[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[robot_state_publisher-5] [INFO] [1781523071.893947730] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-4] [INFO] [1781523071.893950303] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-3] [INFO] [1781523071.894037153] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [parameter_bridge-3]: process has finished cleanly [pid 5778]
+[INFO] [parameter_bridge-4]: process has finished cleanly [pid 5779]
+[INFO] [robot_state_publisher-5]: process has finished cleanly [pid 5780]
+[INFO] [pure_pursuit_controller-10]: process has finished cleanly [pid 5785]
+[INFO] [track_perception-7]: process has finished cleanly [pid 5782]
+[INFO] [right_angle_planner-9]: process has finished cleanly [pid 5784]
+[INFO] [cone_mapper-8]: process has finished cleanly [pid 5783]
+[INFO] [localization_fusion-6]: process has finished cleanly [pid 5781]
+tumaini@tumaini-ADOL-I403FA:~/文档/SCUT_Racing_Tasks/homework/percep_node_track$ ros2 launch right_angle_stack right_angle_harmonic.launch.py   use_rviz:=false   gz_args:="-r -v 4 $(ros2 pkg prefix right_angle_track)/share/right_angle_track/worlds/right_angle_harmonic.sdf"
+[INFO] [launch]: All log files can be found below /home/tumaini/.ros/log/2026-06-15-19-31-14-970800-tumaini-ADOL-I403FA-6471
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [launch.user]: right_angle_harmonic.launch.py starts the full Gazebo Sim model with camera and gpu_lidar. On WSL, use right_angle_wsl_headless.launch.py first if OGRE2 crashes or RViz reports frame [world] missing.
+[INFO] [gazebo-1]: process started with pid [6475]
+[INFO] [create-2]: process started with pid [6476]
+[INFO] [parameter_bridge-3]: process started with pid [6478]
+[INFO] [parameter_bridge-4]: process started with pid [6479]
+[INFO] [robot_state_publisher-5]: process started with pid [6480]
+[INFO] [localization_fusion-6]: process started with pid [6481]
+[INFO] [track_perception-7]: process started with pid [6482]
+[INFO] [cone_mapper-8]: process started with pid [6483]
+[INFO] [right_angle_planner-9]: process started with pid [6484]
+[INFO] [pure_pursuit_controller-10]: process started with pid [6485]
+[robot_state_publisher-5] [WARN] [1781523075.458199683] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.
+[robot_state_publisher-5] [INFO] [1781523075.458843503] [robot_state_publisher]: Robot initialized
+[parameter_bridge-3] [INFO] [1781523075.508438920] [ros_gz_clock_bridge]: Creating GZ->ROS Bridge: [/world/right_angle_world/clock (gz.msgs.Clock) -> /world/right_angle_world/clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781523075.527028679] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781523075.532223183] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/wheel_odom (gz.msgs.Odometry) -> /sensors/wheel_odom (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781523075.536225143] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/imu/data_raw (gz.msgs.IMU) -> /sensors/imu/data_raw (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781523075.541294597] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/gps/fix (gz.msgs.NavSat) -> /sensors/gps/fix (sensor_msgs/msg/NavSatFix)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781523075.543832299] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/magnetic_field (gz.msgs.Magnetometer) -> /sensors/magnetic_field (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781523075.545906488] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/lidar/scan (gz.msgs.LaserScan) -> /sensors/lidar/scan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781523075.547895251] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/image_raw (gz.msgs.Image) -> /sensors/camera/image_raw (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781523075.549619305] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/camera_info (gz.msgs.CameraInfo) -> /sensors/camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[track_perception-7] [INFO] [1781523076.213191597] [track_perception]: Track perception publishing 23 known cones in base_link frame.
+[pure_pursuit_controller-10] [INFO] [1781523076.232958582] [pure_pursuit_controller]: Pure pursuit controller started.
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[localization_fusion-6] [INFO] [1781523076.308124851] [localization_fusion]: Localization fusion started: GPS + wheel odom + IMU gyro + magnetometer heading.
+[cone_mapper-8] [INFO] [1781523076.367031209] [cone_mapper]: Cone mapper started. Local perception is transformed into the world ENU frame.
+[right_angle_planner-9] [INFO] [1781523076.393488375] [right_angle_planner]: Right-angle centerline planner started.
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [Dbg] [gz.cc:166] Subscribing to [/gazebo/starting_world].
+[gazebo-1] [Dbg] [gz.cc:168] Waiting for a world to be set from the GUI...
+[gazebo-1] [Msg] Received world [/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_track/share/right_angle_track/worlds/right_angle_harmonic.sdf] from the GUI.
+[gazebo-1] [Dbg] [gz.cc:172] Unsubscribing from [/gazebo/starting_world].
+[gazebo-1] [Msg] Gazebo Sim Server v8.11.0
+[gazebo-1] [Msg] Loading SDF world file[/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_track/share/right_angle_track/worlds/right_angle_harmonic.sdf].
+[gazebo-1] [Msg] Serving entity system service on [/entity/system/add]
+[gazebo-1] [Dbg] [Physics.cc:906] Loaded [gz::physics::dartsim::Plugin] from library [/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics-dartsim-plugin.so]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple] (async)
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple/blocking] (blocking)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove] (async)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector/blocking] (blocking)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config] (async)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config/blocking] (blocking)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics] (async)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics/blocking] (blocking)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates] (async)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates/blocking] (blocking)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision] (async)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision/blocking] (blocking)
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision] (async)
+[create-2] [INFO] [1781523077.000264403] [spawn_right_angle_car]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 6476]
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision/blocking[Msg] Gazebo Sim GUI    v8.11.0
+[gazebo-1] [Msg] Detected Wayland. Setting Qt to use the xcb plugin: 'QT_QPA_PLATFORM=xcb'.
+[gazebo-1] [Dbg] [Gui.cc:275] Waiting for subscribers to [/gazebo/starting_world]...
+[gazebo-1] [Dbg] [Application.cc:96] Initializing application.
+[gazebo-1] [Dbg] [Application.cc:170] Qt using OpenGL graphics interface
+[gazebo-1] [GUI] [Dbg] [Application.cc:657] Create main window
+[gazebo-1] [GUI] [Dbg] [PathManager.cc:68] Requesting resource paths through [/gazebo/resource_paths/get]
+[gazebo-1] [GUI] [Dbg] [Gui.cc:355] GUI requesting list of world names. The server may be busy downloading resources. Please be patient.
+[gazebo-1] [GUI] [Dbg] [PathManager.cc:57] Received resource paths.
+[gazebo-1] [GUI] [Dbg] [Gui.cc:413] Requesting GUI from [/world/right_angle_world/gui/info]...
+[gazebo-1] [GUI] [Dbg] [GuiRunner.cc:149] Requesting initial state from [/world/right_angle_world/state]...
+[gazebo-1] [GUI] [Msg] Loading config [/home/tumaini/.gz/sim/8/gui.config]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [MinimalScene]
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:802] Creating gz-rendering interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:802] Creating gz-rendering interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:986] Creating render thread interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:802] Creating gz-rendering interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:986] Creating render thread interface for OpenGL
+[gazebo-1] [GUI] [Msg] Added plugin [3D View] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [MinimalScene] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libMinimalScene.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [EntityContextMenuPlugin]
+[gazebo-1] [GUI] [Msg] Currently tracking topic on [/gui/currently_tracked]
+[gazebo-1] [GUI] [Msg] Added plugin [Entity Context Menu] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [EntityContextMenuPlugin] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libEntityContextMenuPlugin.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [GzSceneManager]
+[gazebo-1] [GUI] [Msg] Added plugin [Scene Manager] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [GzSceneManager] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libGzSceneManager.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [InteractiveViewControl]
+[gazebo-1] [GUI] [Msg] Camera view controller topic advertised on [/gui/camera/view_control]
+[gazebo-1] [GUI] [Msg] Camera reference visual topic advertised on [/gui/camera/view_control/reference_visual]
+[gazebo-1] [GUI] [Msg] Camera view control sensitivity advertised on [/gui/camera/view_control/sensitivity]
+[gazebo-1] [GUI] [Msg] Added plugin [Interactive view control] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [InteractiveViewControl] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libInteractiveViewControl.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [CameraTracking]
+[gazebo-1] [GUI] [Msg] Added plugin [Camera tracking] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [CameraTracking] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libCameraTracking.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [MarkerManager]
+[gazebo-1] [GUI] [Msg] Listening to stats on [/world/right_angle_world/stats]
+[gazebo-1] [GUI] [Msg] Added plugin [Marker Manager] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [MarkerManager] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libMarkerManager.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [SelectEntities]
+[gazebo-1] [GUI] [Msg] Added plugin [Select entities] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [SelectEntities] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libSelectEntities.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [Spawn]
+[gazebo-1] [GUI] [Msg] Added plugin [Spawn] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [Spawn] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libSpawn.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [VisualizationCapabilities]
+[gazebo-1] [GUI] [Msg] View as transparent service on [/gui/view/transparent]
+[gazebo-1] [GUI] [Msg] View as wireframes service on [/gui/view/wireframes]
+[gazebo-1] [GUI] [Msg] View center of mass service on [/gui/view/com]
+[gazebo-1] [GUI] [Msg] View inertia service on [/gui/view/inertia]
+[gazebo-1] [GUI] [Msg] View collisions service on [/gui/view/collisions]
+[gazebo-1] [GUI] [Msg] View joints service on [/gui/view/joints]
+[gazebo-1] [GUI] [Msg] View frames service on [/gui/view/frames]
+[gazebo-1] [GUI] [Msg] Added plugin [Visualization capabilities] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [VisualizationCapabilities] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libVisualizationCapabilities.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [WorldControl]
+[gazebo-1] [GUI] [Msg] Using world control service [/world/right_angle_world/control]
+[gazebo-1] [GUI] [Msg] Listening to stats on [/world/right_angle_world/statsm] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip/blocking] (blocking)
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+[gazebo-1] [Dbg] [Sensors.cc:697] Configuring Sensors system
+[gazebo-1] [Dbg] [Sensors.cc:557] SensorsPrivate::Run
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Sensors] for entity [1]
+[gazebo-1] [Dbg] [Sensors.cc:532] SensorsPrivate::RenderThread started
+[gazebo-1] [Dbg] [Sensors.cc:337] Waiting for init
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Imu] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::NavSat] for entity [1]
+[gazebo-1] [Dbg] [Magnetometer.cc:261] Magnetometer: using param [use_units_gauss: 1].
+[gazebo-1] [Dbg] [Magnetometer.cc:269] Magnetometer: using param [use_earth_frame_ned: 1].
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Magnetometer] for entity [1]
+[gazebo-1] [Msg] Loaded level [default]
+[gazebo-1] [Msg] Serving world controls on [/world/right_angle_world/control], [/world/right_angle_world/control/state] and [/world/right_angle_world/playback/control]
+[gazebo-1] [Msg] Serving GUI information on [/world/right_angle_world/gui/info]
+[gazebo-1] [Msg] World [right_angle_world] initialized with [default_physics] physics profile.
+[gazebo-1] [Msg] Serving world SDF generation service on [/world/right_angle_world/generate_world_sdf]
+[gazebo-1] [Msg] Serving world names on [/gazebo/worlds]
+[gazebo-1] [Msg] Resource path add service on [/gazebo/resource_paths/add].
+[gazebo-1] [Msg] Resource path get service on [/gazebo/resource_paths/get].
+[gazebo-1] [Msg] Resource path resolve service on [/gazebo/resource_paths/resolve].
+[gazebo-1] [Msg] Resource paths published on [/gazebo/resource_paths].
+[gazebo-1] [Msg] Server control service on [/server_control].
+[gazebo-1] [Msg] Found no publishers on /stats, adding root stats topic
+[gazebo-1] [Msg] Found no publishers on /clock, adding root clock topic
+[gazebo-1] [Dbg] [SimulationRunner.cc:551] Creating PostUpdate worker threads: 6
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (0)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (3)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (4)
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="camera_link"]/sensor[@name="front_camera"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L332]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="lidar_link"]/sensor[@name="front_lidar"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L380]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="gps_link"]/sensor[@name="gps_sensor"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L411]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="imu_link"]/sensor[@name="imu_sensor"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L438]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="magnetometer_link"]/sensor[@name="magnetometer_sensor"]/frame_id:/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_stack/share/right_angle_stack/models/right_angle_car_harmonic/model.sdf:L491]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] [Msg] DiffDrive subscribing to twist messages on [/cmd_vel]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::DiffDrive] for entity [103]
+[gazebo-1] [Dbg] [UserCommands.cc:1094] Created entity [103] named [racecar]
+[gazebo-1] [Dbg] [SimulationFeatures.cc:90] Simulation timestep set to: 0.002
+[gazebo-1] [Dbg] [Sensors.cc:953] Initialization needed
+[gazebo-1] [Dbg] [Sensors.cc:349] Initializing render context
+[gazebo-1] [Msg] Loading plugin [gz-rendering-ogre2]
+[gazebo-1] [Dbg] [ImuSensor.cc:150] IMU data for [racecar::imu_link::imu_sensor] advertised on [/sensors/imu/data_raw]
+[gazebo-1] [Dbg] [MagnetometerSensor.cc:117] Magnetometer data for [racecar::magnetometer_link::magnetometer_sensor] advertised on [/sensors/magnetic_field]
+[gazebo-1] [Msg] Serving scene information on [/world/right_angle_world/scene/info]
+[gazebo-1] [Msg] Serving graph information on [/world/right_angle_world/scene/graph]
+[gazebo-1] [Msg] Serving full state on [/world/right_angle_world/state]
+[gazebo-1] [Msg] Serving full state (async) on [/world/right_angle_world/state_async]
+[gazebo-1] [Msg] Publishing scene information on [/world/right_angle_world/scene/info]
+[gazebo-1] [Msg] Publishing entity deletions on [/world/right_angle_world/scene/deletion]
+[gazebo-1] [Msg] Publishing state changes on [/world/right_angle_world/state]
+[gazebo-1] [Msg] Publishing pose messages on [/world/right_angle_world/pose/info]
+[gazebo-1] [Msg] Publishing dynamic pose messages on [/world/right_angle_world/dynamic_pose/info]
+[gazebo-1] [Dbg] [EntityComponentManager.cc:1656] Updated state thread iterators: 8 threads processing around 18 entities each.
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (2)[Dbg] [SimulationRunner.cc:578] [Dbg] [SimulationRunner.cc:578] 
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (0)
+[gazebo-1] 
+[gazebo-1] Exiting postupdate worker thread (1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (3)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (4)
+[gazebo-1] [Dbg] [SimulationRunner.cc:551] Creating PostUpdate worker threads: 7
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (0)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (3)
+[gazebo-1] [Dbg] [SimulationRunner.cc:562] Creating postupdate worker thread (4)
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [Wrn] [Ogre2Camera.cc:423] Ogre2Camera::SetVisibilityMask: Mask bits c0000000 are set but will be ignored as they conflict with the reserved bits used internally by the ogre2 backend.
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file::/ComponentInspector/ComponentInspector.qml:251:3: QML Dialog: Binding loop detected for property "implicitHeight"
+[gazebo-1] [Dbg] [Simu[0m]
+[gazebo-1] [GUI] [Dbg] [WorldControl.cc:237] Using an event to share WorldControl msgs with the server
+[gazebo-1] [GUI] [Msg] Added plugin [World control] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [WorldControl] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libWorldControl.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [WorldStats]
+[gazebo-1] [GUI] [Msg] Listening to stats on [/world/right_angle_world/stats]
+[gazebo-1] [GUI] [Msg] Added plugin [World stats] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [WorldStats] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libWorldStats.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [Shapes]
+[gazebo-1] [GUI] [Msg] Added plugin [Shapes] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [Shapes] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libShapes.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [Lights]
+[gazebo-1] [GUI] [Msg] Added plugin [Lights] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [Lights] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libLights.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [TransformControl]
+[gazebo-1] [GUI] [Msg] Added plugin [Transform control] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [TransformControl] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libTransformControl.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [Screenshot]
+[gazebo-1] [GUI] [Msg] Screenshot service on [/gui/screenshot]
+[gazebo-1] [GUI] [Msg] Added plugin [Screenshot] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [Screenshot] from path [/opt/ros/jazzy/opt/gz_gui_vendor/lib/gz-gui-8/plugins/libScreenshot.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [CopyPaste]
+[gazebo-1] [GUI] [Msg] Added plugin [Copy/Paste] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [CopyPaste] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libCopyPaste.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [ComponentInspector]
+[gazebo-1] [GUI] [Msg] Added plugin [Component inspector] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [ComponentInspector] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libComponentInspector.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:528] Loading plugin [EntityTree]
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"
+[gazebo-1] [GUI] [Msg] Currently tracking topic on [/gui/currently_tracked]
+[gazebo-1] [GUI] [Msg] Added plugin [Entity tree] to main window
+[gazebo-1] [GUI] [Msg] Loaded plugin [EntityTree] from path [/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/gui/libEntityTree.so]
+[gazebo-1] [GUI] [Dbg] [Application.cc:398] Loading window config
+[gazebo-1] [GUI] [Msg] Using server control service [/server_control]
+[gazebo-1] [GUI] [Dbg] [Application.cc:671] Applying config
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="camera_link"]/sensor[@name="front_camera"]/frame_id:<data-string>:L359]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="lidar_link"]/sensor[@name="front_lidar"]/frame_id:<data-string>:L412]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="gps_link"]/sensor[@name="gps_sensor"]/frame_id:<data-string>:L438]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="imu_link"]/sensor[@name="imu_sensor"]/frame_id:<data-string>:L490]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] Warning [Utils.cc:132] [/sdf/model[@name="right_angle_car_harmonic"]/link[@name="magnetometer_link"]/sensor[@name="magnetometer_sensor"]/frame_id:<data-string>:L520]: XML Element[frame_id], child of element[sensor], not defined in SDF. Copying[frame_id] as children of [sensor].
+[gazebo-1] [GUI] [Wrn] [Application.cc:908] [QT] file::/WorldStats/WorldStats.qml:53:3: QML RowLayout: Binding loop detected for property "x"
+[parameter_bridge-4] [INFO] [1781523080.817717797] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:802] Creating gz-rendering interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:986] Creating render thread interface for OpenGL
+[gazebo-1] [GUI] [Msg] Loading plugin [gz-rendering-ogre2]
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:749] Create scene [scene]
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:1037] Creating texture node render interface for OpenGL
+[gazebo-1] [GUI] [Dbg] [TransformControl.cc:453] TransformControl plugin is using camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Dbg] [Spawn.cc:308] Spawn plugin is using camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Dbg] [SelectEntities.cc:452] SelectEntities plugin is using camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Dbg] [MarkerManager.cc:169] Advertise /marker/list service.
+[gazebo-1] [GUI] [Dbg] [MarkerManager.cc:179] Advertise /marker/list.
+[gazebo-1] [GUI] [Dbg] [MarkerManager.cc:189] Advertise /marker_array.
+[gazebo-1] [GUI] [Dbg] [CameraTracking.cc:205] CameraTrackingPrivate plugin is moving camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Msg] Move to service on [/gui/move_to]
+[gazebo-1] [GUI] [Msg] Follow service on [/gui/follow] (deprecated)
+[gazebo-1] [GUI] [Msg] Tracking topic on [/gui/track]
+[gazebo-1] [GUI] [Msg] Tracking status topic on [/gui/currently_tracked]
+[gazebo-1] [GUI] [Msg] Move to pose service on [/gui/move_to/pose]
+[gazebo-1] [GUI] [Msg] Camera pose topic advertised on [/gui/camera/pose]
+[gazebo-1] [GUI] [Msg] Follow offset service on [/gui/follow/offset] (deprecated)
+[gazebo-1] [GUI] [Dbg] [InteractiveViewControl.cc:176] InteractiveViewControl plugin is moving camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Dbg] [EntityContextMenuPlugin.cc:79] Entity context menu plugin is using camera [scene::Camera(65527)]
+[gazebo-1] [GUI] [Dbg] [Gui.cc:535] Shutting down gz-sim-gui
+[gazebo-1] [GUI] [Dbg] [Application.cc:237] Terminating application.
+[gazebo-1] [GUI] [Dbg] [MinimalScene.cc:841] Destroy scene [scene]
+[gazebo-1] lationRunner.cc:562] Creating postupdate worker thread (5)
+[gazebo-1] [Dbg] [RenderUtil.cc:2646] Create scene [scene]
+[gazebo-1] [Dbg] [Sensors.cc:391] Rendering Thread initialized
+[gazebo-1] Initialization needed
+[gazebo-1] [Dbg] [CameraSensor.cc:405] Camera images for [racecar::camera_link::front_camera] advertised on [/sensors/camera/image_raw]
+[gazebo-1] [Dbg] [CameraSensor.cc:695] Camera info for [racecar::camera_link::front_camera] advertised on [/sensors/camera/camera_info]
+[gazebo-1] [Dbg] [Lidar.cc:139] Laser scans for [racecar::lidar_link::front_lidar] advertised on [/sensors/lidar/scan]
+[gazebo-1] [Dbg] [GpuLidarSensor.cc:164] Lidar points for [racecar::lidar_link::front_lidar] advertised on [/sensors/lidar/scan/points]
+[gazebo-1] [Dbg] [CameraSensor.cc:504] Enabling camera sensor: 'racecar::camera_link::front_camera' data generation.
+[gazebo-1] [Dbg] [SignalHandler.cc:142] Received signal[2].
+[gazebo-1] [Dbg] [ServerPrivate.cc:122] Server received signal[2]
+[gazebo-1] [Dbg] [Sensors.cc:565] SensorsPrivate::Stop
+[gazebo-1] [Dbg] [Sensors.cc:551] SensorsPrivate::RenderThread stopped
+[gazebo-1] [Dbg] [gz.cc:434] Shutting down gz-sim-server
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (1)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (4)
+[gazebo-1] Exiting postupdate worker thread (2)
+[gazebo-1] [Dbg] [SimulationRunner.cc:578] [Dbg] [SimulationRunner.cc:578] Exiting postupdate worker thread (Exiting postupdate worker thread (Exiting postupdate worker thread (5)
+[gazebo-1] )
+[gazebo-1] 3)
+[gazebo-1] [Dbg] [Sensors.cc:565] SensorsPrivate::Stop
+[INFO] [gazebo-1]: process has finished cleanly [pid 6475]
+

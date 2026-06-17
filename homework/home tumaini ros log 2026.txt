@@ -1,0 +1,94 @@
+/home/tumaini/.ros/log/2026-06-15-14-52-32-498566-tumaini-ADOL-I403FA-38462
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [launch.user]: right_angle_harmonic.launch.py starts the full Gazebo Sim model with camera and gpu_lidar. On WSL, use right_angle_wsl_headless.launch.py first if OGRE2 crashes or RViz reports frame [world] missing.
+[INFO] [gazebo-1]: process started with pid [38491]
+[INFO] [create-2]: process started with pid [38492]
+[INFO] [parameter_bridge-3]: process started with pid [38494]
+[INFO] [parameter_bridge-4]: process started with pid [38495]
+[INFO] [robot_state_publisher-5]: process started with pid [38496]
+[INFO] [localization_fusion-6]: process started with pid [38497]
+[INFO] [track_perception-7]: process started with pid [38498]
+[INFO] [cone_mapper-8]: process started with pid [38499]
+[INFO] [right_angle_planner-9]: process started with pid [38500]
+[INFO] [pure_pursuit_controller-10]: process started with pid [38501]
+[robot_state_publisher-5] [WARN] [1781506353.822934251] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.
+[robot_state_publisher-5] [INFO] [1781506353.823131808] [robot_state_publisher]: Robot initialized
+[parameter_bridge-4] [INFO] [1781506353.958616254] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781506353.968099205] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/wheel_odom (gz.msgs.Odometry) -> /sensors/wheel_odom (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1781506353.974983517] [ros_gz_clock_bridge]: Creating GZ->ROS Bridge: [/world/right_angle_world/clock (gz.msgs.Clock) -> /world/right_angle_world/clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781506353.977952954] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/imu/data_raw (gz.msgs.IMU) -> /sensors/imu/data_raw (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781506353.989971475] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/gps/fix (gz.msgs.NavSat) -> /sensors/gps/fix (sensor_msgs/msg/NavSatFix)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781506353.994855479] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/magnetic_field (gz.msgs.Magnetometer) -> /sensors/magnetic_field (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781506353.996076354] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/lidar/scan (gz.msgs.LaserScan) -> /sensors/lidar/scan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781506353.997175206] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/image_raw (gz.msgs.Image) -> /sensors/camera/image_raw (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1781506354.003458157] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensors/camera/camera_info (gz.msgs.CameraInfo) -> /sensors/camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[create-2] [INFO] [1781506354.258734696] [spawn_right_angle_car]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 38492]
+[gazebo-1] gz sim gui: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
+[track_perception-7] [INFO] [1781506355.312900306] [track_perception]: Track perception publishing 23 known cones in base_link frame.
+[right_angle_planner-9] [INFO] [1781506355.505988102] [right_angle_planner]: Right-angle centerline planner started.
+[pure_pursuit_controller-10] [INFO] [1781506355.529190084] [pure_pursuit_controller]: Pure pursuit controller started.
+[localization_fusion-6] [INFO] [1781506355.975631913] [localization_fusion]: Localization fusion started: GPS + wheel odom + IMU gyro + magnetometer heading.
+[cone_mapper-8] [INFO] [1781506356.279839626] [cone_mapper]: Cone mapper started. Local perception is transformed into the world ENU frame.
+[gazebo-1] [Dbg] [gz.cc:166] Subscribing to [/gazebo/starting_world].
+[gazebo-1] [Dbg] [gz.cc:168] Waiting for a world to be set from the GUI...
+[gazebo-1] [Msg] Received world [/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_track/share/right_angle_track/worlds/right_angle_harmonic.sdf] from the GUI.
+[gazebo-1] [Dbg] [gz.cc:172] Unsubscribing from [/gazebo/starting_world].
+[gazebo-1] [Msg] Gazebo Sim Server v8.11.0
+[gazebo-1] [Msg] Loading SDF world file[/home/tumaini/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_track/share/right_angle_track/worlds/right_angle_harmonic.sdf].
+[gazebo-1] [Dbg] [SignalHandler.cc:142] Received signal[2].
+[gazebo-1] [Dbg] [ServerPrivate.cc:122] Server received signal[2]
+[gazebo-1] [Msg] Serving entity system service on [/entity/system/add]
+[gazebo-1] [Dbg] [Physics.cc:906] Loaded [gz::physics::dartsim::Plugin] from library [/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics-dartsim-plugin.so]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple] (async)
+[gazebo-1] [Msg] Create service on [/world/right_angle_world/create_multiple/blocking] (blocking)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove] (async)
+[gazebo-1] [Msg] Remove service on [/world/right_angle_world/remove/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose/blocking] (blocking)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector] (async)
+[gazebo-1] [Msg] Pose service on [/world/right_angle_world/set_pose_vector/blocking] (blocking)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config] (async)
+[gazebo-1] [Msg] Light configuration service on [/world/right_angle_world/light_config/blocking] (blocking)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics] (async)
+[gazebo-1] [Msg] Physics service on [/world/right_angle_world/set_physics/blocking] (blocking)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates] (async)
+[gazebo-1] [Msg] SphericalCoordinates service on [/world/right_angle_world/set_spherical_coordinates/blocking] (blocking)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision] (async)
+[gazebo-1] [Msg] Enable collision service on [/world/right_angle_world/enable_collision/blocking] (blocking)
+[gazebo-1] [Wrn] [SimulationRunner.cc:734] Found additional publishers on /stats, using namespaced stats topic only
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision] (async)
+[gazebo-1] [Msg] Disable collision service on [/world/right_angle_world/disable_collision/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/visual_config/blocking] (blocking)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip] (async)
+[gazebo-1] [Msg] Material service on [/world/right_angle_world/wheel_slip/blocking] (blocking)
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+[gazebo-1] [Dbg] [Sensors.cc:697] Configuring Sensors system
+[gazebo-1] [Dbg] [Sensors.cc:557] SensorsPrivate::Run
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Sensors] for entity [1]
+[gazebo-1] [Dbg] [Sensors.cc:532] SensorsPrivate::RenderThread started
+[gazebo-1] [Dbg] [Sensors.cc:337] Waiting for init
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Imu] for entity [1]
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::NavSat] for entity [1]
+[gazebo-1] [Dbg] [Magnetometer.cc:261] Magnetometer: using param [use_units_gauss: 1].
+[gazebo-1] [Dbg] [Magnetometer.cc:269] Magnetometer: using param [use_earth_frame_ned: 1].
+[gazebo-1] [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Magnetometer] for entity [1]
+[gazebo-1] [Msg] Loaded level [default]
+[gazebo-1] [Msg] Serving world controls on [/world/right_angle_world/control], [/world/right_angle_world/control/state] and [/world/right_angle_world/playback/control]
+[gazebo-1] [Msg] Serving GUI information on [/world/right_angle_world/gui/info]
+[gazebo-1] [Msg] World [right_angle_world] initialized with [default_physics] physics profile.
+[gazebo-1] [Msg] Serving world SDF generation service on [/world/right_angle_world/generate_world_sdf]
+[gazebo-1] [Msg] Serving world names on [/gazebo/worlds]
+[gazebo-1] [Msg] Resource path add service on [/gazebo/resource_paths/add].
+[gazebo-1] [Msg] Resource path get service on [/gazebo/resource_paths/get].
+[gazebo-1] [Msg] Resource path resolve service on [/gazebo/resource_paths/resolve].
+[gazebo-1] [Msg] Resource paths published on [/gazebo/resource_paths].
+[gazebo-1] [Msg] Server control service on [/server_control].
+[gazebo-1] [Dbg] [SimulationRunner.cc:736] Publishers [Address, Message Type]:
+[gazebo-1] [Wrn] [SimulationRunner.cc:768] Found additional publishers on /clock, using namespaced clock topic only
+[parameter_bridge-4] [INFO] [1781506357.644042721] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[gazebo-1] [Dbg] [SimulationRunner.cc:741]   tcp://192.168.116.89:38283, gz.msgEscalating to SIGKILL on [Gazebo Sim Server]
+[INFO] [gazebo-1]: process has finished cleanly [pid 38491]
