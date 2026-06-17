@@ -1,0 +1,10 @@
+install/
+log/
+build/
+cmake-build-*/
+
+.vscode/
+.idea/
+
+*.log
+*.bag
