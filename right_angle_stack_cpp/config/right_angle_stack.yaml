@@ -1,15 +1,24 @@
 localization_fusion:
   ros__parameters:
-    origin_latitude: 23.043055
-    origin_longitude: 113.397222
+    # 初始位姿：(0, -15, 朝北)
     initial_x: 0.0
     initial_y: -15.0
     initial_yaw: 1.57079632679
+    # 定位融合参数
     gps_gain: 0.12
-    mag_gain: 0.0
+    mag_gain: 0.05
+    # 广州的磁偏角
+    magnetic_declination: -0.044
+    # 使用第一帧GPS数据作为地图原点
     use_first_gps_as_origin: true
+    # 跳变拒绝阈值
     gps_reject_distance: 8.0
     mag_reject_angle: 1.2
+    # 传感器话题：与model.sdf中的传感器话题一致
+    gps_topic: /sensors/gps/fix
+    imu_topic: /sensors/imu/data_raw
+    wheel_odom_topic: /sensors/wheel_odom
+    magnetic_field_topic: /sensors/magnetic_field
 
 cone_mapper:
   ros__parameters:

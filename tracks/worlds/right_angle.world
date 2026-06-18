@@ -1,9 +1,15 @@
+<!-- 直角转弯赛道仿真世界 -->
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <world name="right_angle_world">
+
+    <!-- 重力：Z轴向下 9.81 m/s² -->
     <gravity>0 0 -9.81</gravity>
+
+    <!-- 地磁场向量（广州），单位 Tesla -->
     <magnetic_field>0.0 2.35e-5 -4.18e-5</magnetic_field>
 
+    <!-- GPS 基准坐标：广州（北纬 23.04°, 东经 113.40°） -->
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
       <latitude_deg>23.043055</latitude_deg>
@@ -12,18 +18,21 @@
       <heading_deg>0.0</heading_deg>
     </spherical_coordinates>
 
+    <!-- 物理引擎：ODE，1ms 步长，实时仿真 -->
     <physics name="ode" type="ode">
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1.0</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
 
+    <!-- 场景光照与背景 -->
     <scene>
       <ambient>0.55 0.55 0.55 1</ambient>
       <background>0.78 0.82 0.86 1</background>
       <shadows>true</shadows>
     </scene>
 
+    <!-- 方向光（模拟太阳） -->
     <light name="sun" type="directional">
       <cast_shadows>true</cast_shadows>
       <pose>0 0 10 0 0 0</pose>
@@ -38,6 +47,7 @@
       <direction>-0.5 0.1 -0.9</direction>
     </light>
 
+    <!-- 静态地面：100m × 100m 灰色平面 -->
     <model name="ground_plane">
       <static>true</static>
       <link name="link">
@@ -72,6 +82,7 @@
       </link>
     </model>
 
+    <!-- 导入锥桶赛道模型 -->
     <include>
       <pose>0 0 0 0 0 0</pose>
       <uri>model://shixi</uri>
