@@ -7,8 +7,6 @@
 #include <nav_msgs/msg/path.hpp>
 #include "right_angle_stack_cpp/utils.hpp"
 
-using namespace right_angle_stack_cpp;
-
 class PurePursuitController : public rclcpp::Node
 {
 public:

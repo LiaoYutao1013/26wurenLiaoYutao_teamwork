@@ -22,9 +22,14 @@ localization_fusion:
 
 cone_mapper:
   ros__parameters:
+    # 地图话题：与track_perception的节点约定一致
     perception_map_topic: /perception/cones
-    perception_detections_topic: /perception/cone_detections
+    # 合并距离阈值
     merge_distance: 0.75
+    # 可视化锥桶参数
+    marker_scale_x: 0.35
+    marker_scale_y: 0.35
+    marker_scale_z: 0.56
 
 right_angle_planner:
   ros__parameters:

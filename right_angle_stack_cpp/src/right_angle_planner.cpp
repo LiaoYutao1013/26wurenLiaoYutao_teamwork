@@ -10,8 +10,6 @@
 #include <visualization_msgs/msg/marker_array.hpp>
 #include "right_angle_stack_cpp/utils.hpp"
 
-using namespace right_angle_stack_cpp;
-
 class RightAnglePlanner : public rclcpp::Node
 {
 public:

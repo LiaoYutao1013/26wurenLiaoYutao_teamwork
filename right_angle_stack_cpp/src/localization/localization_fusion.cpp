@@ -2,8 +2,6 @@
 #include <cmath>
 #include "right_angle_stack_cpp/utils.hpp"
 
-using namespace right_angle_stack_cpp;
-
 LocalizationFusion::LocalizationFusion(const rclcpp::NodeOptions &options)
     : Node("localization_fusion", options) {
     // 初始位姿：(0, -15, 朝北)
@@ -37,14 +35,10 @@ LocalizationFusion::LocalizationFusion(const rclcpp::NodeOptions &options)
     this->declare_parameter("imu_topic", "/sensors/imu/data_raw"); // IMU
     this->declare_parameter("wheel_odom_topic", "/sensors/wheel_odom"); // 轮速计
     this->declare_parameter("magnetic_field_topic", "/sensors/magnetic_field"); // 磁力计
-    gps_sub_ = bind_sub<sensor_msgs::msg::NavSatFix>
-            ("gps_topic", 10, &LocalizationFusion::on_gps);
-    imu_sub_ = bind_sub<sensor_msgs::msg::Imu>
-            ("imu_topic", 50, &LocalizationFusion::on_imu);
-    wheel_sub_ = bind_sub<nav_msgs::msg::Odometry>
-            ("wheel_odom_topic", 20, &LocalizationFusion::on_wheel_odom);
-    mag_sub_ = bind_sub<sensor_msgs::msg::MagneticField>
-            ("magnetic_field_topic", 20, &LocalizationFusion::on_magnetic_field);
+    gps_sub_ = bind_sub(this, "gps_topic", 10, &LocalizationFusion::on_gps);
+    imu_sub_ = bind_sub(this, "imu_topic", 50, &LocalizationFusion::on_imu);
+    wheel_sub_ = bind_sub(this, "wheel_odom_topic", 20, &LocalizationFusion::on_wheel_odom);
+    mag_sub_ = bind_sub(this, "magnetic_field_topic", 20, &LocalizationFusion::on_magnetic_field);
 
     // 初始化状态
     x_ = initial_x_;
@@ -187,14 +181,4 @@ void LocalizationFusion::publish_state(rclcpp::Time stamp) const {
     transform.transform.translation.z = 0.0;
     transform.transform.rotation = quat;
     tf_broadcaster_->sendTransform(transform);
-}
-
-// 模板辅助实现
-template<typename MsgT>
-std::shared_ptr<rclcpp::Subscription<MsgT> >
-LocalizationFusion::bind_sub(const std::string &topic_param, int qos,
-                             void (LocalizationFusion::*handler)(std::shared_ptr<MsgT>)) {
-    const std::string topic = this->get_parameter(topic_param).as_string();
-    auto callback = [this, handler](std::shared_ptr<MsgT> msg) { (this->*handler)(std::move(msg)); };
-    return this->create_subscription<MsgT>(topic, qos, callback);
 }

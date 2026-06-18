@@ -33,7 +33,6 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_builtin_perception = LaunchConfiguration('use_builtin_perception')
     perception_map_topic = LaunchConfiguration('perception_map_topic')
-    perception_detections_topic = LaunchConfiguration('perception_detections_topic')
     sim_time_param = ParameterValue(use_sim_time, value_type=bool)
 
     gz_resource_path = [
@@ -55,7 +54,6 @@ def generate_launch_description():
         DeclareLaunchArgument('use_rviz', default_value='false'),
         DeclareLaunchArgument('use_builtin_perception', default_value='true'),
         DeclareLaunchArgument('perception_map_topic', default_value='/perception/cones'),
-        DeclareLaunchArgument('perception_detections_topic', default_value='/perception/cone_detections'),
         SetEnvironmentVariable(name='GZ_SIM_RESOURCE_PATH', value=gz_resource_path),
         SetEnvironmentVariable(name='IGN_GAZEBO_RESOURCE_PATH', value=gz_resource_path),
         LogInfo(
@@ -138,7 +136,6 @@ def generate_launch_description():
             parameters=[stack_config, {
                 'track_sdf': track_sdf,
                 'map_topic': perception_map_topic,
-                'detections_topic': perception_detections_topic,
                 'use_sim_time': sim_time_param,
             }],
             condition=IfCondition(use_builtin_perception),
@@ -150,7 +147,6 @@ def generate_launch_description():
             output='screen',
             parameters=[stack_config, {
                 'perception_map_topic': perception_map_topic,
-                'perception_detections_topic': perception_detections_topic,
                 'use_sim_time': sim_time_param,
             }],
         ),

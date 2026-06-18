@@ -4,13 +4,10 @@
 #include <random>
 #include <rclcpp/rclcpp.hpp>
 #include <fsd_common_msgs/msg/cone.hpp>
-#include <fsd_common_msgs/msg/cone_detections.hpp>
 #include <fsd_common_msgs/msg/map.hpp>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include "right_angle_stack_cpp/utils.hpp"
 #include "right_angle_stack_cpp/track_model.hpp"
-
-using namespace right_angle_stack_cpp;
 
 // 默认锥桶列表（SDF 加载失败时使用）
 static const std::vector<ConeInfo> DEFAULT_CONES = {
@@ -41,7 +38,6 @@ public:
     this->declare_parameter("position_noise_std", 0.05); // 位置噪声标准差
     this->declare_parameter("publish_rate", 10.0);
     this->declare_parameter("map_topic", "/perception/cones");
-    this->declare_parameter("detections_topic", "/perception/cone_detections");
 
     max_range_ = this->get_parameter("max_range").as_double();
     lateral_range_ = this->get_parameter("lateral_range").as_double();
@@ -67,8 +63,6 @@ public:
 
     map_pub_ = this->create_publisher<fsd_common_msgs::msg::Map>(
       this->get_parameter("map_topic").as_string(), 10);
-    det_pub_ = this->create_publisher<fsd_common_msgs::msg::ConeDetections>(
-      this->get_parameter("detections_topic").as_string(), 10);
     pose_sub_ = this->create_subscription<geometry_msgs::msg::PoseStamped>(
       "/localization/pose", 10,
       std::bind(&TrackPerception::on_pose, this, std::placeholders::_1));
@@ -113,9 +107,6 @@ private:
     cone_map.header.stamp = stamp;
     cone_map.header.frame_id = "base_link";
 
-    fsd_common_msgs::msg::ConeDetections detections;
-    detections.header = cone_map.header;
-
     for (const auto & ci : cones_) {
       // 世界坐标 → 车体坐标
       double local_x, local_y;
@@ -126,7 +117,6 @@ private:
       if (std::abs(local_y) > lateral_range_) continue;
 
       auto cone = make_local_cone(ci.color, local_x, local_y, ci.z);
-      detections.cone_detections.push_back(cone);
 
       // 按颜色归类
       if (ci.color == "blue") {
@@ -141,7 +131,6 @@ private:
     }
 
     map_pub_->publish(cone_map);
-    det_pub_->publish(detections);
   }
 
   std::vector<ConeInfo> cones_;
@@ -150,7 +139,6 @@ private:
   std::random_device rd_;
   std::mt19937 gen_;
   rclcpp::Publisher<fsd_common_msgs::msg::Map>::SharedPtr map_pub_;
-  rclcpp::Publisher<fsd_common_msgs::msg::ConeDetections>::SharedPtr det_pub_;
   rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr pose_sub_;
   rclcpp::TimerBase::SharedPtr timer_;
 };

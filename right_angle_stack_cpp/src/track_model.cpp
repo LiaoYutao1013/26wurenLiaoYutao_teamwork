@@ -7,9 +7,6 @@
 #include <sstream>
 #include <cctype>
 
-namespace right_angle_stack_cpp
-{
-
 std::vector<ConeInfo> load_cones_from_sdf(const std::string & path)
 {
   std::vector<ConeInfo> cones;
@@ -66,5 +63,3 @@ std::vector<ConeInfo> load_cones_from_sdf(const std::string & path)
 
   return cones;
 }
-
-}  // namespace right_angle_stack_cpp

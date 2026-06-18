@@ -37,12 +37,6 @@ private:
     // 发布位姿、里程计和 TF 变换
     void publish_state(rclcpp::Time stamp) const;
 
-    // 模板辅助：从话题参数创建订阅
-    template<typename MsgT>
-    std::shared_ptr<rclcpp::Subscription<MsgT> >
-    bind_sub(const std::string &topic_param, int qos,
-             void (LocalizationFusion::*handler)(std::shared_ptr<MsgT>));
-
     // 参数
     double gps_gain_, mag_gain_, magnetic_declination_;
     bool use_first_gps_as_origin_;

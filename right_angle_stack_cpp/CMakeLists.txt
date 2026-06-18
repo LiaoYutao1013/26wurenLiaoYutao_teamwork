@@ -20,6 +20,8 @@ include_directories(include)
 
 # localization
 add_subdirectory(src/localization)
+# cone_mapper
+add_subdirectory(src/cone_mapper)
 
 add_executable(track_perception
         src/track_perception.cpp
@@ -32,15 +34,6 @@ ament_target_dependencies(track_perception
         std_msgs
         visualization_msgs
 )
-
-add_executable(cone_mapper src/cone_mapper.cpp)
-ament_target_dependencies(cone_mapper
-        rclcpp
-        fsd_common_msgs
-        geometry_msgs
-        visualization_msgs
-        std_msgs
-        tf2)
 
 add_executable(right_angle_planner src/right_angle_planner.cpp)
 ament_target_dependencies(right_angle_planner

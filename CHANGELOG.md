@@ -2,6 +2,15 @@
 
 以下是`cpp-dev`分支的变更日志
 
+## V0.3.0
+
+refactor(dev-cpp): 重构cone_mapper
+
+- 独立`cone_mapper`为子目录，拆分main函数和ConeMapper类
+- 删除`right_angle_stack_cpp`命名空间
+- 删除`ConeDetections`消息类型的冗余链路，仅保留`Map`消息类型
+
+
 ## V0.2.0
 
 refactor(dev-cpp): 重构localization_fusion
