@@ -5,20 +5,17 @@
 
 RightAnglePlanner::RightAnglePlanner()
     : Node("right_angle_planner") {
-    //
+    // 锥桶配对最大距离
     this->declare_parameter("pair_distance_max", 6.0);
-    this->declare_parameter("cone_match_distance", 2.0);
-    this->declare_parameter("passed_filter_distance", 1.5);
     pair_distance_max_ = this->get_parameter("pair_distance_max").as_double();
-    cone_match_distance_ = this->get_parameter("cone_match_distance").as_double();
-    passed_filter_distance_ = this->get_parameter("passed_filter_distance").as_double();
-    passed_filter_distance_ = 3.0;
 
+    // 订阅器：地图、位姿
     this->declare_parameter("map_topic", "/estimation/slam/map");
     this->declare_parameter("pose_topic", "/localization/pose");
     map_sub_ = bind_sub(this, "map_topic", 10, &RightAnglePlanner::on_map);
     pose_sub_ = bind_sub(this, "pose_topic", 10, &RightAnglePlanner::on_pose);
 
+    // 发布器：规划路径、可视化标记
     path_pub_ = this->create_publisher<nav_msgs::msg::Path>("/planning/centerline", 10);
     marker_pub_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/visualization/planning", 10);
 
@@ -33,60 +30,12 @@ void RightAnglePlanner::on_pose(const geometry_msgs::msg::PoseStamped::SharedPtr
 }
 
 void RightAnglePlanner::on_map(const fsd_common_msgs::msg::Map::SharedPtr &msg) {
-    map_ = msg;
-    update_cone_map(*msg);
-}
-
-void RightAnglePlanner::update_cone_map(const fsd_common_msgs::msg::Map &msg) {
-    // 初始无地图信息，直接从新地图中创建所有锥体
-    if (blue_cones_.empty() && yellow_cones_.empty()) {
-        for (const auto &cone: msg.cone_blue)
-            blue_cones_.push_back({next_cone_id_++, cone.position.x, cone.position.y, "blue"});
-        for (const auto &cone: msg.cone_yellow)
-            yellow_cones_.push_back({next_cone_id_++, cone.position.x, cone.position.y, "yellow"});
-        return;
-    }
-
-    match_cones(blue_cones_, msg.cone_blue, "blue");
-    match_cones(yellow_cones_, msg.cone_yellow, "yellow");
-}
-
-void RightAnglePlanner::match_cones(std::vector<ConeRecord> &existing,
-                                    const std::vector<fsd_common_msgs::msg::Cone> &new_cones,
-                                    const std::string &color) {
-    std::vector<bool> matched_new(new_cones.size(), false);
-
-    for (auto &rec: existing) {
-        int best_idx = -1;
-        double best_dist = cone_match_distance_;
-
-        for (size_t i = 0; i < new_cones.size(); ++i) {
-            if (matched_new[i]) continue;
-            const double dist = std::hypot(rec.x - new_cones[i].position.x,
-                                           rec.y - new_cones[i].position.y);
-            if (dist < best_dist) {
-                best_dist = dist;
-                best_idx = static_cast<int>(i);
-            }
-        }
-        // 匹配的锥体，更新位置
-        if (~best_idx) {
-            matched_new[best_idx] = true;
-            rec.x = new_cones[best_idx].position.x;
-            rec.y = new_cones[best_idx].position.y;
-        }
-    }
-
-    // 为未匹配到原先的锥体，创建新的锥体记录
-    for (size_t i = 0; i < new_cones.size(); ++i) {
-        if (matched_new[i]) continue;
-        existing.push_back({
-            next_cone_id_++,
-            new_cones[i].position.x,
-            new_cones[i].position.y,
-            color
-        });
-    }
+    blue_cones_.clear();
+    yellow_cones_.clear();
+    for (const auto &cone: msg->cone_blue)
+        blue_cones_.push_back({next_cone_id_++, cone.position.x, cone.position.y, "blue"});
+    for (const auto &cone: msg->cone_yellow)
+        yellow_cones_.push_back({next_cone_id_++, cone.position.x, cone.position.y, "yellow"});
 }
 
 std::vector<std::pair<double, double> > RightAnglePlanner::cone_centerline() {
@@ -119,28 +68,22 @@ std::vector<std::pair<double, double> > RightAnglePlanner::cone_centerline() {
                                (blue_cone.y + yellow_cones_[best_index].y) * 0.5);
     }
 
-    // 过滤已经发布的路径点
-    if (!published_path_.empty()) {
-        std::vector<std::pair<double, double> > filtered;
-        for (const auto &mp: midpoints) {
-            bool too_close = false;
-            for (size_t i = 0; i < published_path_.size(); ++i) {
-                if (std::hypot(mp.first - published_path_[i].first,
-                               mp.second - published_path_[i].second) < passed_filter_distance_) {
-                    too_close = true;
-                    break;
-                }
-            }
-            if (!too_close) filtered.push_back(mp);
-        }
-        if (filtered.size() < 2) return midpoints;
-        midpoints = std::move(filtered);
-    }
-
-    // 按照距离，对路径点进行排序
+    // 过滤：只保留车体前方（投影>0）的点，避免U型弯道回头
     const double vx = car_pose_->pose.position.x;
     const double vy = car_pose_->pose.position.y;
+    const double vyaw = quaternion_to_yaw(car_pose_->pose.orientation);
+    const double dir_x = std::cos(vyaw);
+    const double dir_y = std::sin(vyaw);
 
+    std::vector<std::pair<double, double> > filtered;
+    for (const auto &mp: midpoints) {
+        const double proj = (mp.first - vx) * dir_x + (mp.second - vy) * dir_y;
+        if (proj > 0.0) filtered.push_back(mp);
+    }
+    if (filtered.empty()) return midpoints;
+    midpoints = std::move(filtered);
+
+    // 按距离从近到远排序
     std::sort(midpoints.begin(), midpoints.end(),
               [&](const auto &a, const auto &b) {
                   const double da = std::hypot(a.first - vx, a.second - vy);
@@ -151,37 +94,9 @@ std::vector<std::pair<double, double> > RightAnglePlanner::cone_centerline() {
     return midpoints;
 }
 
-std::vector<std::pair<double, double> > RightAnglePlanner::merge_path(
-    const std::vector<std::pair<double, double> > &new_centerline) {
-    if (published_path_.empty()) return new_centerline;
-    if (new_centerline.empty()) return published_path_;
-
-    std::vector<std::pair<double, double> > result = published_path_;
-
-    auto [fx, fy] = published_path_.back();
-    size_t best_idx = 0;
-    double best_dist = std::numeric_limits<double>::infinity();
-    for (size_t i = 0; i < new_centerline.size(); ++i) {
-        const double dist = std::hypot(new_centerline[i].first - fx,
-                                       new_centerline[i].second - fy);
-        if (dist < best_dist) {
-            best_dist = dist;
-            best_idx = i;
-        }
-    }
-
-    for (size_t i = best_idx + 1; i < new_centerline.size(); ++i)
-        result.push_back(new_centerline[i]);
-
-    return result;
-}
-
 void RightAnglePlanner::on_timer() {
-    const auto centerline = cone_centerline();
-    if (centerline.empty()) return;
-
-    auto points = merge_path(centerline);
-    published_path_ = points;
+    const auto points = cone_centerline();
+    if (points.empty()) return;
 
     const auto stamp = this->now();
     nav_msgs::msg::Path path;

@@ -4,15 +4,23 @@
 
 ## TODO
 
-- `right_angle_planner`的追踪点随着地图更新而更新，但是还没过滤好已经过的轨迹点（健壮性不好，但是样例看不出来）
-- `pure_pursuit_controller`注释亟待完成
+- `right_angle_planner`的注释亟待完善
 - `track_perception`尚未封装完善，可以考虑`sim_perception`替换
-- `rviz`可视化走偏（gazebo仿真没有偏），期望通过gazebo获取数据更新状态
-- 
+- `rviz`可视化（可能）由于积分误差走偏（gazebo仿真没有偏），期望通过gazebo获取数据更新状态
+
+## V0.5.0
+
+refactor(dev-cpp)：重构right_angle_planner、pure_pursuit_controller
+
+- `pure_pursuit_controller`改善追踪点选择策略，完成注释
+- `right_angle_planner`的路径点发布改善，今发布前方路径点，避免路径反向
+
 ## V0.4.2
+
 feat(dev-cpp): 新增演示视频`演示.mp4`
- 
+
 ## V0.4.1
+
 feat(dev-cpp): 完善启动脚本以及注释
 
 - 默认启动自带 RViz + Gazebo GUI

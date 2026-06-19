@@ -34,8 +34,6 @@ cone_mapper:
 right_angle_planner:
   ros__parameters:
     pair_distance_max: 6.0
-    cone_match_distance: 2.0
-    passed_filter_distance: 1.5
 
 pure_pursuit_controller:
   ros__parameters:
