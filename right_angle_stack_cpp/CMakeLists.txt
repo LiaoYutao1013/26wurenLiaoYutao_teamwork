@@ -22,6 +22,10 @@ include_directories(include)
 add_subdirectory(src/localization)
 # cone_mapper
 add_subdirectory(src/cone_mapper)
+# right_angle_planner
+add_subdirectory(src/right_angle_planner)
+# pure_pursuit_controller
+add_subdirectory(src/pure_pursuit_controller)
 
 add_executable(track_perception
         src/track_perception.cpp
@@ -31,25 +35,6 @@ ament_target_dependencies(track_perception
         fsd_common_msgs
         geometry_msgs
         sensor_msgs
-        std_msgs
-        visualization_msgs
-)
-
-add_executable(right_angle_planner src/right_angle_planner.cpp)
-ament_target_dependencies(right_angle_planner
-        rclcpp
-        fsd_common_msgs
-        geometry_msgs
-        nav_msgs
-        visualization_msgs
-        std_msgs
-)
-
-add_executable(pure_pursuit_controller src/pure_pursuit_controller.cpp)
-ament_target_dependencies(pure_pursuit_controller
-        rclcpp
-        geometry_msgs
-        nav_msgs
         std_msgs
         visualization_msgs
 )
