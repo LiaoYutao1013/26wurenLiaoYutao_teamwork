@@ -99,5 +99,5 @@ ros2 launch right_angle_stack right_angle_harmonic.launch.py \
 
 ## AI使用情况
 
-AI主要用于排错工具和文档阅读。日志很长时，先让 AI 帮忙把错误分层，比如区分是 CMake 接口生成失败、Gazebo 资源路径问题，还是渲染线程崩溃。后面再根据它给的排查命令自己去验证。
+AI主要用于排错工具和文档阅读。日志很长时，先让 AI 帮忙把错误分类，比如区分是 CMake 接口生成失败、Gazebo 资源路径问题，还是渲染线程崩溃。后面再根据它给的排查命令自己去验证。
 AI 参与过 launch、SDF、RViz、定位融合和 README 的整理，也辅助写了内置track节点作为调试时的节点，和 sim_perception 相对独立。
