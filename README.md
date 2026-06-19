@@ -135,10 +135,17 @@
 
 ### 启动命令
 
+默认全部启动
+
+```bash
+ros2 launch right_angle_stack_cpp right_angle_harmonic.launch.py 
+```
+
+gazebo无界面启动
 ```bash
 ros2 launch right_angle_stack_cpp right_angle_harmonic.launch.py \
-  use_rviz:=true \
-  gz_args:="-r -v 4 $(ros2 pkg prefix right_angle_track)/share/right_angle_track/worlds/right_angle_harmonic.sdf"
+   use_rviz:=true \
+   gz_args:="-r -s -v 4 $(ros2 pkg prefix right_angle_track)/share/right_angle_track/worlds/right_angle_harmonic.sdf"
 ```
 
 ### 编译命令

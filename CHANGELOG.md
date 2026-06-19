@@ -8,6 +8,11 @@
 - `pure_pursuit_controller`注释亟待完成
 - `track_perception`尚未封装完善，可以考虑`sim_perception`替换
 - `rviz`可视化走偏（gazebo仿真没有偏），期望通过gazebo获取数据更新状态
+ 
+## V0.4.1
+feat(dev-cpp): 完善启动脚本以及注释
+
+- 默认启动自带 RViz + Gazebo GUI
 
 ## V0.4.0
 
