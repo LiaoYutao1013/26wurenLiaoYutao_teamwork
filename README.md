@@ -140,9 +140,9 @@ ros2 launch right_angle_stack right_angle_wsl_headless.launch.py use_rviz:=false
 
 这个入口禁用相机和 GPU 雷达，只保留定位传感器、算法链路和控制闭环。它适合排查构建、spawn、bridge、定位、建图、规划和控制，不适合验证相机/雷达画面。
 
-### 感知默认用哪个
+### 感知
 
-默认启动使用 sim_perception：
+默认启动使用 sim_perception
 
 ```bash
 ros2 launch right_angle_stack right_angle_harmonic.launch.py \
@@ -150,7 +150,7 @@ ros2 launch right_angle_stack right_angle_harmonic.launch.py \
   gz_args:="-r -v 4 $(ros2 pkg prefix right_angle_track)/share/right_angle_track/worlds/right_angle_harmonic.sdf"
 ```
 
-等价于默认参数：
+等价于默认参数
 
 ```bash
 use_builtin_perception:=false
@@ -250,65 +250,42 @@ R = 6378137.0 m
 ### 建图
 
 节点：right_angle_stack/right_angle_stack/cone_mapper.py
-
-建图节点主要看这些输入：
-
-- /localization/pose
-- /perception/cones
-- /perception/cone_detections
-
-输出给后面的规划和 RViz：
-
-- /estimation/slam/map
-- /visualization/cone_map
-
+建图节点看输入/localization/pose，/perception/cones，/perception/cone_detections
+输出给后面的规划/estimation/slam/map和 RViz /visualization/cone_map
 感知消息一般在 base_link 下，建图要把它转回 world。如果输入 frame 已经是 world 或 map，就直接使用；否则根据 /localization/pose 做一次平面坐标变换：
-
-```text
-world_x = car_x + cos(yaw) * local_x - sin(yaw) * local_y
+$$
+world_x = car_x + cos(yaw) * local_x - sin(yaw) * local_y \\
 world_y = car_y + sin(yaw) * local_x + cos(yaw) * local_y
-```
-
+$$
 锥桶按 blue/yellow/red/unknown 分 bucket 保存。对同色锥桶，如果新观测和已有 landmark 距离小于 merge_distance，就认为是同一个锥桶，用递推平均更新位置；否则创建新 landmark。地图发布为 fsd_common_msgs/msg/Map，frame 是 world。
-
 RViz 中的 /visualization/cone_map 用 cylinder marker 显示，方便看建图结果。这里的 cylinder 只影响 RViz，不影响 Gazebo 中真实锥桶 mesh。
-
-开发中遇到的关键问题是定位飞走会直接导致建图为空。因为建图依赖 /localization/pose 把局部锥桶转换到 world，所以一旦定位不可信，感知范围和地图都会错。
+开发中遇到的关键问题是定位飞走会直接导致建图为空。因为建图依赖 /localization/pose 把局部锥桶转换到 world，定位的精度影响感知范围和地图。
 
 ### 规划
 
 节点：right_angle_stack/right_angle_stack/right_angle_planner.py
-
 订阅/estimation/slam/map，/localization/pose
+发布/planning/centerline，/visualization/planning
+规划优先用锥桶地图，如果地图暂时不够完整，就回退到解析路径，这样调试时不至于因为感知或建图一处没通就完全看不到运行效果。
 
-发布：/planning/centerline，/visualization/planning
+锥桶地图中心线的构建思路如下：
 
-规划优先用锥桶地图，如果地图暂时不够完整，就回退到解析路径，这样调试时不至于因为感知或建图一处没通就完全看不到车运动。
-
-锥桶地图中心线的构建思路：
-
-- 遍历蓝锥，找最近的黄锥配对；
-- 配对距离小于 pair_distance_max 才接受；
-- 取蓝黄锥中点作为中心线点；
-- 用 track_progress() 按赛道前进方向排序；
-- 用 densify() 加密路径点，减少控制器目标点跳变。
+1. 遍历蓝锥，找最近的黄锥配对；
+2. 配对距离小于 pair_distance_max 才接受；
+3. 取蓝黄锥中点作为中心线点；
+4. 用 track_progress() 按赛道前进方向排序；
+5. 用 densify() 加密路径点，减少控制器目标点跳变。
 
 路径输出为 nav_msgs/msg/Path，frame 为 world。RViz 中绿色线是cone map产生的，白色路径是fallback。
 
 ### 控制
 
 节点：right_angle_stack/right_angle_stack/pure_pursuit_controller.py
-
-订阅：/planning/centerline，/localization/odom
-
+订阅/planning/centerline，/localization/odom
 发布/cmd_vel
-
 控制器用 Pure Pursuit。每次控制周期先找离车最近的路径点，再往后找一个在车前方、距离超过 lookahead_distance 的目标点。目标点转到 base_link 后，计算曲率$$curvature = 2 \frac{local_y}{lookahead^2}$$
-
 角速度$$yaw_{rate} = target_{speed} * curvature + yaw_{error-gain} * yaw_{error}$$
-
 最后限制 max_yaw_rate，并根据曲率做简单降速。弯道中速度降低，直道恢复目标速度。
-
 如果 /cmd_vel.angular.z 已经非零但 Gazebo 里车不转，问题通常在 Gazebo 车辆模型或 /cmd_vel bridge；如果 /cmd_vel.angular.z 一直为零，问题通常在规划路径、车辆定位或 lookahead 目标点选择。
 
 ### 联调顺序
