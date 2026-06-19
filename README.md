@@ -121,7 +121,7 @@ percep_node_track/
 
 ### 清理旧进程
 
-Gazebo 和 bridge 没退干净时，下一次 launch 可能会连到旧进程，现象看起来就像“代码没更新”。遇到这种情况先杀一遍进程，或者直接重启也行。
+Gazebo 和 bridge 没退干净时，下一次 launch 可能会连到旧进程，导致误以为问题没解决。遇到这种情况先kill掉所有Gazebo有关的进程，或者直接重启。
 
 ```bash
 pkill -INT -f "gz sim|ign gazebo|gazebo|gzserver|gzclient|rviz2|ros_gz_bridge|parameter_bridge|spawn_entity|create" || true
@@ -130,6 +130,7 @@ pkill -9 -f "gz sim|ign gazebo|gazebo|gzserver|gzclient|rviz2|ros_gz_bridge|para
 ```
 
 这个问题在实体机和 WSL 都遇到过，尤其是上一次 Gazebo GUI 没正常退出时。
+另外遇到过launch后手动打开Gazebo时,点击空项目却打开正在运行的地图这一问题。推断为启动命令打开了server，而Gazebo此时只是连接这个server的客户端。
 
 ### 终端环境准备
 
@@ -300,14 +301,11 @@ R = 6378137.0 m
 ```
 
 这里有一个调试中才发现的坑：Gazebo NavSat 插件输出的经纬度和 world 里写死的参考点不一定完全对齐。直接按固定经纬度换算时，车的位置曾经被拉到几万米外。现在的做法是把第一帧 GPS 映射到初始位姿 (0, -15)，后续 GPS 只作为相对位置修正。
-
-短时间运动主要靠轮速和 IMU 推：
+短时间运动主要靠轮速和 IMU 推算：
 
 - /sensors/wheel_odom.twist.twist.linear.x 作为车体前向速度；
 - /sensors/imu/data_raw.angular_velocity.z 积分更新 yaw；
 - GPS 慢速修正 x/y，超过 gps_reject_distance 的跳变会拒绝。
-
-磁力计代码保留了，但配置里 mag_gain: 0.0。原因是未标定磁力计时航向容易突变，先不让它影响闭环；后面如果要认真融合，需要先把磁力计坐标系、磁偏角和 yaw 定义对清楚。
 
 ### 感知
 
@@ -532,15 +530,9 @@ ros2 topic echo /tf --once
 ros2 topic echo /localization/pose --once
 ```
 
-### 定位飞到几万米外
+### 定位大幅偏离预期
 
-有一次 /localization/pose 返回值明显异常：
-
-```text
-/localization/pose:
-x: -16866
-y: 12862
-```
+有一次 /localization/pose 返回值明显异常，x: -16866；y: 12862
 
 当时主要怀疑GPS 经纬度原点和 Gazebo NavSat 输出没有对齐，或者磁力计航向突变参与融合。最后用以下方式解决：
 
