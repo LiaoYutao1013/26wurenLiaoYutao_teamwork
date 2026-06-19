@@ -1,26 +1,5 @@
 # Gazebo 仿真任务：直角弯
 
-这个工程是课程里的直角弯仿真任务，目标是把 Gazebo 里的车辆、传感器和 ROS 2 算法链路跑成一个闭环：
-
-```text
-Gazebo 赛道/车辆/传感器
-  -> 定位融合
-  -> 锥桶感知输入
-  -> 建图
-  -> 中心线规划
-  -> Pure Pursuit 控制
-  -> /cmd_vel
-  -> Gazebo 车辆运动
-```
-
-目前稳定跑通的环境：
-
-- ROS 2 Jazzy
-- Gazebo Sim 8
-- ros_gz_sim + ros_gz_bridge
-- 工作区：homework/percep_node_track
-- 起点 (0, -15)，车辆朝北，初始 yaw 为 $\frac{\pi}{2}$
-
 调试过程中在WSL和实体机上都试运行过，小组开发环境有Humble和Jazzy（但组员多数用jazzy，只在WSL上启用过Humble），也绕过 Gazebo Classic 和 Gazebo Sim 两条路线。
 最后项目在实体机运行最容易成功，WSL 的图形渲染不稳定，只适合开始时调试数据或检查与图形渲染无关节点的通信情况。
 
