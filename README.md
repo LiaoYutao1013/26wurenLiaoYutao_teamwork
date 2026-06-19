@@ -24,16 +24,18 @@ Gazebo 赛道/车辆/传感器
 调试过程中在WSL和实体机上都试运行过，小组开发环境有Humble和Jazzy（但组员多数用jazzy，只在WSL上启用过Humble），也绕过 Gazebo Classic 和 Gazebo Sim 两条路线。
 最后项目在实体机运行最容易成功，WSL 的图形渲染不稳定，只适合开始时调试数据或检查与图形渲染无关节点的通信情况。
 
-几条实际踩坑记录：
+一些踩坑记录：
 
 - WSL 上容易遇到 Gazebo 或 RViz 启动后闪退，尤其是相机、GPU 雷达这类会触发渲染线程的传感器。后面保留了 right_angle_wsl_headless.launch.py，专门用来先验证非渲染链路。
 - Jazzy 对接口文件检查更严格，最开始 .msg 走 CMake 生成失败，后来把接口改成显式 .idl 后通过。
 - Gazebo Classic 和 Gazebo Sim 的启动方式、模型格式、ROS bridge 都不完全一样。这个版本最后按 Gazebo Harmonic 整理，Classic 入口只当兼容文件保留。
 - Gazebo 对资源路径比较敏感，路径里有特殊字符时排错会麻烦，所以最后把工程目录整理成 percep_node_track 这种更普通的命名(在最终提交的作业仓库里直接展开了下属的文件夹，命名同样遵循这个原则)。
+- fsd_common_msgs 在 Jazzy 由于无法正常生成.idl目标文件编译失败，结合AI分析推测是因为Jazzy 比 Humble 语法检查更严格。现在保留 .msg，但 CMake 实际使用AI转换的相应 .idl 构建。（这部分编码问题暂时没找到更好的解决方案）
+- 定位大幅偏离预期，如有一次 /localization/pose 返回值x,y高达五位数（？）推测GPS 经纬度原点和 Gazebo NavSat 输出没对齐，或者磁力计航向突变。最后通过第一帧 GPS 映射到初始位姿，GPS 突变拒绝，磁力计额外添加固定默认值0，标定后再启用等方法解决。
 
 ## 坐标系约定
 
-课程给出的感知代码对坐标系有要求，本工程按下面约定实现：
+按照给出感知代码对坐标系的要求，对坐标系做如下约定：
 
 - 全局坐标系：world
 - 全局坐标系方向：ENU，x 向东，y 向北，z 向上
@@ -43,50 +45,9 @@ Gazebo 赛道/车辆/传感器
 - 雷达坐标系：lidar_link
 - 定位 TF：world -> base_link
 
-车辆从 (0, -15) 出发，朝北行驶。因为 world 的 y 轴向北，所以车辆初始 yaw 是 $\frac{\pi}{2}$。
+车辆从 (0, -15) 出发，朝北行驶。world 的 y 轴向北，所以车辆初始 yaw 是 $\frac{\pi}{2}$。
 
 ## 工程结构
-
-```text
-percep_node_track/
-├── fsd_common_msgs/
-│   └── msg/
-│       ├── Cone.idl
-│       ├── ConeDetections.idl
-│       └── Map.idl
-├── right_angle_stack/
-│   ├── config/right_angle_stack.yaml
-│   ├── launch/
-│   │   ├── right_angle_harmonic.launch.py
-│   │   ├── right_angle_wsl_headless.launch.py
-│   │   └── right_angle_sim.launch.py
-│   ├── models/
-│   │   ├── right_angle_car_harmonic/model.sdf
-│   │   └── right_angle_car_wsl_headless/model.sdf
-│   ├── right_angle_stack/
-│   │   ├── localization_fusion.py
-│   │   ├── track_perception.py
-│   │   ├── cone_mapper.py
-│   │   ├── right_angle_planner.py
-│   │   ├── pure_pursuit_controller.py
-│   │   ├── sim_sensor_bridge.py
-│   │   ├── track_model.py
-│   │   └── utils.py
-│   ├── rviz/right_angle.rviz
-│   └── urdf/right_angle_car.urdf.xacro
-├── sim_perception/
-│   └── sim_perception/
-│       ├── sim_node.py
-│       └── pyarmor_runtime_000000/
-└── tracks/
-    ├── models/
-    │   ├── blue_cone/
-    │   ├── yellow_cone/
-    │   └── shixi/
-    └── worlds/
-        ├── right_angle_harmonic.sdf
-        └── right_angle_wsl_headless.sdf
-```
 
 包功能：
 
@@ -122,6 +83,7 @@ percep_node_track/
 ### 清理旧进程
 
 Gazebo 和 bridge 没退干净时，下一次 launch 可能会连到旧进程，导致误以为问题没解决。遇到这种情况先kill掉所有Gazebo有关的进程，或者直接重启。
+（可能是电脑某些配置的问题，但这里还没研究清楚）
 
 ```bash
 pkill -INT -f "gz sim|ign gazebo|gazebo|gzserver|gzclient|rviz2|ros_gz_bridge|parameter_bridge|spawn_entity|create" || true
@@ -129,12 +91,11 @@ sleep 2
 pkill -9 -f "gz sim|ign gazebo|gazebo|gzserver|gzclient|rviz2|ros_gz_bridge|parameter_bridge|spawn_entity|create" || true
 ```
 
-这个问题在实体机和 WSL 都遇到过，尤其是上一次 Gazebo GUI 没正常退出时。
 另外遇到过launch后手动打开Gazebo时,点击空项目却打开正在运行的地图这一问题。推断为启动命令打开了server，而Gazebo此时只是连接这个server的客户端。
 
 ### 终端环境准备
 
-不要在同一个终端里混用 Humble、Jazzy 或多个工作空间。调试时最好新开终端，先清掉旧环境变量，再 source Jazzy：
+不要在同一个终端里混用不同开发环境（如Python版本）多个工作空间。之前因此导致编译和运行的python版本不匹配而报错。（所以虚拟环境的设置和隔离环境真的很重要）
 
 ```bash
 unset PYTHONPATH
@@ -148,25 +109,26 @@ source /opt/ros/jazzy/setup.bash
 
 ### 工作区位置
 
-如果在 WSL 里编译，建议把工程放到 WSL 自己的 ext4 文件系统里，不要直接在 /mnt/c 或 /mnt/e 下 build。之前在 Windows 盘路径下遇到过 CMake 写文件权限问题。实体机上基本不用管这个。
+如果在 WSL 里编译，建议把工程复制到 WSL 文件系统里，不要直接在挂载的windows分区下 build。之前在 Windows 盘路径下遇到过 CMake 写文件权限问题。实体机上没有这个问题。
 
 ### 构建
 
+切换到工程根目录下后，
+
 ```bash
-cd ~/文档/SCUT_Racing_Tasks/homework/percep_node_track
 rm -rf build install log
 source /opt/ros/jazzy/setup.bash
 colcon build --symlink-install --event-handlers console_direct+ 
 source install/setup.bash
 ```
 
-### 实机完整启动
+### 完整启动
+
+切换到工程根目录下后，
 
 ```bash
-cd ~/文档/SCUT_Racing_Tasks/homework/percep_node_track
 source /opt/ros/jazzy/setup.bash
 source install/setup.bash
-
 ros2 launch right_angle_stack right_angle_harmonic.launch.py \
   use_rviz:=true \
   gz_args:="-r -v 4 $(ros2 pkg prefix right_angle_track)/share/right_angle_track/worlds/right_angle_harmonic.sdf" 
@@ -226,19 +188,13 @@ ros2 launch right_angle_stack right_angle_harmonic.launch.py \
   gz_args:="-r -v 4 $(ros2 pkg prefix right_angle_track)/share/right_angle_track/worlds/right_angle_harmonic.sdf"
 ```
 
-若 sim_perception 报缺少 pyarmor_runtime.so，检查
+插曲：组员反馈sim_perception 报错缺少 pyarmor_runtime.so，发现它被之前编写的 .gitignore 屏蔽，导致组员使用同步后的代码测试时失败。
 
-```bash
-find sim_perception install/sim_perception -name 'pyarmor_runtime.so' -ls
-```
+## 测试思路
 
-该 .so 是运行加密包必需文件，不能被 .gitignore 屏蔽（先前误屏蔽了此文件，导致组员使用同步后的代码测试时失败）。
+### 仿真
 
-## 开发时怎么串起来的
-
-### 仿真先跑起来
-
-仿真层先解决三个问题：Gazebo 里要有车和赛道，ROS 侧要能收到传感器，/cmd_vel 要能真正让车动起来。这个部分没稳定之前，后面的算法调参基本没有意义。
+先确认Gazebo 里车和锥桶渲染显示是否正常；ROS 侧传感器通信是否正常，车是否能动起来（期望是一开始运行就要前进）。
 
 主要文件：
 
@@ -250,7 +206,8 @@ find sim_perception install/sim_perception -name 'pyarmor_runtime.so' -ls
 - right_angle_stack/urdf/right_angle_car.urdf.xacro
 - right_angle_stack/launch/right_angle_harmonic.launch.py
 
-right_angle_harmonic.sdf 里定义了 right_angle_world、重力、磁场、地面、光照、spherical_coordinates 和赛道模型。spherical_coordinates 主要给 GPS 插件提供经纬度参考。赛道本体在 shixi/model.sdf，通过 `<include>` 布置蓝锥和黄锥。直道沿 y 轴从 y=-15 到 y=0，随后接一个右角弯。
+right_angle_harmonic.sdf 里定义了 right_angle_world、重力、磁场、地面、光照、spherical_coordinates 和赛道模型。spherical_coordinates 主要给 GPS 插件提供经纬度参考。
+根据AI对项目结构的分析，赛道本体在 shixi/model.sdf，通过 `<include>` 布置蓝锥和黄锥。直道沿 y 轴从 y=-15 到 y=0，随后是一个右角弯。
 
 锥桶模型最后采用了一个折中做法：
 
@@ -343,19 +300,13 @@ RViz 中的 /visualization/cone_map 用 cylinder marker 显示，方便看建图
 
 节点：right_angle_stack/right_angle_stack/right_angle_planner.py
 
-订阅：
+订阅/estimation/slam/map，/localization/pose
 
-- /estimation/slam/map
-- /localization/pose
+发布：/planning/centerline，/visualization/planning
 
-发布：
+规划优先用锥桶地图，如果地图暂时不够完整，就回退到解析路径，这样调试时不至于因为感知或建图一处没通就完全看不到车运动。
 
-- /planning/centerline
-- /visualization/planning
-
-规划器保留了两套路径来源。优先用锥桶地图，如果地图暂时不够完整，就回退到解析路径，这样调试时不至于因为感知或建图一处没通就完全看不到车运动。
-
-锥桶地图中心线的做法比较直接：
+锥桶地图中心线的构建思路：
 
 - 遍历蓝锥，找最近的黄锥配对；
 - 配对距离小于 pair_distance_max 才接受；
@@ -363,43 +314,19 @@ RViz 中的 /visualization/cone_map 用 cylinder marker 显示，方便看建图
 - 用 track_progress() 按赛道前进方向排序；
 - 用 densify() 加密路径点，减少控制器目标点跳变。
 
-解析 fallback 路径按直角弯几何生成：
-
-- 第一段：沿 x=0 从 y=-15 走到 y=0；
-- 第二段：以 (12, 0) 为圆心、半径 12 生成四分之一圆弯道；
-- 第三段：沿 y=12 向东直行。
-
-路径输出为 nav_msgs/msg/Path，frame 为 world。RViz 中规划线颜色用于区分来源：
-
-- cone map 路径：偏绿色；
-- fallback 路径：白色。
-
-调试时如果看到车一开始直行，这是正常现象，因为起点到弯道入口本来就是直道。只有接近 y=0 后才应该开始右转。
+路径输出为 nav_msgs/msg/Path，frame 为 world。RViz 中绿色线是cone map产生的，白色路径是fallback。
 
 ### 控制
 
 节点：right_angle_stack/right_angle_stack/pure_pursuit_controller.py
 
-订阅：
+订阅：/planning/centerline，/localization/odom
 
-- /planning/centerline
-- /localization/odom
+发布/cmd_vel
 
-发布：
+控制器用 Pure Pursuit。每次控制周期先找离车最近的路径点，再往后找一个在车前方、距离超过 lookahead_distance 的目标点。目标点转到 base_link 后，计算曲率$$curvature = 2 \frac{local_y}{lookahead^2}$$
 
-- /cmd_vel
-
-控制器用 Pure Pursuit。每次控制周期先找离车最近的路径点，再往后找一个在车前方、距离超过 lookahead_distance 的目标点。目标点转到 base_link 后，用下面的公式算曲率：
-
-```text
-curvature = 2 * local_y / lookahead^2
-```
-
-角速度使用：
-
-```text
-yaw_rate = target_speed * curvature + yaw_error_gain * yaw_error
-```
+角速度$$yaw_{rate} = target_{speed} * curvature + yaw_{error-gain} * yaw_{error}$$
 
 最后限制 max_yaw_rate，并根据曲率做简单降速。弯道中速度降低，直道恢复目标速度。
 
@@ -409,15 +336,15 @@ yaw_rate = target_speed * curvature + yaw_error_gain * yaw_error
 
 联调时没有一开始就盯着控制器调。先确认 Gazebo 能正常加载不崩溃，车、锥桶、传感器正常渲染，再确认车辆能够运动。之后逐步检查传感器、定位、感知、建图和规划。
 
-当时比较有效的顺序是：
+组内主要观察了以下指标：
 
-- `/clock`、GPS、IMU、轮速、磁力计先有数据；
-- `/localization/pose` 留在赛道附近，不飞到几万米外；
-- `/perception/cones` 能看到车前方锥桶；
-- `/estimation/slam/map` 里有 world 下的锥桶；
-- `/planning/centerline` 有完整右角弯路径；
-- `/cmd_vel` 同时有速度和角速度；
-- Gazebo 里车能沿直道进入弯道，RViz 里能看到 TF、相机、雷达、锥桶地图和规划线。
+1. /clock、GPS、IMU、轮速、磁力计先有数据；
+2. /localization/pose 留在赛道附近，不飞到几万米外；
+3. /perception/cones 能看到车前方锥桶；
+4. /estimation/slam/map 里有 world 下的锥桶；
+5. /planning/centerline 有完整右角弯路径；
+6. /cmd_vel 同时有速度和角速度；
+7. Gazebo 里车能沿直道进入弯道，RViz 里能看到 TF、相机、雷达、锥桶地图和规划线。
 
 ## 调试时常用命令
 
@@ -483,62 +410,6 @@ ros2 topic echo /sensors/wheel_odom --once
 - /planning/centerline 为空，看地图够不够，fallback 有没有关；
 - /cmd_vel.angular.z 一直为 0，看规划路径和 lookahead 目标点；
 - /cmd_vel.angular.z 非 0 但车不转，再去查 DiffDrive 和 bridge。
-
-### 试车
-
-先不开启规划控制，直接发速度：
-
-```bash
-ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0}, angular: {z: 0.4}}" -r 10
-```
-
-如果这样车能动并转向，车辆模型和 bridge 基本没问题，问题大概率在算法链路。
-
-## 这次踩过的坑
-
-### fsd_common_msgs 在 Jazzy 下编译失败
-
-最开始这里卡了比较久，报错类似：
-
-```text
-rosidl_generate_interfaces.cmake: list index: 1 out of range
-Target dependency ... Cone.idl does not exist
-```
-
-最后定位到接口生成链路。Jazzy 比 Humble 更严格，原来的 .msg 适配成 .idl 时失败。现在保留 .msg 方便阅读，但 CMake 实际使用对应 .idl 构建。
-这部分编码问题暂时没找到更好的解决方案。
-
-### CMakeCache 路径不一致
-
-把 build 过的工程从 Windows 路径复制到 WSL 后，会看到
-
-```text
-The current CMakeCache.txt directory ... is different than the directory ...
-```
-
-原因是 build 沿用上一次产物的旧路径。删掉构建产物后重新编译。
-注意：协作时，每次运行前都要清除缓存，防止看不到改动效果；
-以及要统一通过launch启动Gazebo，不然容易导致gazebo退出不干净，之后每次启动都会使用缓存（此时宜重启电脑）
-
-### RViz 报 frame [world] does not exist
-
-这通常不是 RViz 自己的问题，而是 Gazebo 或定位节点没有正常跑起来。先看：
-
-```bash
-ros2 topic echo /clock --once
-ros2 topic echo /tf --once
-ros2 topic echo /localization/pose --once
-```
-
-### 定位大幅偏离预期
-
-有一次 /localization/pose 返回值明显异常，x: -16866；y: 12862
-
-当时主要怀疑GPS 经纬度原点和 Gazebo NavSat 输出没有对齐，或者磁力计航向突变参与融合。最后用以下方式解决：
-
-- 第一帧 GPS 映射到初始位姿；
-- GPS 突变拒绝；
-- 磁力计默认 mag_gain: 0.0，标定后再启用。
 
 ## 协作记录
 
