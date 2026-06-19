@@ -21,14 +21,15 @@ Gazebo 赛道/车辆/传感器
 - 工作区：homework/percep_node_track
 - 起点 (0, -15)，车辆朝北，初始 yaw 为 $\frac{\pi}{2}$
 
-调试过程中试过 WSL、实体机、Humble、Jazzy，也绕过 Gazebo Classic 和 Gazebo Sim 两条路线。最后的结论比较朴素：这个项目在实体机 + Jazzy + Gazebo Sim 8 上最省事，WSL 可以用来做 headless 验证，但图形和渲染传感器不太稳定。
+调试过程中在WSL和实体机上都试运行过，小组开发环境有Humble和Jazzy（但组员多数用jazzy，只在WSL上启用过Humble），也绕过 Gazebo Classic 和 Gazebo Sim 两条路线。
+最后项目在实体机运行最容易成功，WSL 的图形渲染不稳定，只适合开始时调试数据或检查与图形渲染无关节点的通信情况。
 
 几条实际踩坑记录：
 
-- WSL 上容易遇到 Gazebo 或 RViz 启动后闪退，尤其是相机、GPU 雷达这类会触发渲染线程的传感器。后面保留了 `right_angle_wsl_headless.launch.py`，专门用来先验证非渲染链路。
-- Jazzy 对接口文件检查更严格，最开始 .msg 走 CMake 生成失败，后来把接口改成显式 .idl 后才通过。
-- Gazebo Classic 和 Gazebo Sim 的启动方式、模型格式、ROS bridge 都不完全一样。这个版本最后按 Gazebo Sim 8 整理，Classic 入口只当兼容文件保留。
-- Gazebo 对资源路径比较敏感，路径里有特殊字符时排错会麻烦，所以最后把工程目录整理成 percep_node_track 这种更普通的命名。
+- WSL 上容易遇到 Gazebo 或 RViz 启动后闪退，尤其是相机、GPU 雷达这类会触发渲染线程的传感器。后面保留了 right_angle_wsl_headless.launch.py，专门用来先验证非渲染链路。
+- Jazzy 对接口文件检查更严格，最开始 .msg 走 CMake 生成失败，后来把接口改成显式 .idl 后通过。
+- Gazebo Classic 和 Gazebo Sim 的启动方式、模型格式、ROS bridge 都不完全一样。这个版本最后按 Gazebo Harmonic 整理，Classic 入口只当兼容文件保留。
+- Gazebo 对资源路径比较敏感，路径里有特殊字符时排错会麻烦，所以最后把工程目录整理成 percep_node_track 这种更普通的命名(在最终提交的作业仓库里直接展开了下属的文件夹，命名同样遵循这个原则)。
 
 ## 坐标系约定
 
@@ -92,11 +93,9 @@ percep_node_track/
 - fsd_common_msgs：锥桶消息接口，包含 Cone、ConeDetections、Map。
 - right_angle_track：赛道 world、锥桶模型、锥桶 mesh、赛道布置。
 - right_angle_stack：车辆模型、launch、RViz、定位、建图、规划、控制。
-- `sim_perception`：老师提供的加密感知包，保留原样。
+- sim_perception：加密感知包。
 
-## 先看哪些数据
-
-调试时最常看的话题：
+以下是调试时要重点观察的话题：
 
 | 层级 | 话题 | 类型 | 说明 |
 | --- | --- | --- | --- |
@@ -118,9 +117,7 @@ percep_node_track/
 | 建图可视化 | /visualization/cone_map | visualization_msgs/msg/MarkerArray | RViz 锥桶 |
 | 规划可视化 | /visualization/planning | visualization_msgs/msg/MarkerArray | RViz 中心线 |
 
-总启动命令默认使用老师给的 `sim_perception` 作为感知子系统。相机和雷达已经建模并桥接到 ROS 侧，主要用于 RViz 可视化，不参与控制决策。
-
-## 跑之前先处理
+## 运行前准备
 
 ### 清理旧进程
 
@@ -134,7 +131,7 @@ pkill -9 -f "gz sim|ign gazebo|gazebo|gzserver|gzclient|rviz2|ros_gz_bridge|para
 
 这个问题在实体机和 WSL 都遇到过，尤其是上一次 Gazebo GUI 没正常退出时。
 
-### 终端环境
+### 终端环境准备
 
 不要在同一个终端里混用 Humble、Jazzy 或多个工作空间。调试时最好新开终端，先清掉旧环境变量，再 source Jazzy：
 
@@ -162,8 +159,6 @@ colcon build --symlink-install --event-handlers console_direct+
 source install/setup.bash
 ```
 
-## 怎么启动
-
 ### 实机完整启动
 
 ```bash
@@ -176,9 +171,9 @@ ros2 launch right_angle_stack right_angle_harmonic.launch.py \
   gz_args:="-r -v 4 $(ros2 pkg prefix right_angle_track)/share/right_angle_track/worlds/right_angle_harmonic.sdf" 
 ```
 
-### WSL 或分步调试
+### WSL 下分步调试
 
-WSL 上图形栈不稳定时，先不要急着开 RViz。可以只启动 Gazebo server 和算法链路，先看 topic 是否正常发布。注意传感器带噪声，数值有小幅波动是正常的。
+WSL 上图形栈不稳定时，先不要急着开 RViz。可以只启动 Gazebo server 和算法链路，先看 topic 是否正常发布。注意传感器带噪声，数值在小范围内波动是正常的。
 
 ```bash
 ros2 launch right_angle_stack right_angle_harmonic.launch.py \
@@ -195,7 +190,7 @@ source ~/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/setup.bash
 rviz2 -d ~/文档/SCUT_Racing_Tasks/homework/percep_node_track/install/right_angle_stack/share/right_angle_stack/rviz/right_angle.rviz
 ```
 
-如果一开相机或 GPU 雷达就崩，先用 headless 入口验证非渲染链路：
+如果一开相机或 GPU 雷达就崩溃退出，先用 headless 入口验证非渲染链路：
 
 ```bash
 ros2 launch right_angle_stack right_angle_wsl_headless.launch.py use_rviz:=false
@@ -205,7 +200,7 @@ ros2 launch right_angle_stack right_angle_wsl_headless.launch.py use_rviz:=false
 
 ### 感知默认用哪个
 
-默认启动时已经使用老师给的 `sim_perception`：
+默认启动使用 sim_perception：
 
 ```bash
 ros2 launch right_angle_stack right_angle_harmonic.launch.py \
@@ -220,7 +215,7 @@ use_builtin_perception:=false
 use_sim_perception:=true
 ```
 
-如果加密包运行环境临时有问题，可以切回内置 track_perception 做 fallback 调试。这个节点不是比赛/最终感知方案，只是为了看清楚建图、规划、控制链路有没有问题。
+如果加密包运行环境临时有问题，可以切回内置 track_perception 调试，看建图、规划、控制链路有没有问题。
 
 ```bash
 ros2 launch right_angle_stack right_angle_harmonic.launch.py \
@@ -230,7 +225,7 @@ ros2 launch right_angle_stack right_angle_harmonic.launch.py \
   gz_args:="-r -v 4 $(ros2 pkg prefix right_angle_track)/share/right_angle_track/worlds/right_angle_harmonic.sdf"
 ```
 
-若 `sim_perception` 报缺少 `pyarmor_runtime.so`，检查
+若 sim_perception 报缺少 pyarmor_runtime.so，检查
 
 ```bash
 find sim_perception install/sim_perception -name 'pyarmor_runtime.so' -ls
@@ -254,28 +249,28 @@ find sim_perception install/sim_perception -name 'pyarmor_runtime.so' -ls
 - right_angle_stack/urdf/right_angle_car.urdf.xacro
 - right_angle_stack/launch/right_angle_harmonic.launch.py
 
-right_angle_harmonic.sdf 里定义了 right_angle_world、重力、磁场、地面、光照、spherical_coordinates 和赛道模型。spherical_coordinates 主要给 GPS 插件提供经纬度参考。赛道本体在 shixi/model.sdf，通过 <include> 布置蓝锥和黄锥。直道沿 y 轴从 y=-15 到 y=0，随后接一个右角弯。
+right_angle_harmonic.sdf 里定义了 right_angle_world、重力、磁场、地面、光照、spherical_coordinates 和赛道模型。spherical_coordinates 主要给 GPS 插件提供经纬度参考。赛道本体在 shixi/model.sdf，通过 `<include>` 布置蓝锥和黄锥。直道沿 y 轴从 y=-15 到 y=0，随后接一个右角弯。
 
 锥桶模型最后采用了一个折中做法：
 
 - visual 使用 .dae mesh，Gazebo 里看起来是锥桶。
-- collision 使用 cylinder，避免 mesh collision 在物理引擎里引入不稳定。
+- collision 使用 cylinder，减少电脑负担（没显卡是这样的），避免 mesh collision 在物理引擎里引入不稳定。
 
 车辆模型 right_angle_car_harmonic/model.sdf 包含：
 
-   - base_link
-   - 四个车轮 link 和 revolute joint
-   - DiffDrive 插件
-   - 相机 link 和 camera sensor
-   - 雷达 link 和 gpu_lidar sensor
-   - GPS、IMU、磁力计 sensor
+- base_link
+- 四个车轮 link 和 revolute joint
+- DiffDrive 插件
+- 相机 link 和 camera sensor
+- 雷达 link 和 gpu_lidar sensor
+- GPS、IMU、磁力计 sensor
 
-车辆通过 DiffDrive 接收 `/cmd_vel`，并发布 `/sensors/wheel_odom`。`right_angle_harmonic.launch.py` 中使用 `ros_gz_bridge parameter_bridge` 桥接：
+车辆通过 DiffDrive 接收 /cmd_vel，并发布 /sensors/wheel_odom。right_angle_harmonic.launch.py 中使用 ros_gz_bridge parameter_bridge 桥接：
 
-   - ROS -> Gazebo：/cmd_vel
-   - Gazebo -> ROS：/clock、轮速里程计、GPS、IMU、磁力计、相机、雷达
+- ROS -> Gazebo：/cmd_vel
+- Gazebo -> ROS：/clock、轮速里程计、GPS、IMU、磁力计、相机、雷达
 
-Gazebo GUI 主要看真实仿真场景，RViz 主要看 ROS 侧数据：TF、车辆模型、相机图像、雷达点云、锥桶地图和规划中心线。
+Gazebo GUI 观察仿真场景，RViz 检查 ROS 侧数据（TF、车辆模型、相机图像、雷达点云、锥桶地图、规划中心线等）。
 
 ### 定位
 
@@ -316,7 +311,7 @@ R = 6378137.0 m
 
 ### 感知
 
-最终启动默认使用老师给的 `sim_perception/sim_node.py`。项目里保留的 `track_perception.py` 是调试兜底节点，用静态锥桶位置和车辆位姿模拟局部感知，方便在加密包或运行时库出问题时继续查建图、规划和控制。
+最终启动默认使用 sim_perception/sim_node.py。项目里保留的 track_perception.py 是调试节点，用静态锥桶位置和车辆位姿模拟局部感知，方便在加密包或运行时库出问题时继续查建图、规划和控制。
 
 ### 建图
 
@@ -414,7 +409,7 @@ yaw_rate = target_speed * curvature + yaw_error_gain * yaw_error
 
 ### 联调顺序
 
-联调时没有一开始就盯着控制器调。先确认 Gazebo 能起来、车和锥桶可见，再确认 `/cmd_vel` 真的能通过 bridge 推动车辆。之后才往上看传感器、定位、感知、建图和规划。
+联调时没有一开始就盯着控制器调。先确认 Gazebo 能正常加载不崩溃，车、锥桶、传感器正常渲染，再确认车辆能够运动。之后逐步检查传感器、定位、感知、建图和规划。
 
 当时比较有效的顺序是：
 
@@ -482,24 +477,24 @@ ros2 topic echo /cmd_vel --once
 ros2 topic echo /sensors/wheel_odom --once
 ```
 
-这里不要先猜控制器错了，按数据往前推会快一点：
+通过以上命令返回的数据判断车的哪些节点出问题，当然部分数据（如位姿）也可以通过Gazebo查看。
 
-- `/localization/pose` 离赛道很远，先查定位；
-- `/perception/cones` 为空，先查感知范围、车辆位姿和锥桶模型；
-- `/estimation/slam/map` 为空，多半是建图没收到锥桶，或者定位不可用；
-- `/planning/centerline` 为空，看地图够不够，fallback 有没有关；
-- `/cmd_vel.angular.z` 一直为 0，看规划路径和 lookahead 目标点；
-- `/cmd_vel.angular.z` 非 0 但车不转，再去查 DiffDrive 和 bridge。
+- /localization/pose 离赛道很远，先查定位；
+- /perception/cones 为空，先查感知范围、车辆位姿和锥桶模型；
+- /estimation/slam/map 为空，多半是建图没收到锥桶，或者定位不可用；
+- /planning/centerline 为空，看地图够不够，fallback 有没有关；
+- /cmd_vel.angular.z 一直为 0，看规划路径和 lookahead 目标点；
+- /cmd_vel.angular.z 非 0 但车不转，再去查 DiffDrive 和 bridge。
 
-### 直接试车
+### 试车
 
-绕过规划控制，直接发速度：
+先不开启规划控制，直接发速度：
 
 ```bash
 ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0}, angular: {z: 0.4}}" -r 10
 ```
 
-如果这样车能动并转向，车辆模型和 bridge 基本没问题，问题大概率在上游算法链路。
+如果这样车能动并转向，车辆模型和 bridge 基本没问题，问题大概率在算法链路。
 
 ## 这次踩过的坑
 
@@ -512,36 +507,20 @@ rosidl_generate_interfaces.cmake: list index: 1 out of range
 Target dependency ... Cone.idl does not exist
 ```
 
-最后定位到接口生成链路。Jazzy 比 Humble 更严格，原来的 `.msg` 适配成 `.idl` 时失败。现在保留 `.msg` 方便阅读，但 CMake 实际使用对应 `.idl` 构建。
+最后定位到接口生成链路。Jazzy 比 Humble 更严格，原来的 .msg 适配成 .idl 时失败。现在保留 .msg 方便阅读，但 CMake 实际使用对应 .idl 构建。
+这部分编码问题暂时没找到更好的解决方案。
 
 ### CMakeCache 路径不一致
 
-把已经 build 过的工程从 Windows 路径复制到 WSL 后，可能会看到：
+把 build 过的工程从 Windows 路径复制到 WSL 后，会看到
 
 ```text
 The current CMakeCache.txt directory ... is different than the directory ...
 ```
 
-原因是 `build/` 里记录着旧的绝对路径。删掉构建产物后重新编译：
-
-```bash
-rm -rf build install log
-colcon build --symlink-install
-```
-
-### Gazebo 找不到模型 mesh
-
-锥桶看不到或只有简单几何体时，日志里可能有：
-
-```text
-Unable to find file ... cone_blue.dae
-Failed to load geometry for visual
-```
-
-- 确认 `tracks/models/blue_cone/meshes/cone_blue.dae` 存在。
-- 确认 launch 设置了 `GZ_SIM_RESOURCE_PATH`。
-- 锥桶 visual 使用 `model://blue_cone/meshes/cone_blue.dae`。
-- collision 继续使用 cylinder。
+原因是 build 沿用上一次产物的旧路径。删掉构建产物后重新编译。
+注意：协作时，每次运行前都要清除缓存，防止看不到改动效果；
+以及要统一通过launch启动Gazebo，不然容易导致gazebo退出不干净，之后每次启动都会使用缓存（此时宜重启电脑）
 
 ### RViz 报 frame [world] does not exist
 
@@ -555,7 +534,7 @@ ros2 topic echo /localization/pose --once
 
 ### 定位飞到几万米外
 
-有一次 `/localization/pose` 直接变成：
+有一次 /localization/pose 返回值明显异常：
 
 ```text
 /localization/pose:
@@ -563,15 +542,15 @@ x: -16866
 y: 12862
 ```
 
-当时主要怀疑两个方向：GPS 经纬度原点和 Gazebo NavSat 输出没有对齐，或者磁力计航向突变参与融合。最后的处理比较保守：
+当时主要怀疑GPS 经纬度原点和 Gazebo NavSat 输出没有对齐，或者磁力计航向突变参与融合。最后用以下方式解决：
 
 - 第一帧 GPS 映射到初始位姿；
 - GPS 突变拒绝；
-- 磁力计默认 `mag_gain: 0.0`，后续标定后再启用。
+- 磁力计默认 mag_gain: 0.0，标定后再启用。
 
 ## 协作记录
 
-这类仿真任务最好按链路切，不然一个人盯 Gazebo，一个人改控制，很容易互相猜。实际分工可以这样放：
+任务大致拆分成以下部分：
 
 - 环境：ROS/Gazebo 安装、WSL 图形栈、构建流程。
 - 仿真：world、车辆、传感器、bridge、RViz。
@@ -580,28 +559,7 @@ y: 12862
 - 规划控制：中心线、Pure Pursuit、速度和角速度输出。
 - 文档：记录问题、验证命令、解决方法、截图。
 
-讨论“不转向”这类问题时，先按 topic 往下问：
+## AI使用情况
 
-```text
-cmd_vel 是否有角速度？
-planning 是否有弯道？
-localization 是否在赛道附近？
-perception 是否看到锥桶？
-Gazebo 是否收到 /cmd_vel？
-```
-
-这样比只盯 Gazebo 画面快很多，也方便不同成员各自负责一段 topic。比如环境同学看 Gazebo/bridge，定位同学看 `/localization/pose`，规划控制同学看 `/planning/centerline` 和 `/cmd_vel`。
-
-## AI 用在什么地方
-
-这次确实用了 AI，但主要是作为排错工具和文档助手。日志很长时，先让 AI 帮忙把错误分层，比如区分是 CMake 接口生成失败、Gazebo 资源路径问题，还是渲染线程崩溃。后面再根据它给的排查命令自己去验证。
-
-AI 参与过 launch、SDF、RViz、定位融合和 README 的整理，也辅助写了内置备份感知节点。这个备份节点和老师给的 `sim_perception` 是分开的，只用于调试，不作为最终感知方案。
-
-几个关键决策需要自己能解释清楚：GPS 第一帧为什么映射到初始位姿，磁力计为什么默认不参与融合，锥桶 collision 为什么不用 mesh，WSL 下为什么要有 headless 入口。答辩时不能只说“AI 这样写的”。
-
-## 容易被问到的点
-
-答辩前重点把几条主线讲顺就行：坐标系为什么这样定，起点朝北为什么是 yaw=pi/2，GPS 怎么从经纬度转到局部米制坐标，为什么第一帧 GPS 要当参考点，磁力计为什么先不强融合。
-
-仿真部分容易问锥桶为什么 visual 用 mesh、collision 用 cylinder，相机和雷达为什么只做可视化。算法部分重点是建图坐标变换、蓝黄锥中心线、fallback 路径和 Pure Pursuit 的曲率公式。最后最好能说清楚车不转时按什么顺序排查，而不是只说“调参数”。
+AI主要用于排错工具和文档阅读。日志很长时，先让 AI 帮忙把错误分层，比如区分是 CMake 接口生成失败、Gazebo 资源路径问题，还是渲染线程崩溃。后面再根据它给的排查命令自己去验证。
+AI 参与过 launch、SDF、RViz、定位融合和 README 的整理，也辅助写了内置track节点作为调试时的节点，和 sim_perception 相对独立。
