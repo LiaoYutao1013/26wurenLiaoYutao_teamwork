@@ -4,9 +4,14 @@
 
 ## TODO
 
-- `right_angle_planner`的注释亟待完善
 - `track_perception`尚未封装完善，可以考虑`sim_perception`替换
 - `rviz`可视化（可能）由于积分误差走偏（gazebo仿真没有偏），期望通过gazebo获取数据更新状态
+
+## V0.5.1
+
+fix(dev-cpp): 修复最后一个点不停止的问题
+
+refactor(dev-cpp): 删去值传递订阅辅助模板函数
 
 ## V0.5.0
 
