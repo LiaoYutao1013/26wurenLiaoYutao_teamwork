@@ -25,19 +25,20 @@ RightAnglePlanner::RightAnglePlanner()
     RCLCPP_INFO(this->get_logger(), "路径规划模块启动");
 }
 
+// 位姿回调：更新车体位置
 void RightAnglePlanner::on_pose(const geometry_msgs::msg::PoseStamped::SharedPtr &msg) {
     car_pose_ = msg;
 }
 
+// 地图回调：更新锥桶位置
 void RightAnglePlanner::on_map(const fsd_common_msgs::msg::Map::SharedPtr &msg) {
     blue_cones_.clear();
     yellow_cones_.clear();
-    for (const auto &cone: msg->cone_blue)
-        blue_cones_.push_back({next_cone_id_++, cone.position.x, cone.position.y, "blue"});
-    for (const auto &cone: msg->cone_yellow)
-        yellow_cones_.push_back({next_cone_id_++, cone.position.x, cone.position.y, "yellow"});
+    for (const auto &cone: msg->cone_blue) blue_cones_.emplace_back(cone.position.x, cone.position.y);
+    for (const auto &cone: msg->cone_yellow) yellow_cones_.emplace_back(cone.position.x, cone.position.y);
 }
 
+// 前方中心线规划
 std::vector<std::pair<double, double> > RightAnglePlanner::cone_centerline() {
     if (!car_pose_) return {};
 
@@ -45,15 +46,15 @@ std::vector<std::pair<double, double> > RightAnglePlanner::cone_centerline() {
 
     // 对每个蓝色锥体，寻找最接近的黄色锥体，以这对锥桶的中点作为路径点
     std::vector<bool> used_yellow(yellow_cones_.size(), false);
-    for (const auto &blue_cone: blue_cones_) {
+    for (const auto &[blue_x, blue_y]: blue_cones_) {
         int best_index = -1;
         double best_dist = std::numeric_limits<double>::infinity();
         for (size_t i = 0; i < yellow_cones_.size(); ++i) {
             // 忽略已匹配的锥体
             if (used_yellow[i]) continue;
             // 计算最近锥桶对距离
-            const double dist = std::hypot(blue_cone.x - yellow_cones_[i].x,
-                                           blue_cone.y - yellow_cones_[i].y);
+            const double dist = std::hypot(blue_x - yellow_cones_[i].first,
+                                           blue_y - yellow_cones_[i].second);
             if (dist < best_dist) {
                 best_dist = dist;
                 best_index = static_cast<int>(i);
@@ -64,65 +65,63 @@ std::vector<std::pair<double, double> > RightAnglePlanner::cone_centerline() {
 
         // 记录匹配，计算中点
         used_yellow[best_index] = true;
-        midpoints.emplace_back((blue_cone.x + yellow_cones_[best_index].x) * 0.5,
-                               (blue_cone.y + yellow_cones_[best_index].y) * 0.5);
+        midpoints.emplace_back((blue_x + yellow_cones_[best_index].first) * 0.5,
+                               (blue_y + yellow_cones_[best_index].second) * 0.5);
     }
 
-    // 过滤：只保留车体前方（投影>0）的点，避免U型弯道回头
-    const double vx = car_pose_->pose.position.x;
-    const double vy = car_pose_->pose.position.y;
-    const double vyaw = quaternion_to_yaw(car_pose_->pose.orientation);
-    const double dir_x = std::cos(vyaw);
-    const double dir_y = std::sin(vyaw);
+    // 过滤车体后方的路径点
+    const double x = car_pose_->pose.position.x;
+    const double y = car_pose_->pose.position.y;
+    const double yaw = quaternion_to_yaw(car_pose_->pose.orientation);
 
     std::vector<std::pair<double, double> > filtered;
     for (const auto &mp: midpoints) {
-        const double proj = (mp.first - vx) * dir_x + (mp.second - vy) * dir_y;
-        if (proj > 0.0) filtered.push_back(mp);
+        // 保留前方的路径点
+        if ((mp.first - x) * std::cos(yaw) + (mp.second - y) * std::sin(yaw) > 0.0)
+            filtered.push_back(mp);
     }
-    if (filtered.empty()) return midpoints;
-    midpoints = std::move(filtered);
 
     // 按距离从近到远排序
-    std::sort(midpoints.begin(), midpoints.end(),
+    std::sort(filtered.begin(), filtered.end(),
               [&](const auto &a, const auto &b) {
-                  const double da = std::hypot(a.first - vx, a.second - vy);
-                  const double db = std::hypot(b.first - vx, b.second - vy);
+                  const double da = std::hypot(a.first - x, a.second - y);
+                  const double db = std::hypot(b.first - x, b.second - y);
                   return da < db;
               });
 
-    return midpoints;
+    return filtered;
 }
 
+// 定时器回调：发布路径、可视化标记
 void RightAnglePlanner::on_timer() {
     const auto points = cone_centerline();
-    if (points.empty()) return;
 
     const auto stamp = this->now();
+    std_msgs::msg::Header header;
+    header.stamp = stamp;
+    header.frame_id = "world";
+    publish_path(header, points);
+    publish_markers(header, points);
+}
+
+// 发布规划路径
+void RightAnglePlanner::publish_path(const std_msgs::msg::Header &header,
+                                     const std::vector<std::pair<double, double> > &points) const {
     nav_msgs::msg::Path path;
-    path.header.stamp = stamp;
-    path.header.frame_id = "world";
+    path.header = header;
 
     for (size_t i = 0; i < points.size(); ++i) {
         auto [x, y] = points[i];
         geometry_msgs::msg::PoseStamped pose;
-        pose.header = path.header;
+        pose.header = header;
         pose.pose.position.x = x;
         pose.pose.position.y = y;
-
-        double yaw = 0.0;
-        if (i + 1 < points.size()) {
-            yaw = std::atan2(points[i + 1].second - y, points[i + 1].first - x);
-        } else if (i > 0) {
-            yaw = std::atan2(y - points[i - 1].second, x - points[i - 1].first);
-        }
-        pose.pose.orientation = yaw_to_quaternion(yaw);
         path.poses.push_back(pose);
     }
     path_pub_->publish(path);
-    publish_markers(path.header, points);
 }
 
+// 发布Rviz可视化标记
 void RightAnglePlanner::publish_markers(const std_msgs::msg::Header &header,
                                         const std::vector<std::pair<double, double> > &points) const {
     visualization_msgs::msg::MarkerArray markers;

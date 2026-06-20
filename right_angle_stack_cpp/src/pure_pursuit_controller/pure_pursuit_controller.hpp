@@ -19,7 +19,7 @@ private:
     void on_odom(const nav_msgs::msg::Odometry::SharedPtr &msg);
 
     // 定时器回调函数：定时发布控制
-    void on_timer();
+    void on_timer() const;
 
     // 发布停止指令
     void publish_stop() const;

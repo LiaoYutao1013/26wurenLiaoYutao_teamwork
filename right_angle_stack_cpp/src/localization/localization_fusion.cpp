@@ -73,7 +73,7 @@ void LocalizationFusion::gps_to_local_xy(const double latitude_deg,
 }
 
 // GPS 回调：低通滤波融合位置，带跳变拒绝
-void LocalizationFusion::on_gps(const sensor_msgs::msg::NavSatFix::SharedPtr msg) {
+void LocalizationFusion::on_gps(const sensor_msgs::msg::NavSatFix::SharedPtr &msg) {
     // 跳过无效数据
     if (std::isnan(msg->latitude) || std::isnan(msg->longitude)) return;
 
@@ -100,17 +100,17 @@ void LocalizationFusion::on_gps(const sensor_msgs::msg::NavSatFix::SharedPtr msg
 }
 
 // IMU 回调：记录角速度
-void LocalizationFusion::on_imu(const sensor_msgs::msg::Imu::SharedPtr msg) {
+void LocalizationFusion::on_imu(const sensor_msgs::msg::Imu::SharedPtr &msg) {
     yaw_rate_ = msg->angular_velocity.z;
 }
 
 // 轮速计回调：记录前进速度
-void LocalizationFusion::on_wheel_odom(const nav_msgs::msg::Odometry::SharedPtr msg) {
+void LocalizationFusion::on_wheel_odom(const nav_msgs::msg::Odometry::SharedPtr &msg) {
     forward_speed_ = msg->twist.twist.linear.x;
 }
 
 // 磁力计回调：修正航向角
-void LocalizationFusion::on_magnetic_field(const sensor_msgs::msg::MagneticField::SharedPtr msg) {
+void LocalizationFusion::on_magnetic_field(const sensor_msgs::msg::MagneticField::SharedPtr &msg) {
     // 磁力计未启用，直接返回
     if (mag_gain_ <= 0.0) return;
 

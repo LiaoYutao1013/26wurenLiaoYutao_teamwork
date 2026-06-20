@@ -9,13 +9,6 @@
 #include <string>
 #include <vector>
 
-// 锥桶记录：稳定ID + 世界坐标 + 颜色
-struct ConeRecord {
-    int id;
-    double x, y;
-    std::string color;
-};
-
 class RightAnglePlanner : public rclcpp::Node {
 public:
     RightAnglePlanner();
@@ -28,23 +21,26 @@ private:
 
     void on_timer();
 
-    // 中心线生成：蓝黄锥桶配对 → 只取前方点 → 按距离排序
+    // 前方中心规划线
     std::vector<std::pair<double, double> > cone_centerline();
 
     // 发布RViz可视化标记
     void publish_markers(const std_msgs::msg::Header &header,
                          const std::vector<std::pair<double, double> > &points) const;
 
-    // 参数
+    // 构建并发布规划路径
+    void publish_path(const std_msgs::msg::Header &header,
+                     const std::vector<std::pair<double, double> > &points) const;
+
+    // 最大匹配距离参数
     double pair_distance_max_;
 
     // 位姿缓存
     geometry_msgs::msg::PoseStamped::SharedPtr car_pose_;
 
     // 锥桶地图
-    std::vector<ConeRecord> blue_cones_;
-    std::vector<ConeRecord> yellow_cones_;
-    int next_cone_id_ = 0;
+    std::vector<std::pair<double, double>> blue_cones_;
+    std::vector<std::pair<double, double>> yellow_cones_;
 
     // 订阅器、发布器、定时器
     rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr path_pub_;

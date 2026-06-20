@@ -8,7 +8,7 @@
 #include <visualization_msgs/msg/marker.hpp>
 
 // 角度归一化到 [-π, π]
-inline double normalize_angle(double angle) {
+inline double normalize_angle(const double angle) {
     return std::fmod(angle + M_PI, 2.0 * M_PI) - M_PI;
 }
 
@@ -22,15 +22,15 @@ inline geometry_msgs::msg::Quaternion yaw_to_quaternion(double yaw) {
 
 // 四元数转偏航角
 inline double quaternion_to_yaw(const geometry_msgs::msg::Quaternion &q) {
-    double siny_cosp = 2.0 * (q.w * q.z + q.x * q.y);
-    double cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z);
+    const double siny_cosp = 2.0 * (q.w * q.z + q.x * q.y);
+    const double cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z);
     return std::atan2(siny_cosp, cosy_cosp);
 }
 
 // 世界坐标系下的向量转换到车体坐标系
-inline void world_to_body(double dx, double dy, double yaw, double &local_x, double &local_y) {
-    double c = std::cos(yaw);
-    double s = std::sin(yaw);
+inline void world_to_body(const double dx, const double dy, const double yaw, double &local_x, double &local_y) {
+    const double c = std::cos(yaw);
+    const double s = std::sin(yaw);
     local_x = c * dx + s * dy;
     local_y = -s * dx + c * dy;
 }
@@ -71,21 +71,11 @@ inline void set_marker_color(visualization_msgs::msg::Marker &marker, const std:
     }
 }
 
-// 订阅模板（const 引用版本，避免不必要的 shared_ptr 拷贝）
+// 订阅模板
 template<typename NodeT, typename MsgT>
 std::shared_ptr<rclcpp::Subscription<MsgT> >
 bind_sub(NodeT *node, const std::string &param_name, int qos,
          void (NodeT::*handler)(const std::shared_ptr<MsgT> &)) {
-    const std::string topic = node->get_parameter(param_name).as_string();
-    auto callback = [node, handler](std::shared_ptr<MsgT> msg) { (node->*handler)(std::move(msg)); };
-    return node->template create_subscription<MsgT>(topic, qos, callback);
-}
-
-// 订阅模板（值传递版本）
-template<typename NodeT, typename MsgT>
-std::shared_ptr<rclcpp::Subscription<MsgT> >
-bind_sub(NodeT *node, const std::string &param_name, int qos,
-         void (NodeT::*handler)(std::shared_ptr<MsgT>)) {
     const std::string topic = node->get_parameter(param_name).as_string();
     auto callback = [node, handler](std::shared_ptr<MsgT> msg) { (node->*handler)(std::move(msg)); };
     return node->template create_subscription<MsgT>(topic, qos, callback);

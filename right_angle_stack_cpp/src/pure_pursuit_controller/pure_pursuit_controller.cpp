@@ -56,20 +56,11 @@ void PurePursuitController::publish_stop() const {
 }
 
 // 定时器回调：发布控制指令
-void PurePursuitController::on_timer() {
+void PurePursuitController::on_timer() const {
     // 没有定位信息、规划路径，停车
     if (!has_state_ || path_.empty()) {
         publish_stop();
         return;
-    }
-
-    //走到最后一个点就停下来
-    if (path_.size() == 1) {
-        if (const auto &[lx, ly] = path_.back();
-            std::hypot(lx - state_x_, ly - state_y_) < 1.0) {
-            publish_stop();
-            return;
-        }
     }
 
     // 选取下一个前视距离附近的点

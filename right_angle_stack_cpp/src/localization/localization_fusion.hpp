@@ -20,16 +20,16 @@ private:
     void gps_to_local_xy(double latitude_deg, double longitude_deg, double &x, double &y) const;
 
     // GPS 回调：低通滤波融合位置
-    void on_gps(sensor_msgs::msg::NavSatFix::SharedPtr msg);
+    void on_gps(const sensor_msgs::msg::NavSatFix::SharedPtr &msg);
 
     // IMU 回调：记录角速度
-    void on_imu(sensor_msgs::msg::Imu::SharedPtr msg);
+    void on_imu(const sensor_msgs::msg::Imu::SharedPtr &msg);
 
     // 轮速计回调：记录前进速度
-    void on_wheel_odom(nav_msgs::msg::Odometry::SharedPtr msg);
+    void on_wheel_odom(const nav_msgs::msg::Odometry::SharedPtr &msg);
 
     // 磁力计回调：修正航向角
-    void on_magnetic_field(sensor_msgs::msg::MagneticField::SharedPtr msg);
+    void on_magnetic_field(const sensor_msgs::msg::MagneticField::SharedPtr &msg);
 
     // 定时器回调：发布位姿
     void on_timer();
