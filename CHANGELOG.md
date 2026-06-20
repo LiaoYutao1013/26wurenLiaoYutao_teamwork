@@ -7,6 +7,12 @@
 - `track_perception`尚未封装完善，可以考虑`sim_perception`替换
 - `rviz`可视化（可能）由于积分误差走偏（gazebo仿真没有偏），期望通过gazebo获取数据更新状态
 
+## V0.6.0
+
+refactor(dev-mix): 替换建图节点`cone_mapper`为python版本
+
+- 功能包混合实现python`cone_mapper`和c++其余节点相互配合
+
 ## V0.5.1
 
 fix(dev-cpp): 修复最后一个点不停止的问题

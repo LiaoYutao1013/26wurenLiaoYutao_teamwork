@@ -134,6 +134,7 @@ ros2 launch right_angle_stack right_angle_harmonic.launch.py \
   use_rviz:=true \
   gz_args:="-r -v 4 $(ros2 pkg prefix right_angle_track)/share/right_angle_track/worlds/right_angle_harmonic.sdf"
 # ros2 launch right_angle_stack_cpp right_angle_harmonic.launch.py 也可，用于cpp版
+# ros2 launch right_angle_stack_mix right_angle_harmonic.launch.py 也可，用于mix版
 ```
 
 ## 协作记录
