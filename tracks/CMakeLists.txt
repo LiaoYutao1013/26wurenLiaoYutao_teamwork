@@ -3,7 +3,10 @@ project(right_angle_track)
 
 find_package(ament_cmake REQUIRED)
 
-install(DIRECTORY models meshes worlds
+install(DIRECTORY
+        models
+        meshes
+        worlds
   DESTINATION share/${PROJECT_NAME}
 )
 

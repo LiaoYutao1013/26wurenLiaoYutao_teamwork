@@ -1,0 +1,12 @@
+add_executable(cone_mapper
+        main.cpp
+        cone_mapper.cpp
+)
+ament_target_dependencies(cone_mapper
+        rclcpp
+        fsd_common_msgs
+        geometry_msgs
+        visualization_msgs
+        std_msgs
+        tf2
+)

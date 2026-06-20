@@ -1,0 +1,15 @@
+add_executable(localization_fusion
+        main.cpp
+        localization_fusion.cpp
+)
+ament_target_dependencies(localization_fusion
+        rclcpp
+        fsd_common_msgs
+        geometry_msgs
+        nav_msgs
+        sensor_msgs
+        std_msgs
+        tf2_ros
+        tf2
+        visualization_msgs
+)
