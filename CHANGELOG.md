@@ -1,10 +1,9 @@
 # CHANGELOG
 
-以下是`cpp-dev`分支的变更日志
+以下是包含`cpp-dev`和`mix-dev`分支的变更日志
 
 ## TODO
 
-- `track_perception`尚未封装完善，可以考虑`sim_perception`替换
 - `rviz`可视化（可能）由于积分误差走偏（gazebo仿真没有偏），期望通过gazebo获取数据更新状态
 
 ## V0.7.0

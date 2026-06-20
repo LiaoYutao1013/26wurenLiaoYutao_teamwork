@@ -18,7 +18,7 @@ def generate_launch_description():
     ros_gz_sim_share = get_package_share_directory('ros_gz_sim')
     world_name = 'right_angle_world'
     world_path = os.path.join(track_share, 'worlds', 'right_angle_harmonic.sdf')
-    robot_sdf = os.path.join(stack_share, 'models', 'right_angle_car_harmonic', 'model.sdf')
+    robot_sdf_xacro = os.path.join(stack_share, 'models', 'right_angle_car_harmonic', 'model.xacro')
     robot_xacro = os.path.join(stack_share, 'urdf', 'right_angle_car.urdf.xacro')
     rviz_config = os.path.join(stack_share, 'rviz', 'right_angle.rviz')
     stack_config = os.path.join(stack_share, 'config', 'right_angle_stack.yaml')
@@ -78,7 +78,7 @@ def generate_launch_description():
             output='screen',
             arguments=[
                 '-world', world_name,
-                '-file', robot_sdf,
+                '-string', Command(['xacro', ' ', robot_sdf_xacro]),
                 '-name', model_name,
                 '-x', '0.0',
                 '-y', '-15.0',

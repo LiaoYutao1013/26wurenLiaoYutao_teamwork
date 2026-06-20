@@ -6,20 +6,20 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 find_package(ament_cmake REQUIRED)
-if(EXISTS "/usr/bin/python3")
-  set(Python3_EXECUTABLE "/usr/bin/python3" CACHE FILEPATH "Python interpreter for ROS interface generation" FORCE)
-endif()
-find_package(Python3 REQUIRED COMPONENTS Interpreter)
 find_package(rosidl_default_generators REQUIRED)
-find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(can_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(can_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+file(GLOB MSG_FILES RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "msg/*.msg")
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/Cone.idl"
-  "msg/ConeDetections.idl"
-  "msg/Map.idl"
-  DEPENDENCIES geometry_msgs std_msgs
+        ${MSG_FILES}
+        DEPENDENCIES std_msgs geometry_msgs can_msgs nav_msgs
 )
 
 ament_export_dependencies(rosidl_default_runtime)
+
 ament_package()
