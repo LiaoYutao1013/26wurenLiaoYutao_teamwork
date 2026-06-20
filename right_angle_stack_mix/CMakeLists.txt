@@ -26,22 +26,11 @@ add_subdirectory(src/cone_mapper)
 add_subdirectory(src/right_angle_planner)
 # pure_pursuit_controller
 add_subdirectory(src/pure_pursuit_controller)
-
-add_executable(track_perception
-        src/track_perception.cpp
-        src/track_model.cpp)
-ament_target_dependencies(track_perception
-        rclcpp
-        fsd_common_msgs
-        geometry_msgs
-        sensor_msgs
-        std_msgs
-        visualization_msgs
-)
+# track_perception
+add_subdirectory(src/track_perception)
 
 install(TARGETS
         localization_fusion
-        track_perception
         right_angle_planner
         pure_pursuit_controller
         DESTINATION lib/${PROJECT_NAME}
